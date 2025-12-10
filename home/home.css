@@ -109,3 +109,72 @@
     cursor: pointer;
     margin-top: 20px;
 }
+
+FeaturedPet h1{
+    justify-content: center; 
+    text-align: center;
+}
+FeaturedPet p{
+    justify-content: center; 
+    text-align: center;
+}
+
+containCard {
+    display: flex;
+    gap: 20px;        
+    flex-wrap: nowrap;
+}
+
+
+card{
+    display: block;
+    width: 300px;
+    border: 2px solid darkslategrey; 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+card img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+card name, card breed, card info {
+    display: block;
+    margin-bottom: 5px;
+}
+card name {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+}
+card breed {
+    font-size: 15px;
+    color: gray;
+}
+card info {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.BoxVeiwDetail{
+    display: inline-block; 
+
+    padding: 10px 25px;
+    
+    /* border: 2px solid white; */
+    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+    border-radius: 10px;
+    
+    color: white; 
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}

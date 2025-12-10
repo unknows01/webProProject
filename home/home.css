@@ -83,10 +83,10 @@
 
 .herobehideText-hero {
     position: absolute;
-    top: 70%; 
+    top: 60%; 
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 100px;
+    font-size: 70px;
     
     opacity: 0.2;
     color: white;
@@ -95,21 +95,17 @@
 }
 
 .BoxExploreService{
-    /* ใช้ inline-block หรือ flex เพื่อให้กล่องมีขนาดพอดีกับเนื้อหา */
     display: inline-block; 
+
+    padding: 10px 25px;
     
-    /* ลบ height: 50px; ออก และใช้ padding แทน */
-    padding: 10px 25px; /* เพิ่ม padding บน-ล่าง และ ซ้าย-ขวา */
+    /* border: 2px solid white; */
+    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+    border-radius: 90px;
     
-    /* สไตล์เดิม */
-    border: 2px solid white; /* เปลี่ยนเป็นสีขาวเพื่อให้เห็นชัดเจนบนรูป */
-    background-color: black;
-    border-radius: 15px;
-    
-    /* ตรวจสอบให้แน่ใจว่าสีตัวอักษรเป็นสีขาว (สืบทอดมาจาก .hero-content) */
     color: white; 
-    font-size: 1.2em;
+    font-size: 30px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 20px; /* เพิ่มระยะห่างจากย่อหน้าด้านบน */
+    margin-top: 20px;
 }

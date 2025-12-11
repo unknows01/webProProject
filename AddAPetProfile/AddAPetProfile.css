@@ -1,0 +1,87 @@
+/* ------------------ header --------------------------- */
+.main-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px; 
+    background-color: white; 
+    color: white;
+    /* min-height: 80px; */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+}
+
+.TAILSTRADE {
+    font-size: 50px;
+    font-weight: bold;
+    color: wheat;
+    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.headSectorHolder {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.headSector {
+    font-size: 20px;
+    font-weight: 500;
+    color: darkslategrey;
+    cursor: pointer;
+}
+
+.profile-icon {
+    font-size: 30px;
+    color: darkslategrey;
+    cursor: pointer;
+}
+
+/* ------------------ footer --------------------------- */
+
+.footer{
+    display: block;
+    border: 2px solid white; 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+}
+
+.logo-container-footer {
+    display: flex;
+    align-items: center; 
+    justify-content: center; /* จัดให้อยู่กลาง footer */
+}
+
+.TAILSTRADE-footer {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.footer img{
+    padding: 15px;
+}
+
+.context{
+    color: white;
+    font-size: 20px;
+}
+
+.reg{
+    color: rgb(219, 211, 211);
+    font-size: 15px;
+}

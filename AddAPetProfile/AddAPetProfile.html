@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="AddAPetProfile.css">
+</head>
+<body>
+    <div class="main-header"> 
+        <div class="logo-container"> 
+            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <span class="TAILSTRADE">TAILS & TRADE</span> 
+        </div>
+
+        <ul class="headSectorHolder"> 
+            <li class="headSector">Our Services</li>
+            <li class="headSector">Find a Pet</li>
+            <li class="headSector">Community</li>
+            <li class="headSector">Pet Dashboard</li>
+            <li class="headSector">Care Taker</li>
+        </ul>
+        
+        <div class="profile-icon">
+            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+        </div>
+    </div>
+
+    <div class="bodyPage">
+        <div class="backToSelectPage"> < Back to My Pet</div>
+        <h1>Add a Pet Profile</h1>
+        <p>Create a profile for your pet. This information will be securely saved and can be shared with caretakers when you book a service.</p>
+
+        <div class="containBox">
+            <div class="BasicInformation">
+                <h1>Basic Information</h1>
+
+                <label for="PetName">Pet's Name</label><br>
+                <input type="text" id="PetName" placeholder="e.g., Buddy"><br>
+
+                <label for="PetType">Pet Type</label><br>
+                <input type="text" id="PetType" placeholder="e.g., Dog"><br>
+
+                <label for="Breed">Breed</label><br>
+                <input type="text" id="Breed" placeholder="e.g., Golden Retriever"><br>
+
+                <label for="Age">Age</label><br>
+                <input type="text" id="Age" placeholder="e.g., 2 year"><br>
+            </div>
+
+            <div class="ProfilePhoto">
+                <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+                <span class="ProfilePhotoText">Upload Photo</span> 
+            </div>
+
+            <div class="careAndBehavior">
+                <h1>Care & Behavior</h1>
+
+                <label for="FeedingInstructions">Feeding Instructions</label><br>
+                <input type="text" id="FeedingInstructions" placeholder="e.g., 2 cups of dry food, once in the morning and once at night."><br>
+
+                <label for="FeedingInstructions">Behavioral Notes</label><br>
+                <input type="text" id="FeedingInstructions" placeholder="e.g., Friendly with other dogs, but shy around new people. Loves belly rubs."><br>
+
+            </div>
+
+            <div class="medicalInformation">
+                <h1>Medical Information</h1>
+
+                <label for="AllergiesOrSpecialConditions">Allergies or Special Conditions</label><br>
+                <input type="text" id="AllergiesOrSpecialConditions" placeholder="e.g., Allergic to chicken. Has mild separation anxiety."><br>
+
+                <label for="EmergencyVetContact">Emergency Vet Contact</label><br>
+                <input type="text" id="EmergencyVetContact" placeholder="Vet's Name & Phone Number"><br>
+            </div>
+
+            <div class="PublishListing">Save Pet Profile</div>
+            <div class="SaveDraft">Cancel</div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="logo-container-footer"> 
+            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
+        </div><br>
+        <div class="context">Connecting pets and people since 2025.</div><br>
+        <img src="../home/img/footer1.png" height="20px">
+        <img src="../home/img/footer2.webp" height="20px">
+        <img src="../home/img/footer3.png" height="20px"><br>
+        <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
+
+    </div>
+    
+</body>
+</html>

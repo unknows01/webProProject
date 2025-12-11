@@ -317,3 +317,126 @@ boxHTW number {
     background-color: azure;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
+
+/* ------------------ join --------------------------- */
+
+JoinOurCommunity h1{
+    justify-content: center; 
+    text-align: center;
+    font-size: 50px;
+}
+
+JoinOurCommunity p{
+    justify-content: center; 
+    text-align: center;
+    font-size: 30px;
+}
+
+/* ------------------ footer --------------------------- */
+
+footer{
+    display: block;
+    border: 2px solid white; 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+}
+
+.logo-container-footer {
+    display: flex;
+    align-items: center; 
+    justify-content: center; /* จัดให้อยู่กลาง footer */
+}
+
+.TAILSTRADE-footer {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+footer img{
+    padding: 15px;
+}
+
+context{
+    color: white;
+    font-size: 20px;
+}
+
+reg{
+    color: rgb(219, 211, 211);
+    font-size: 15px;
+}
+
+/* ------------------ login --------------------------- */
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  /* align-items: center;  */
+  text-align: center;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 90px;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+
+.Remember-Forget .forgetPass{
+    margin-left: auto;
+    display: inline-block;
+}
+.Remember-Forget {
+    display: flex;
+}

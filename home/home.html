@@ -22,7 +22,7 @@
         </ul>
         
         <div class="profile-icon">
-            <img src="../home/img/profileEmpty.png" height="75px">
+            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
         </div>
     </header>
 
@@ -136,13 +136,53 @@
         </HowItWork>
 
         <JoinOurCommunity>
+            <h1>Join Our Community</h1>
+            <p>See how our community board connects people.</p>
+            <communityBox>
+
+            </communityBox>
 
         </JoinOurCommunity>
 
     </bodyPage>
 
     <footer>
+        <div class="logo-container-footer"> 
+            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
+        </div><br>
+        <context>Connecting pets and people since 2025.</context><br>
+        <img src="../home/img/footer1.png" height="20px">
+        <img src="../home/img/footer2.webp" height="20px">
+        <img src="../home/img/footer3.png" height="20px"><br>
+        <reg>© 2025 Tails and Trades. All Rights Reserved.</reg>
 
     </footer>
+
+
+    <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <h1>Login</h1>
+
+            <label for="email"><b>Email :</b></label>
+            <input type="text" placeholder="Enter your email" name="email" required>
+
+            <label for="psw"><b>Password :</b></label>
+            <input type="password" placeholder="Enter your password" name="psw" required>
+
+            <div class="Remember-Forget">
+                <input type="checkbox" id="checkboxRememberMe">
+                <label for="checkboxRememberMe">Remember me</label>
+
+                <label class="forgetPass">Forget password?</label>
+            </div>
+            
+
+            <button type="submit" class="btn">Login</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+    <script src="home.js"></script>
 </body>
 </html>

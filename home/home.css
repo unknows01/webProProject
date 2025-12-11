@@ -110,13 +110,17 @@
     margin-top: 20px;
 }
 
+/* ------------------ Featured Pet --------------------------- */
+
 FeaturedPet h1{
     justify-content: center; 
     text-align: center;
+    font-size: 50px;
 }
 FeaturedPet p{
     justify-content: center; 
     text-align: center;
+    font-size: 30px;
 }
 
 containCard {
@@ -145,7 +149,7 @@ card img{
 
 card name, card breed, card info {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 card name {
     font-size: 30px;
@@ -177,4 +181,139 @@ card info {
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
+}
+
+/* ------------------ offer --------------------------- */
+
+Offer h1{
+    justify-content: center; 
+    text-align: center;
+    font-size: 50px;
+}
+
+Offer p{
+    justify-content: center; 
+    text-align: center;
+    font-size: 30px;
+}
+
+containBox {
+    display: flex;
+    gap: 20px;        
+    flex-wrap: nowrap;
+}
+
+box{
+    display: block;
+    width: 400px;
+    border: 2px solid darkslategrey; 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+box img{
+    width: 40%;
+    height: 50%;
+    object-fit: cover;
+    /* display: block; */
+}
+
+box headWord, box info {
+    display: block;
+    margin-bottom: 5px;
+}
+
+box headWord {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+}
+
+box info {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+/* ------------------ How It Work --------------------------- */
+
+HowItWork{
+    display: block;
+    border: 2px solid white; 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgb(248, 255, 246);
+}
+
+HowItWork h1{
+    justify-content: center; 
+    text-align: center;
+    font-size: 50px;
+}
+
+HowItWork p{
+    justify-content: center; 
+    text-align: center;
+    font-size: 30px;
+}
+
+containBoxHTW {
+    display: flex;
+    gap: 20px;        
+    flex-wrap: nowrap;
+}
+
+boxHTW{
+    display: block;
+    width: 400px;
+    border: 2px solid rgb(248, 255, 246); 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
+}
+boxHTW img{
+    width: 40%;
+    height: 50%;
+    object-fit: cover;
+    /* display: block; */
+}
+
+boxHTW headWord, boxHTW info {
+    display: block;
+    margin-bottom: 5px;
+}
+
+boxHTW headWord {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+}
+
+boxHTW info {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+boxHTW number {
+    font-size: 50px;
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+
+    border-radius: 10px;
+    padding: 10px 25px;
+    border-radius: 180px;
+
+    background-color: azure;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }

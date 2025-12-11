@@ -1,4 +1,4 @@
-
+/* ------------------ header --------------------------- */
 .main-header {
     display: flex; 
     justify-content: space-between; 
@@ -44,6 +44,8 @@
     color: darkslategrey;
     cursor: pointer;
 }
+
+/* ------------------ Hero --------------------------- */
 
 .hero {
     position: relative;

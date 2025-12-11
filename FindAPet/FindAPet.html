@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="FindAPet.css">
+</head>
+<body>
+    <header class="main-header"> 
+        <div class="logo-container"> 
+            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <span class="TAILSTRADE">TAILS & TRADE</span> 
+        </div>
+
+        <ul class="headSectorHolder"> 
+            <li class="headSector">Our Services</li>
+            <li class="headSector">Find a Pet</li>
+            <li class="headSector">Community</li>
+            <li class="headSector">Pet Dashboard</li>
+            <li class="headSector">Care Taker</li>
+        </ul>
+        
+        <div class="profile-icon">
+            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+        </div>
+    </header>
+
+    <bodyPage>
+        <HeadContain>
+            <h1>Find Your New Friend</h1>
+            <p>Browse our listings from trusted sellers and find the perfect companion to welcome into your home.</p>
+        </HeadContain>
+
+        <div class="mid-page-layout">
+            <filter-box class="filter-box">
+                <h1>Filters</h1>
+
+                <h1>Pet Type</h1>
+                <checkBoxList>
+                    <input type="checkbox" id="DogCheckBox">
+                    <label for="DogCheckBox">Dogs</label>
+
+                    <input type="checkbox" id="CatCheckBox">
+                    <label for="CatCheckBox">Cats</label>
+
+                    <input type="checkbox" id="BirdCheckBox">
+                    <label for="BirdCheckBox">Birds</label>
+                </checkBoxList>
+
+                <h1>Price Range</h1>
+                <max-min>
+                    <input type="text" id="minRange" placeholder="Min">
+                    <div>-</div>
+                    <input type="text" id="maxRange" placeholder="Max">
+                </max-min>
+
+                <h1>Location</h1>
+                <location>
+                    <input type="text" id="locationInput" placeholder="e.g. Bankok">
+                </location>
+
+                <buttonApply-Reset>
+                    <button type="button" id="minRange">Apply Filters</button>
+                    <button type="button" id="minRange">Reset</button>
+                </buttonApply-Reset>
+                
+            </filter-box>
+
+            <product-list class="product-box">
+                <headCard>
+                    <showNumList>Showing x-y of n results</showNumList>
+                    <sortBy>Sort by: TEXT</sortBy>
+                </headCard>
+                <containCard>
+
+                    <card>
+                        <img src="../home/img/card1.jpg" height="100px"><br>
+                        <name>Playful Golden Retriever Puppies</name><br>
+                        <price>$1200</price><br>
+                        <breed>Golden Retriever</breed><br>
+                        <locationInPetList>Bankok , BKK</locationInPetList><br>
+                    </card>
+                    
+                </containCard>
+                
+            </product-list>
+            <productPage>
+                <page>1</page>
+            </productPage>
+        </div>
+
+    </bodyPage>
+
+    <footer>
+        <div class="logo-container-footer"> 
+            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
+        </div><br>
+        <context>Connecting pets and people since 2025.</context><br>
+        <img src="../home/img/footer1.png" height="20px">
+        <img src="../home/img/footer2.webp" height="20px">
+        <img src="../home/img/footer3.png" height="20px"><br>
+        <reg>© 2025 Tails and Trades. All Rights Reserved.</reg>
+
+    </footer>
+    
+</body>
+</html>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="FindAPet.css">
 </head>
 <body>
-    <header class="main-header"> 
+    <div class="main-header"> 
         <div class="logo-container"> 
             <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
@@ -24,20 +24,20 @@
         <div class="profile-icon">
             <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
         </div>
-    </header>
+    </div>
 
-    <bodyPage>
-        <HeadContain>
+    <div class="bodyPage">
+        <div class="HeadContain">
             <h1>Find Your New Friend</h1>
             <p>Browse our listings from trusted sellers and find the perfect companion to welcome into your home.</p>
-        </HeadContain>
+        </div>
 
         <div class="mid-page-layout">
-            <filter-box class="filter-box">
+            <div class="filter-box">
                 <h1>Filters</h1>
 
                 <h1>Pet Type</h1>
-                <checkBoxList>
+                <div class="checkBoxList">
                     <input type="checkbox" id="DogCheckBox">
                     <label for="DogCheckBox">Dogs</label>
 
@@ -46,64 +46,66 @@
 
                     <input type="checkbox" id="BirdCheckBox">
                     <label for="BirdCheckBox">Birds</label>
-                </checkBoxList>
+                </div>
 
                 <h1>Price Range</h1>
-                <max-min>
+                <div class="max-min">
                     <input type="text" id="minRange" placeholder="Min">
                     <div>-</div>
                     <input type="text" id="maxRange" placeholder="Max">
-                </max-min>
+                </div>
 
                 <h1>Location</h1>
-                <location>
+                <div class="location">
                     <input type="text" id="locationInput" placeholder="e.g. Bankok">
-                </location>
+                </div>
 
-                <buttonApply-Reset>
+                <div class="buttonApply-Reset">
                     <button type="button" id="minRange">Apply Filters</button>
                     <button type="button" id="minRange">Reset</button>
-                </buttonApply-Reset>
+                </div>
                 
-            </filter-box>
+            </div>
 
-            <product-list class="product-box">
-                <headCard>
-                    <showNumList>Showing x-y of n results</showNumList>
-                    <sortBy>Sort by: TEXT</sortBy>
-                </headCard>
-                <containCard>
+            <div class="product-list-box">
+                <div class="headCard">
+                    <div class="showNumList">Showing x-y of n results</div>
+                    <div class="sortBy">Sort by: TEXT</div>
+                </div>
+                <div class="containCard">
 
-                    <card>
+                    <div class="card">
                         <img src="../home/img/card1.jpg" height="100px"><br>
-                        <name>Playful Golden Retriever Puppies</name><br>
-                        <price>$1200</price><br>
-                        <breed>Golden Retriever</breed><br>
-                        <locationInPetList>Bankok , BKK</locationInPetList><br>
-                    </card>
+                        <div class="name">Playful Golden Retriever Puppies</div><br>
+                        <div class="price">$1200</div><br>
+                        <div class="breed">Golden Retriever</div><br>
+                        <div class="locationInPetList">Bankok , BKK</div><br>
+                    </div>
                     
-                </containCard>
+                </div>
                 
-            </product-list>
-            <productPage>
-                <page>1</page>
-            </productPage>
+            </div>
+
+            <div class="productPage">
+                <div class="page">1</div>
+            </div>
+            
         </div>
 
-    </bodyPage>
+    </div>
 
-    <footer>
+    <div class="footer">
         <div class="logo-container-footer"> 
             <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
         </div><br>
-        <context>Connecting pets and people since 2025.</context><br>
+        <div class="context">Connecting pets and people since 2025.</div><br>
         <img src="../home/img/footer1.png" height="20px">
         <img src="../home/img/footer2.webp" height="20px">
         <img src="../home/img/footer3.png" height="20px"><br>
-        <reg>© 2025 Tails and Trades. All Rights Reserved.</reg>
+        <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
 
-    </footer>
+    </div>
     
 </body>
 </html>

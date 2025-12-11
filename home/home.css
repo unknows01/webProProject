@@ -114,25 +114,25 @@
 
 /* ------------------ Featured Pet --------------------------- */
 
-FeaturedPet h1{
+.FeaturedPet h1{
     justify-content: center; 
     text-align: center;
     font-size: 50px;
 }
-FeaturedPet p{
+.FeaturedPet p{
     justify-content: center; 
     text-align: center;
     font-size: 30px;
 }
 
-containCard {
+.containCard {
     display: flex;
     gap: 20px;        
     flex-wrap: nowrap;
 }
 
 
-card{
+.card{
     display: block;
     width: 300px;
     border: 2px solid darkslategrey; 
@@ -142,28 +142,28 @@ card{
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
-card img{
+.card img{
     width: 100%;
     height: auto;
     object-fit: cover;
     display: block;
 }
 
-card name, card breed, card info {
+.card .name, .card .breed, .card .info {
     display: block;
     margin-bottom: 3px;
 }
-card name {
+.card .name {
     font-size: 30px;
     font-weight: bold;
     color: black;
     margin-top: 10px;
 }
-card breed {
+.card .breed {
     font-size: 15px;
     color: gray;
 }
-card info {
+.card .info {
     font-size: 14px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -187,25 +187,25 @@ card info {
 
 /* ------------------ offer --------------------------- */
 
-Offer h1{
+.Offer h1{
     justify-content: center; 
     text-align: center;
     font-size: 50px;
 }
 
-Offer p{
+.Offer p{
     justify-content: center; 
     text-align: center;
     font-size: 30px;
 }
 
-containBox {
+.containBox {
     display: flex;
     gap: 20px;        
     flex-wrap: nowrap;
 }
 
-box{
+.box{
     display: block;
     width: 400px;
     border: 2px solid darkslategrey; 
@@ -215,26 +215,26 @@ box{
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
-box img{
+.box img{
     width: 40%;
     height: 50%;
     object-fit: cover;
     /* display: block; */
 }
 
-box headWord, box info {
+.box .headWord, .box .info {
     display: block;
     margin-bottom: 5px;
 }
 
-box headWord {
+.box .headWord {
     font-size: 30px;
     font-weight: bold;
     color: black;
     margin-top: 10px;
 }
 
-box info {
+.box .info {
     font-size: 14px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -243,7 +243,7 @@ box info {
 
 /* ------------------ How It Work --------------------------- */
 
-HowItWork{
+.HowItWork{
     display: block;
     border: 2px solid white; 
     padding: 15px;
@@ -253,25 +253,25 @@ HowItWork{
     background-color: rgb(248, 255, 246);
 }
 
-HowItWork h1{
+.HowItWork h1{
     justify-content: center; 
     text-align: center;
     font-size: 50px;
 }
 
-HowItWork p{
+.HowItWork p{
     justify-content: center; 
     text-align: center;
     font-size: 30px;
 }
 
-containBoxHTW {
+.containBoxHTW {
     display: flex;
     gap: 20px;        
     flex-wrap: nowrap;
 }
 
-boxHTW{
+.boxHTW{
     display: block;
     width: 400px;
     border: 2px solid rgb(248, 255, 246); 
@@ -281,32 +281,32 @@ boxHTW{
     border-radius: 8px;
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  */
 }
-boxHTW img{
+.boxHTW img{
     width: 40%;
     height: 50%;
     object-fit: cover;
     /* display: block; */
 }
 
-boxHTW headWord, boxHTW info {
+.boxHTW .headWord, .boxHTW .info {
     display: block;
     margin-bottom: 5px;
 }
 
-boxHTW headWord {
+.boxHTW .headWord {
     font-size: 30px;
     font-weight: bold;
     color: black;
     margin-top: 10px;
 }
 
-boxHTW info {
+.boxHTW .info {
     font-size: 14px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-boxHTW number {
+.boxHTW .number {
     font-size: 50px;
     font-weight: bold;
     color: black;
@@ -322,13 +322,13 @@ boxHTW number {
 
 /* ------------------ join --------------------------- */
 
-JoinOurCommunity h1{
+.JoinOurCommunity h1{
     justify-content: center; 
     text-align: center;
     font-size: 50px;
 }
 
-JoinOurCommunity p{
+.JoinOurCommunity p{
     justify-content: center; 
     text-align: center;
     font-size: 30px;
@@ -336,7 +336,7 @@ JoinOurCommunity p{
 
 /* ------------------ footer --------------------------- */
 
-footer{
+.footer{
     display: block;
     border: 2px solid white; 
     padding: 15px;
@@ -361,16 +361,16 @@ footer{
     -webkit-text-fill-color: transparent; */
 }
 
-footer img{
+.footer img{
     padding: 15px;
 }
 
-context{
+.context{
     color: white;
     font-size: 20px;
 }
 
-reg{
+.reg{
     color: rgb(219, 211, 211);
     font-size: 15px;
 }

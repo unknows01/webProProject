@@ -1,0 +1,388 @@
+/* ------------------ header --------------------------- */
+.main-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px; 
+    background-color: white; 
+    color: white;
+    /* min-height: 80px; */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+}
+
+.TAILSTRADE {
+    font-size: 50px;
+    font-weight: bold;
+    color: wheat;
+    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.headSectorHolder {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.headSector {
+    font-size: 20px;
+    font-weight: 500;
+    color: darkslategrey;
+    cursor: pointer;
+}
+
+.profile-icon {
+    font-size: 30px;
+    color: darkslategrey;
+    cursor: pointer;
+}
+
+/* ------------------ footer --------------------------- */
+
+.footer{
+    display: block;
+    border: 2px solid white; 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+}
+
+.logo-container-footer {
+    display: flex;
+    align-items: center; 
+    justify-content: center; /* จัดให้อยู่กลาง footer */
+}
+
+.TAILSTRADE-footer {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.footer img{
+    padding: 15px;
+}
+
+.context{
+    color: white;
+    font-size: 20px;
+}
+
+.reg{
+    color: rgb(219, 211, 211);
+    font-size: 15px;
+}
+
+/* ------------------ bodyPage --------------------------- */
+
+.bodyPage {
+    padding: 20px 5%; /* เพิ่ม padding รอบด้าน */
+    background-color: #f7f7f7; /* สีพื้นหลังอ่อนๆ ให้ดูสบายตา */
+}
+
+/* ส่วนหัวและค้นหา */
+.headPageAndSearch {
+    text-align: center;
+    padding: 40px 0;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headPageAndSearch h1 {
+    font-size: 3em;
+    color: #4CAF50; /* สีเขียว */
+    margin-bottom: 5px;
+}
+
+.headPageAndSearch p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* ฟอร์มค้นหา */
+.Search-Form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* จัดให้ปุ่มอยู่ระดับเดียวกับ input */
+    gap: 15px;
+    padding: 0 20px;
+}
+
+.input-group {
+    text-align: left;
+    min-width: 180px; /* กำหนดความกว้างขั้นต่ำของแต่ละช่อง */
+}
+
+.Search-Form label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.Search-Form input[type="text"],
+.Search-Form input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* สำคัญมากในการจัด layout */
+}
+
+.Search-Button {
+    background-color: #FF9800; /* ส้มสดใส */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    height: 42px; /* ทำให้ปุ่มสูงเท่ากับ input */
+}
+
+.Search-Button:hover {
+    background-color: #f57c00;
+}
+
+/* ------------------ bodyPage --------------------------- */
+
+.bodyPage {
+    max-width: 1200px; /* Set a max width for the main content */
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+    background-color: #f7f7f7; /* Background color */
+}
+
+/* Head Page and Search Section */
+.headPageAndSearch {
+    text-align: left; /* Ensures overall text-alignment is left */
+    padding: 40px 20px 20px 20px; /* Add internal padding */
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headPageAndSearch h1 {
+    font-size: 40px;
+    color: darkslategrey;
+    margin-bottom: 10px;
+    text-align: left; /* Explicitly ensure left alignment */
+}
+
+.headPageAndSearch p {
+    font-size: 20px;
+    color: gray;
+    margin-bottom: 20px;
+    text-align: left; /* Explicitly ensure left alignment */
+}
+
+/* Search Form Layout (Main container for inputs/button) */
+.headPageAndSearch .Search {
+    display: flex; /* Use flexbox for horizontal layout */
+    gap: 10px; /* Space between form elements/inputs */
+    align-items: flex-end; /* Align items to the bottom */
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Style for each group of label and input */
+/* **NOTE: I recommend wrapping each label/input pair in a <div> in the HTML 
+   for better grouping and control, e.g., <div class="input-group">...</div>** */
+.headPageAndSearch .Search > * {
+    /* Targets label, input, and button */
+    /* Add flex basis for better responsiveness/distribution */
+    flex: 1 1 auto; /* Allows elements to grow, shrink, and have an auto width */
+    min-width: 150px; /* Minimum width for each input group */
+}
+/* Exclude the button from the min-width constraint to look better */
+.headPageAndSearch .Search button.Search {
+    flex: 0 0 auto; /* Prevents button from growing/shrinking, sets width to content */
+    min-width: 100px; 
+}
+
+
+.headPageAndSearch .Search label {
+    font-weight: bold;
+    color: darkslategrey;
+    margin-bottom: 5px;
+    display: block; /* Make the label a block element to properly stack with input */
+}
+
+.headPageAndSearch .Search input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Make input fill its container */
+    box-sizing: border-box;
+}
+
+/* Search Button */
+.headPageAndSearch .Search button.Search {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: teal;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 40px; /* Match the height of the inputs for better alignment */
+    /* margin-top: auto; /* Aligns button to the bottom if needed */
+}
+
+.headPageAndSearch .Search button.Search:hover {
+    background-color: darkcyan;
+}
+
+
+/* --- Caretaker List Section --- */
+
+.CareTakerList h1 {
+    color: darkslategrey;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* CareTakerBox Layout: Image on left, Details on right */
+.CareTakerBox {
+    display: flex; /* Enable flexbox for main horizontal layout */
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    align-items: flex-start; /* Align all items to the top */
+    gap: 20px; /* Space between the image and the text content */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    position: relative; /* Needed for positioning VeiwProfile if desired */
+}
+
+.CareTakerBox img {
+    /* Caretaker profile image */
+    flex-shrink: 0; /* Prevents the image from shrinking */
+    border-radius: 50%; /* Make the caretaker image round */
+    object-fit: cover;
+    height: 70px;
+    width: 70px;
+    margin-top: 5px; /* Adjust if needed to align with h1 */
+}
+
+/* Container for all the text details to the right of the image */
+.Detail {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    flex-grow: 1; /* Allows this content area to take up most of the remaining space */
+    margin: 0;
+}
+
+.Detail h1 {
+    font-size: 24px;
+    color: teal;
+    margin: 0 0 5px 0;
+}
+
+.Detail > p { /* Target the direct paragraph child (description) */
+    color: gray;
+    margin: 0 0 10px 0;
+}
+
+/* Price Section */
+.Price {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.Price h1 {
+    font-size: 28px;
+    color: darkgreen;
+    margin: 0;
+}
+
+.Price p {
+    font-size: 16px;
+    color: darkgreen;
+    margin: 0;
+    /* align-self: flex-end; */
+}
+
+/* Star and Rating Section */
+.StarAndRating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.StarAndRating img {
+    height: 15px; /* Adjust star size */
+    width: 15px;
+    border-radius: 0; /* Override the 50% radius if set globally */
+}
+
+.StarAndRating p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Tag Section */
+.Tag {
+    margin-bottom: 15px;
+}
+
+.Tag ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.Tag li {
+    background-color: #e0f7fa;
+    color: #00796b;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-bottom: 5px; /* For wrapping tags */
+}
+
+/* View Profile Button/Link */
+.VeiwProfile {
+    color: teal;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none; /* Removed underline from the original for a cleaner look */
+    /* This positioning places it to the far right of the *whole* CareTakerBox */
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.VeiwProfile:hover {
+    text-decoration: underline;
+}

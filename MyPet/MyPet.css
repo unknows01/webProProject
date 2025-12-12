@@ -167,3 +167,82 @@
     color: #777;
     margin-bottom: 0;
 }
+
+/* ------------------ Pet List Display --------------------------- */
+
+.MyPetListContainer {
+    /* ใช้ Grid เพื่อแสดง Pet Card แบบตาราง */
+    display: grid;
+    /* กำหนดให้มีอย่างน้อย 2 คอลัมน์ (หรือ 1 คอลัมน์ถ้าหน้าจอเล็ก) */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 30px; /* ระยะห่างระหว่าง Pet Card */
+    margin-top: 20px;
+    text-align: left; /* ให้เนื้อหาภายใน Card ชิดซ้าย */
+}
+
+.PetCard {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex; /* ใช้ Flex ภายใน Card เพื่อจัดวางรูปภาพและข้อมูล */
+    flex-direction: column; /* จัดเรียงองค์ประกอบในแนวตั้ง */
+}
+
+.pet-photo {
+    width: 100%; /* ให้รูปภาพเต็มความกว้างของ Card */
+    height: 250px; /* กำหนดความสูงคงที่สำหรับรูปภาพ */
+    object-fit: cover; /* ทำให้รูปภาพครอบคลุมพื้นที่โดยไม่ยืด */
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.pet-info h2 {
+    font-size: 22px;
+    color: darkslategrey;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.pet-info p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.card-actions {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #eee;
+    display: flex;
+    justify-content: space-between; /* จัดปุ่มให้ห่างกัน */
+    gap: 10px;
+}
+
+.edit-btn, .book-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    flex-grow: 1; /* ทำให้ปุ่มขยายเต็มพื้นที่ */
+}
+
+.edit-btn {
+    background-color: #f0f0f0;
+    color: darkslategrey;
+}
+
+.edit-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.book-btn {
+    background-color: cadetblue;
+    color: white;
+}
+
+.book-btn:hover {
+    background-color: teal;
+}

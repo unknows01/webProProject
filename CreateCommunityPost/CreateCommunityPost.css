@@ -1,0 +1,209 @@
+/* ------------------ header --------------------------- */
+.main-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px; 
+    background-color: white; 
+    color: white;
+    /* min-height: 80px; */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+}
+
+.TAILSTRADE {
+    font-size: 50px;
+    font-weight: bold;
+    color: wheat;
+    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.headSectorHolder {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.headSector {
+    font-size: 20px;
+    font-weight: 500;
+    color: darkslategrey;
+    cursor: pointer;
+}
+
+.profile-icon {
+    font-size: 30px;
+    color: darkslategrey;
+    cursor: pointer;
+}
+
+/* ------------------ footer --------------------------- */
+
+.footer{
+    display: block;
+    border: 2px solid white; 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+}
+
+.logo-container-footer {
+    display: flex;
+    align-items: center; 
+    justify-content: center; /* จัดให้อยู่กลาง footer */
+}
+
+.TAILSTRADE-footer {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.footer img{
+    padding: 15px;
+}
+
+.context{
+    color: white;
+    font-size: 20px;
+}
+
+.reg{
+    color: rgb(219, 211, 211);
+    font-size: 15px;
+}
+
+/* ------------------ bodyPage --------------------------- */
+
+/* General page layout and background */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Light background for the main content area */
+    margin: 0;
+    padding: 0;
+}
+
+.bodyPage {
+    max-width: 800px; /* Max width for content area */
+    margin: 40px auto; /* Center the content box horizontally and add vertical space */
+    padding: 20px;
+    background-color: white; /* White background for the content container */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Back link styling */
+.backToSelectPage {
+    color: teal; /* A nice highlight color */
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: inline-block; /* Allows margin-bottom to work */
+    cursor: pointer;
+}
+
+.backToSelectPage:hover {
+    text-decoration: underline;
+}
+
+/* Heading and description */
+.bodyPage h1 {
+    color: #333;
+    margin-top: 0;
+    font-size: 28px;
+}
+
+.bodyPage p {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Form Container Styling */
+.CreatePostBox {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    background-color: #fafafa;
+}
+
+/* Form Elements Styling */
+.CreatePostBox label {
+    display: block; /* Make labels take up full width for clear structure */
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.CreatePostBox input[type="text"],
+.CreatePostBox select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.CreatePostBox input[type="text"]:focus,
+.CreatePostBox select:focus {
+    border-color: teal;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 128, 128, 0.2);
+}
+
+/* Special styling for the Detailed Description to make it look like a textarea replacement */
+#DetailedDescription {
+    height: 100px; /* Give it more height */
+    resize: vertical; /* Allow vertical resizing, though it's an input type=text */
+    padding-top: 10px; /* Adjust padding for multi-line appearance */
+}
+
+/* Button Styling */
+.Cancel, .SubmitPost {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 10px;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.Cancel {
+    background-color: #ccc;
+    color: #333;
+    margin-left: 0; /* Align 'Cancel' button to the left */
+}
+
+.Cancel:hover {
+    background-color: #bbb;
+}
+
+.SubmitPost {
+    background-color: teal; /* The main brand color */
+    color: white;
+    float: right; /* Float to align 'Submit Post' button to the right */
+}
+
+.SubmitPost:hover {
+    background-color: darkcyan;
+}

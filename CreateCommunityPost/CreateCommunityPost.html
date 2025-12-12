@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="MyPet.css">
+    <link rel="stylesheet" href="CreateCommunityPost.css">
 </head>
 <body>
     <div class="main-header"> 
@@ -27,32 +27,35 @@
     </div>
 
     <div class="bodyPage">
-        <div class="header-controls"> 
-            <div>
-                <h1>My Pets</h1>
-                <p>Manage your pet profiles here. Keep them up-to-date for a seamless caretaker booking experience.</p>
-            </div>
-            <div class="AddNewPetButton">Add New Pet</div>
-        </div>
-        <div class="MyPetListBox">
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
-            <h1>No pets have been added yet</h1>
-            <p>Add a profile for your pet to make booking a trusted caretaker quick and easy.</p>
-        </div>
+        <div class="backToSelectPage"> < Back to Community Borad</div>
+        <h1>Create a New Community Post</h1>
+        <p>Describe the companion you're looking for. The more details you provide, the better sellers can help you.</p>
 
-        <!-- <div class="PetCard">
-            <img src="path/to/pet_image_2.jpg" alt="Pet's Photo" class="pet-photo">
-            <div class="pet-info">
-                <h2>Luna the Siamese</h2>
-                <p><strong>Species:</strong> Cat (Siamese)</p>
-                <p><strong>Age:</strong> 1 year</p>
-            </div>
-            <div class="card-actions">
-                <button class="edit-btn">Edit Profile</button>
-                <button class="book-btn">Book Caretaker</button>
-            </div>
-        </div> -->
-        
+        <div class="CreatePostBox"> 
+
+            <label for="PostTitle">Post Title</label><br>
+            <input type="text" id="PostTitle" placeholder="e.g., Seeking a playful Labrador puppy"><br>
+
+            <label for="PetType">Pet Type</label><br>
+            <select name="PetType" id="PetType">
+                <option value="SelectAtype">Select a type...</option>
+                <option value="Dog">Dog</option>
+                <option value="Cat">Cat</option>
+                <option value="Bird">Bird</option>
+            </select><br>
+
+            <label for="breed">Breed (if applicable)</label><br>
+            <input type="text" id="breed" placeholder="e.g., Golden Retriever, Siamese"><br>
+
+            <label for="YourLocation">Your Location</label><br>
+            <input type="text" id="YourLocation" placeholder="e.g., Bangkok, Thailand"><br>
+
+            <label for="DetailedDescription">Detailed Description</label><br>
+            <input type="text" id="DetailedDescription" placeholder="Tell us more about what you're looking for. Describe your home environment, desired pet personality, age, etc."><br>
+
+        </div>
+        <button class="Cancel">Cancel</button>
+        <button class="SubmitPost">Submit Post</button>
     </div>
 
     <div class="footer">

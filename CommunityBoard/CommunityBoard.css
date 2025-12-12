@@ -1,0 +1,331 @@
+/* ------------------ header --------------------------- */
+.main-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px; 
+    background-color: white; 
+    color: white;
+    /* min-height: 80px; */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+}
+
+.TAILSTRADE {
+    font-size: 50px;
+    font-weight: bold;
+    color: wheat;
+    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.headSectorHolder {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.headSector {
+    font-size: 20px;
+    font-weight: 500;
+    color: darkslategrey;
+    cursor: pointer;
+}
+
+.profile-icon {
+    font-size: 30px;
+    color: darkslategrey;
+    cursor: pointer;
+}
+
+/* ------------------ footer --------------------------- */
+
+.footer{
+    display: block;
+    border: 2px solid white; 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 8px;
+    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+}
+
+.logo-container-footer {
+    display: flex;
+    align-items: center; 
+    justify-content: center; /* จัดให้อยู่กลาง footer */
+}
+
+.TAILSTRADE-footer {
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+}
+
+.footer img{
+    padding: 15px;
+}
+
+.context{
+    color: white;
+    font-size: 20px;
+}
+
+.reg{
+    color: rgb(219, 211, 211);
+    font-size: 15px;
+}
+
+/* ------------------ bodyPage content --------------------------- */
+.bodyPage {
+    padding: 20px;
+    background-color: #f8f8f8; /* Light background for the main content area */
+}
+
+/* Header and Search Area */
+.headPageAndSearch {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.headPageAndSearch h1 {
+    color: darkslategrey;
+    margin-bottom: 5px;
+}
+
+.headPageAndSearch p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Create Post Button (must be left-aligned as requested) */
+.headPageAndSearch .CreatePost {
+    align-self: flex-start; /* Aligns button to the left */
+    padding: 10px 20px;
+    background-color: teal; /* Example color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.headPageAndSearch .CreatePost:hover {
+    background-color: darkcyan;
+}
+
+/* Search Area (Search inputs/dropdowns in one line) */
+.Search {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Spacing between search elements */
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.Search input[type="text"] {
+    flex-grow: 1; /* ทำให้ input ขยายเต็มพื้นที่ที่เหลือ */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* .Search input[type="text"], */
+.Search select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.Search button.Search {
+    padding: 8px 15px;
+    background-color: darkslategrey;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.Search button.Search:hover {
+    background-color: #444;
+}
+
+/* ------------------ Post List --------------------------- */
+.PostList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.PostBox {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: grid;
+    /* Defines the layout structure using CSS Grid for complex alignment */
+    /* Rows: 1. Profile/Tags/Content, 2. Date/Reply/View */
+    /* Columns: Auto for profile/content, 1fr for flex columns, auto for actions */
+    grid-template-areas: 
+        "profile tag tag"
+        "content content content"
+        "post-date reply-count view-reply";
+    grid-template-columns: auto 1fr auto; /* Adjusted columns for better flow */
+    grid-template-rows: auto auto auto;
+    align-items: center; /* Vertical alignment in the grid */
+}
+
+/* Profile (Left-aligned, Name next to image) */
+.Profile {
+    grid-area: profile;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start; /* Ensures it is left-aligned */
+    padding-bottom: 10px;
+}
+
+.Profile img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.Profile h2 {
+    font-size: 18px;
+    color: teal;
+    margin: 0;
+}
+
+/* Tag (Next to Name) */
+.Tag {
+    grid-area: tag;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    padding-left: 20px; /* Space from the Profile name */
+    padding-bottom: 10px;
+}
+
+.Tag ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+}
+
+.Tag li {
+    background-color: #ffe0b2; /* Light orange background for the tag */
+    color: #e65100; /* Darker text */
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Content (Below Profile/Tags, spanning full width) */
+.content {
+    grid-area: content;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin: 10px 0;
+    width: 100%; /* Ensure it spans the grid area */
+}
+
+.content h1 {
+    font-size: 22px;
+    color: darkslategrey;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.content p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* PostDate (Below Content) */
+.PostDate {
+    grid-area: post-date;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #999;
+    padding-bottom: 5px;
+}
+
+.PostDate p {
+    margin: 0;
+    line-height: 1.2;
+}
+
+/* ReplyCount (Next to PostDate) */
+.ReplyCount {
+    grid-area: reply-count;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    color: teal;
+}
+
+.ReplyCount h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.ReplyCount p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ViewReply (Bottom Left-aligned) - NOTE: I interpreted "ชิดล่างซ้าย" as aligned with the actions area, which is the bottom row of the grid. */
+.ViewReply {
+    /* grid-area: view-reply; ถูกขยายใน grid-template-areas */
+    /* grid-row: 3 / 5; ทำให้ ViewReply ครอบคลุมตั้งแต่แถวที่ 3 ถึงแถวที่ 4 */
+    /* grid-column: 2 / 4; ครอบคลุมคอลัมน์ที่ 2 และ 3 */
+    
+    padding: 8px 15px;
+    background-color: darkorange;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    justify-self: end; /* Aligns to the right */
+    align-self: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+}
+
+.ViewReply:hover {
+    background-color: #ff8c00;
+}
+
+/* Override the default Search class in the PostBox action area */
+.PostBox .Search {
+    display: none; /* Hide the search box if accidentally placed inside a post */
+}

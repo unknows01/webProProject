@@ -85,3 +85,187 @@
     color: rgb(219, 211, 211);
     font-size: 15px;
 }
+
+/* ------------------ bodyPage and content --------------------------- */
+
+.bodyPage {
+    background-color: #f4f7f6; /* สีพื้นหลังอ่อน ๆ สำหรับส่วนเนื้อหา */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* จัดให้อยู่ตรงกลางหน้าจอ */
+    color: #333;
+}
+
+.bodyPage h1 {
+    color: teal; /* สีหัวข้อหลัก */
+    margin-bottom: 5px;
+}
+
+.bodyPage p {
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.backToSelectPage {
+    font-size: 16px;
+    color: #007bff; /* สีลิงก์ */
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-block; /* ทำให้สามารถคลิกได้ทั้งบล็อกข้อความ */
+}
+
+/* ------------------ Contain Box for Form --------------------------- */
+
+.containBox {
+    display: grid;
+    /* เปลี่ยนเป็น 2 คอลัมน์สำหรับแถวบนและแถวสุดท้าย แต่ใช้ 1 คอลัมน์กว้างเต็มสำหรับ Care/Medical */
+    grid-template-columns: 2fr 1fr; 
+    grid-template-rows: auto auto auto auto; /* เพิ่มแถวสำหรับ Medical Information */
+    gap: 30px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 1. Basic Information (คงเดิม - คอลัมน์ 1) */
+.BasicInformation {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+/* 2. Profile Photo (คงเดิม - คอลัมน์ 2) */
+.ProfilePhoto {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.ProfilePhoto img {
+    height: 120px !important; /* เพิ่มขนาดรูปภาพตัวอย่าง */
+    width: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    background-color: #eee;
+}
+
+.ProfilePhotoText {
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 3. Care & Behavior (ปรับปรุง: ขยายเต็มความกว้าง) */
+.careAndBehavior {
+    grid-column: 1 / 3; /* ขยายให้ครอบคลุมทั้ง 2 คอลัมน์ */
+    grid-row: 2 / 3;
+}
+
+/* 4. Medical Information (ปรับปรุง: ขยายเต็มความกว้างและอยู่ด้านล่าง Care & Behavior) */
+.medicalInformation {
+    grid-column: 1 / 3; /* ขยายให้ครอบคลุมทั้ง 2 คอลัมน์ */
+    grid-row: 3 / 4;
+}
+
+/* 5. Buttons (คงเดิม - อยู่แถวสุดท้าย และแบ่งเป็น 2 คอลัมน์) */
+.PublishListing {
+    grid-column: 1 / 2; /* คอลัมน์ที่ 1 */
+    grid-row: 4 / 5; /* แถวที่ 4 */
+    background-color: teal;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.SaveDraft {
+    grid-column: 2 / 3; /* คอลัมน์ที่ 2 */
+    grid-row: 4 / 5; /* แถวที่ 4 */
+    background-color: #ccc;
+    color: #333;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+/* (ส่วน CSS อื่นๆ ที่เกี่ยวข้องกับ bodyPage, inputs, h1, และ Media Query ยังคงเหมือนเดิม) */
+
+/* Media Query สำหรับหน้าจอขนาดเล็ก (ยังคงใช้ 1 คอลัมน์) */
+@media (max-width: 768px) {
+    .containBox {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* จัดเรียงองค์ประกอบทั้งหมดให้เป็นคอลัมน์เดียว */
+    .BasicInformation, .ProfilePhoto, .careAndBehavior, .medicalInformation, .PublishListing, .SaveDraft {
+        grid-column: 1 / 2;
+        grid-row: auto;
+    }
+}
+
+/* ------------------ Common Form Styles --------------------------- */
+
+.containBox h1 {
+    font-size: 24px;
+    color: #555;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.containBox label {
+    display: block;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.containBox input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box; /* สำคัญมากเพื่อให้ padding ไม่ทำให้ความกว้างเกิน 100% */
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.containBox input[type="text"]:focus {
+    border-color: teal;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+}
+
+/* Media Query สำหรับหน้าจอขนาดเล็ก (เช่น มือถือ) */
+@media (max-width: 768px) {
+    .containBox {
+        grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์ */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* จัดเรียงองค์ประกอบทั้งหมดให้เป็นคอลัมน์เดียว */
+    .BasicInformation, .ProfilePhoto, .careAndBehavior, .medicalInformation, .PublishListing, .SaveDraft {
+        grid-column: 1 / 2;
+        grid-row: auto; /* ให้มันเรียงตามลำดับใน HTML */
+    }
+}

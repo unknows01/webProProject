@@ -86,5 +86,168 @@
     font-size: 15px;
 }
 
-/* ------------------ bodyPage --------------------------- */
+/* ------------------ bodyPage Layout --------------------------- */
 
+/* Use Flexbox for the main content container to arrange items side-by-side */
+.pictureAndMessage {
+    display: flex;
+    /* Space between the image and the info block */
+    gap: 50px; 
+    /* Centers the items vertically */
+    align-items: flex-start; 
+    /* Adds some margin/padding around the content */
+    padding: 20px; 
+    max-width: 1200px; /* Optional: Limit the overall width */
+    margin: 20px auto; /* Optional: Center the entire content block on the page */
+    border: 1px solid #ddd; /* Optional: For visualization/styling */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Ensure the image container does not take up excessive space */
+.pictureAndSelectPic {
+    /* Optional: Allocate a specific width for the image block */
+    flex-basis: 550px; 
+    flex-shrink: 0;
+}
+
+/* Styling for the main image */
+.pictureAndSelectPic > img {
+    width: 100%; /* Make the image responsive within its container */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Arrange the smaller sub-images */
+.Subimg {
+    display: flex;
+    gap: 10px;
+}
+
+.Subimg img {
+    width: 100px; /* Set a specific size for the sub images */
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Ensure the name and info block takes the remaining space */
+.nameAndBasicInfo {
+    flex-grow: 1; /* Allows this block to fill the remaining space */
+    padding: 10px;
+}
+
+.name {
+    font-size: 32px;
+    font-weight: bold;
+    color: darkslategrey;
+}
+
+.price {
+    font-size: 28px;
+    color: #ff6500; /* Example color for price */
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Style for basic info lines (Breed, Gender, Age, Location) */
+.breed, .Gender, .Age, .locationInPetList {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.soldBy {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+.sellerName {
+    font-weight: bold;
+    color: darkslategrey;
+    cursor: pointer;
+}
+
+.MessageToSeller, .AddToFavorites {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.MessageToSeller {
+    background-color: #008080; /* Teal/Dark Cyan */
+    color: white;
+    margin-right: 15px;
+}
+
+.MessageToSeller:hover {
+    background-color: #006666;
+}
+
+.AddToFavorites {
+    background-color: #ccc;
+    color: #333;
+    border: 1px solid #bbb;
+}
+
+.AddToFavorites:hover {
+    background-color: #bbb;
+}
+
+/* Styling the "About" and "Health" sections below the main info */
+.About-MoreInfo {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.About h1, .HealthAndInfo h1 {
+    color: darkslategrey;
+    border-bottom: 2px solid #ff6500;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.About p {
+    line-height: 1.6;
+    color: #444;
+}
+
+.HealthAndInfo ul {
+    list-style: disc;
+    margin-left: 20px;
+    padding-left: 0;
+    line-height: 1.8;
+    color: #444;
+}
+
+.backToSelectPage {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    cursor: pointer;
+    color: #008080;
+    font-weight: 500;
+}
+
+.backToSelectPage:hover {
+    text-decoration: underline;
+}
+
+/* Ensure the TAILSTRADE color is visible in the header */
+.TAILSTRADE {
+    /* ... existing styles ... */
+    color: #008080; /* Setting a specific color for visibility, as 'wheat' on 'white' is hard to see */
+}

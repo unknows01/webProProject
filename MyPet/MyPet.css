@@ -85,3 +85,85 @@
     color: rgb(219, 211, 211);
     font-size: 15px;
 }
+/* ------------------ bodyPage Layout Controls --------------------------- */
+.header-controls {
+    display: flex; /* เปิดใช้งาน Flexbox */
+    justify-content: space-between; /* แยกองค์ประกอบซ้ายสุดและขวาสุด */
+    align-items: center; /* จัดให้องค์ประกอบอยู่ในแนวแกนกลาง (กึ่งกลางความสูง) */
+    margin-bottom: 40px; /* เว้นระยะห่างด้านล่าง */
+    text-align: left; /* เปลี่ยนให้ข้อความภายใน div นี้จัดชิดซ้าย */
+}
+
+/* ------------------ bodyPage --------------------------- */
+.bodyPage {
+    /* จัดกึ่งกลางเนื้อหาใน bodyPage และเว้นขอบบน/ล่าง */
+    padding: 40px 20px;
+    margin: 0 auto;
+    /* max-width: 900px; กำหนดความกว้างสูงสุดเพื่อให้เนื้อหาไม่ออกนอกขอบจอมากเกินไป */
+    text-align: left; /* จัดกึ่งกลางข้อความภายใน */
+    /* font-family: Arial, sans-serif; เพิ่ม font */
+}
+
+.bodyPage h1 {
+    /* สไตล์สำหรับหัวข้อหลัก 'My Pets' */
+    font-size: 36px;
+    color: darkslategrey;
+    margin-bottom: 10px;
+}
+
+.bodyPage p {
+    /* สไตล์สำหรับคำอธิบายใต้หัวข้อ */
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.AddNewPetButton {
+    /* สไตล์สำหรับปุ่ม 'Add New Pet' */
+    display: inline-block; /* ทำให้ปุ่มมีขนาดตามเนื้อหา */
+    background-color: darkslategrey; /* สีพื้นหลังปุ่ม */
+    color: white; /* สีข้อความ */
+    padding: 12px 25px;
+    border-radius: 25px; /* ทำให้ปุ่มโค้งมน */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s; /* เพิ่ม Animation */
+    /* margin-bottom: 40px; เว้นระยะห่างจากกล่องด้านล่าง */
+}
+
+.AddNewPetButton:hover {
+    /* สไตล์เมื่อนำเมาส์ไปชี้ */
+    background-color: cadetblue;
+}
+
+.MyPetListBox {
+    /* สไตล์สำหรับกล่องแสดงว่ายังไม่มีสัตว์เลี้ยง */
+    border: 2px dashed #ccc; /* เส้นขอบแบบประ */
+    border-radius: 10px;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    /* max-width: 500px; จำกัดความกว้างของกล่อง */
+    margin: 20px auto; /* จัดกึ่งกลางกล่อง */
+}
+
+.MyPetListBox img {
+    /* สไตล์สำหรับโลโก้ภายในกล่อง */
+    opacity: 0.5; /* ทำให้โลโก้ดูจางลง */
+    margin-bottom: 15px;
+}
+
+.MyPetListBox h1 {
+    /* สไตล์สำหรับข้อความ 'No pets have been added yet' */
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.MyPetListBox p {
+    /* สไตล์สำหรับคำอธิบายภายในกล่อง */
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 0;
+}

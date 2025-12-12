@@ -101,16 +101,51 @@
 
 /* ------------------ Main Layout --------------------------- */
 
+.mid-page-layout {
+    display: flex; /* เปิดใช้งาน Flexbox */
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    gap: 30px; 
+    margin: 20px 50px; 
+}
 
+/* ------------------ Filter box --------------------------- */
 
+.filter-box{
+    display: block;
+    width: 300px;
+    border: 2px solid darkslategrey; 
+    padding: 15px;
+    margin: 20px auto;
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
 
+.product-list-box {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+/* ------------------ headCard --------------------------- */
+
+.headCard .showNumList{
+    margin-left: auto;
+    display: inline-block;
+}
+
+.headCard .sortBy{
+    display: flex;
+}
 
 /* ------------------ Card --------------------------- */
 
 .containCard {
     display: flex;
     gap: 20px;        
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 20px;
 }
 
 
@@ -157,4 +192,25 @@
     color: gray;
 }
 
+/* ------------------ productPage --------------------------- */
 
+.productPage {
+    display: block;
+    justify-content: center;
+    gap: 5px;
+    /* padding: 10px 0; */
+    margin-top: auto;
+}
+
+.productPage .page {
+    border: 1px solid darkslategrey;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.productPage .page:hover {
+    background-color: lightgray;
+}

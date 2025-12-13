@@ -89,15 +89,15 @@
 /* ------------------ bodyPage and content --------------------------- */
 
 .bodyPage {
-    background-color: #f4f7f6; /* สีพื้นหลังอ่อน ๆ สำหรับส่วนเนื้อหา */
+    background-color: #f4f7f6;
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto; /* จัดให้อยู่ตรงกลางหน้าจอ */
+    margin: 0 auto;
     color: #333;
 }
 
 .bodyPage h1 {
-    color: teal; /* สีหัวข้อหลัก */
+    color: teal;
     margin-bottom: 5px;
 }
 
@@ -108,19 +108,18 @@
 
 .backToSelectPage {
     font-size: 16px;
-    color: #007bff; /* สีลิงก์ */
+    color: #007bff;
     cursor: pointer;
     margin-bottom: 20px;
-    display: inline-block; /* ทำให้สามารถคลิกได้ทั้งบล็อกข้อความ */
+    display: inline-block;
 }
 
 /* ------------------ Contain Box for Form --------------------------- */
 
 .containBox {
     display: grid;
-    /* เปลี่ยนเป็น 2 คอลัมน์สำหรับแถวบนและแถวสุดท้าย แต่ใช้ 1 คอลัมน์กว้างเต็มสำหรับ Care/Medical */
     grid-template-columns: 2fr 1fr; 
-    grid-template-rows: auto auto auto auto; /* เพิ่มแถวสำหรับ Medical Information */
+    /* grid-template-rows: auto auto auto auto; */
     gap: 30px;
     padding: 30px;
     background-color: white;
@@ -128,13 +127,11 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* 1. Basic Information (คงเดิม - คอลัมน์ 1) */
 .BasicInformation {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
 }
 
-/* 2. Profile Photo (คงเดิม - คอลัมน์ 2) */
 .ProfilePhoto {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
@@ -149,7 +146,7 @@
 }
 
 .ProfilePhoto img {
-    height: 120px !important; /* เพิ่มขนาดรูปภาพตัวอย่าง */
+    height: 120px;
     width: 120px;
     object-fit: cover;
     border-radius: 50%;
@@ -163,22 +160,22 @@
     cursor: pointer;
 }
 
-/* 3. Care & Behavior (ปรับปรุง: ขยายเต็มความกว้าง) */
+/* ------------------ Care & Behavior ------------------ */
 .careAndBehavior {
-    grid-column: 1 / 3; /* ขยายให้ครอบคลุมทั้ง 2 คอลัมน์ */
+    grid-column: 1 / 3;
     grid-row: 2 / 3;
 }
 
-/* 4. Medical Information (ปรับปรุง: ขยายเต็มความกว้างและอยู่ด้านล่าง Care & Behavior) */
+/* ------------------ Medical Information ------------------ */
 .medicalInformation {
-    grid-column: 1 / 3; /* ขยายให้ครอบคลุมทั้ง 2 คอลัมน์ */
+    grid-column: 1 / 3;
     grid-row: 3 / 4;
 }
 
-/* 5. Buttons (คงเดิม - อยู่แถวสุดท้าย และแบ่งเป็น 2 คอลัมน์) */
-.PublishListing {
-    grid-column: 1 / 2; /* คอลัมน์ที่ 1 */
-    grid-row: 4 / 5; /* แถวที่ 4 */
+/* ------------------ Buttons ------------------  */
+.SavePetProfile {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
     background-color: teal;
     color: white;
     text-align: center;
@@ -189,9 +186,9 @@
     transition: background-color 0.3s;
 }
 
-.SaveDraft {
-    grid-column: 2 / 3; /* คอลัมน์ที่ 2 */
-    grid-row: 4 / 5; /* แถวที่ 4 */
+.Cancel {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
     background-color: #ccc;
     color: #333;
     text-align: center;
@@ -212,8 +209,7 @@
         padding: 20px;
     }
 
-    /* จัดเรียงองค์ประกอบทั้งหมดให้เป็นคอลัมน์เดียว */
-    .BasicInformation, .ProfilePhoto, .careAndBehavior, .medicalInformation, .PublishListing, .SaveDraft {
+    .BasicInformation, .ProfilePhoto, .careAndBehavior, .medicalInformation, .SavePetProfile, .Cancel {
         grid-column: 1 / 2;
         grid-row: auto;
     }
@@ -244,7 +240,7 @@
     margin-bottom: 15px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    box-sizing: border-box; /* สำคัญมากเพื่อให้ padding ไม่ทำให้ความกว้างเกิน 100% */
+    box-sizing: border-box;
     font-size: 16px;
     transition: border-color 0.3s;
 }
@@ -263,9 +259,8 @@
         padding: 20px;
     }
 
-    /* จัดเรียงองค์ประกอบทั้งหมดให้เป็นคอลัมน์เดียว */
-    .BasicInformation, .ProfilePhoto, .careAndBehavior, .medicalInformation, .PublishListing, .SaveDraft {
+    .BasicInformation, .ProfilePhoto, .careAndBehavior, .medicalInformation, .SavePetProfile, .Cancel {
         grid-column: 1 / 2;
-        grid-row: auto; /* ให้มันเรียงตามลำดับใน HTML */
+        grid-row: auto; 
     }
 }

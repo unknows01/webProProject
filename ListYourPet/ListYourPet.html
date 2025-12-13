@@ -3,87 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>List Your Pet - TAILS & TRADE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="ListYourPet.css">
 </head>
 <body>
     <div class="main-header"> 
         <div class="logo-container"> 
-            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="45px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
         </div>
 
         <ul class="headSectorHolder"> 
             <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
-            <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
+            <li class="headSector active" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
         </ul>
         
         <div class="profile-icon">
-            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
         </div>
     </div>
 
-    <div class="bodyPage">
-        <h1>List Your Pet</h1>
-        <p>Fill out the form below to connect your pet with their new loving family. Accurate details and good photos are key!</p>
+    <div class="bodyPage container">
+        <h1 class="page-title">List Your Pet</h1>
+        <p class="page-description">Fill out the form below to connect your pet with their new loving family. Accurate details and good photos are key!</p>
 
-        <div class="ContainPetDetail">
-            <h1>Pet Details</h1>
-
-            <label for="ListingTitle">Listing Title</label><br>
-            <input type="text" id="ListingTitle" placeholder="e.g., Playful 8-Week-Old Golden Retriever Puppies"><br>
-
-            <label for="PetType">Pet Type</label><br>
-            <input type="text" id="PetType" placeholder="Select a type..."><br>
-
-            <label for="Breed">Breed</label><br>
-            <input type="text" id="Breed" placeholder="e.g., Golden Retriever"><br>
-
-            <label for="Age">Age</label><br>
-            <input type="text" id="Age" placeholder="e.g., 8 weeks"><br>
-
-            <label for="Gender">Gender</label><br>
-            <input type="text" id="Gender" placeholder="Select a gender..."><br>
-
-            <label for="Price">Price</label><br>
-            <input type="text" id="Price" placeholder="$1200"><br>
+        <form class="listing-form">
             
+            <div class="info-section ContainPetDetail">
+                <h2 class="section-title"><i class="fas fa-list-alt"></i> Pet Details</h2>
+                
+                <div class="form-group full-width">
+                    <label for="ListingTitle">Listing Title</label>
+                    <input type="text" id="ListingTitle" name="listing_title" placeholder="e.g., Playful 8-Week-Old Golden Retriever Puppies" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="PetType">Pet Type</label>
+                        <select id="PetType" name="pet_type" required>
+                            <option value="">Select a type...</option>
+                            <option value="Dog">Dog</option>
+                            <option value="Cat">Cat</option>
+                            <option value="Rabbit">Rabbit</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group half-width">
+                        <label for="Breed">Breed</label>
+                        <input type="text" id="Breed" name="pet_breed" placeholder="e.g., Golden Retriever">
+                    </div>
+                </div>
 
-        </div>
+                <div class="form-row">
+                    <div class="form-group half-width">
+                        <label for="Age">Age</label>
+                        <input type="text" id="Age" name="pet_age" placeholder="e.g., 8 weeks or 2 years">
+                    </div>
+                    
+                    <div class="form-group half-width">
+                        <label for="Gender">Gender</label>
+                        <select id="Gender" name="pet_gender" required>
+                            <option value="">Select a gender...</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group price-group">
+                    <label for="Price">Price ($)</label>
+                    <div class="price-input-container">
+                         <span class="currency-symbol">$</span>
+                         <input type="number" id="Price" name="price" placeholder="1200" min="0" required>
+                    </div>
+                </div>
 
-        <div class="Photos & Videos">
-            <h1>Photos & Videos</h1>
-            <div class="BoxInputPhotosVideos">
-                <p>Upload files or drag and drop</p>
-                <p>PNG, JPG, GIF up to 10MB. First image is the cover.</p>
             </div>
+
+            <div class="info-section PhotosVideos">
+                <h2 class="section-title"><i class="fas fa-camera"></i> Photos & Videos</h2>
+                
+                <div class="BoxInputPhotosVideos dropzone" id="photo-dropzone">
+                    <i class="fas fa-cloud-upload-alt fa-3x upload-icon"></i>
+                    <p>Drag and drop your files here, or <span class="primary-text-link">browse</span></p>
+                    <p class="file-info">PNG, JPG, GIF up to 10MB. First image is the cover.</p>
+                    <input type="file" id="media-upload" name="media_files[]" accept="image/*,video/*" multiple style="display: none;">
+                </div>
+                
+                <div class="file-preview-area" id="file-preview-area">
+                    </div>
+            </div>
+
+            <div class="info-section Description-Section">
+                <h2 class="section-title"><i class="fas fa-file-alt"></i> Description</h2>
+                
+                <textarea id="PetDescription" name="pet_description" class="BoxInputDescription" rows="8" 
+                placeholder="Share details about your pet's personality, health, and any included items (toys, food, etc.)..."></textarea>
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" class="PublishListing primary-button">
+                    <i class="fas fa-bullhorn"></i> Publish Listing
+                </button>
+                <button type="button" class="SaveDraft secondary-button">
+                    <i class="fas fa-save"></i> Save Draft
+                </button>
+            </div>
+
+        </form>
         </div>
-
-        <div class="Description">
-            <h1>Description</h1>
-            <textarea id="PetDescription" class="BoxInputDescription" rows="8" 
-            placeholder="Share details about your pet's personality, health, and any included items (toys, food, etc.)..."></textarea>
-        </div>
-
-        <div class="PublishListing">Publish Listing</div>
-        <div class="SaveDraft">Save Draft</div>
-
-    </div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="30px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
-        </div><br>
-        <div class="context">Connecting pets and people since 2025.</div><br>
-        <img src="../home/img/footer1.png" height="20px">
-        <img src="../home/img/footer2.webp" height="20px">
-        <img src="../home/img/footer3.png" height="20px"><br>
+        </div>
+        <div class="context">Connecting pets and people since 2025.</div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
-
     </div>
     
 </body>

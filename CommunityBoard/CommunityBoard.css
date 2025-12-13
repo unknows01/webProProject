@@ -1,171 +1,286 @@
-/* ------------------ header --------------------------- */
+/* --- Global Reset & Modern Font (จาก home.css) --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc; 
+    color: #333;
+}
+
+/* --- Branding & Color Palette (จาก home.css) --- */
+:root {
+    --brand-color-primary: #ff7f50; /* Coral/Salmon */
+    --brand-color-secondary: #4a90e2; /* Blue */
+    --text-color-dark: #333;
+    --text-color-light: #666;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --tag-dog-bg: #e0f2f1;
+    --tag-dog-text: #004d40;
+    --tag-cat-bg: #fffde7;
+    --tag-cat-text: #f57f17;
+    --tag-urgent-bg: #ffcdd2;
+    --tag-urgent-text: #c62828;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ------------------ header (ใช้สไตล์ร่วมกับ home.css) --------------------------- */
 .main-header {
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    padding: 10px 20px; 
+    padding: 15px 40px; 
     background-color: white; 
-    color: white;
-    /* min-height: 80px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo-container {
     display: flex;
     align-items: center; 
-    gap: 15px;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 45px;
 }
 
 .TAILSTRADE {
-    font-size: 50px;
-    font-weight: bold;
-    color: wheat;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand-color-primary);
 }
 
 .headSectorHolder {
     list-style: none;
     display: flex;
-    gap: 50px;
+    gap: 30px;
     padding: 0;
     margin: 0;
 }
 
 .headSector {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
-    color: darkslategrey;
+    color: var(--text-color-light);
     cursor: pointer;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
 }
 
-.profile-icon {
-    font-size: 30px;
-    color: darkslategrey;
-    cursor: pointer;
+.headSector:hover, .headSector.active {
+    color: var(--brand-color-primary);
 }
 
-/* ------------------ footer --------------------------- */
+.headSector.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-color-primary);
+    border-radius: 2px;
+}
 
-.footer{
-    display: block;
-    border: 2px solid white; 
-    padding: 15px;
-    margin: 20px auto;
+.profile-icon i {
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.profile-icon i:hover {
+    color: var(--brand-color-primary);
+}
+
+/* ------------------ footer (ใช้สไตล์ร่วมกับ home.css) --------------------------- */
+.footer {
+    padding: 40px 20px;
+    margin-top: 50px; 
     text-align: center;
-    border-radius: 8px;
-    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+    background-color: #333; 
+    color: white;
 }
 
 .logo-container-footer {
     display: flex;
     align-items: center; 
-    justify-content: center; /* จัดให้อยู่กลาง footer */
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 8px;
 }
 
 .TAILSTRADE-footer {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--brand-color-primary); 
 }
 
-.footer img{
-    padding: 15px;
+.context {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
-.context{
-    color: white;
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icons i {
     font-size: 20px;
+    margin: 0 10px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-.reg{
-    color: rgb(219, 211, 211);
-    font-size: 15px;
+.social-icons i:hover {
+    color: var(--brand-color-primary);
+}
+
+.reg {
+    color: #999;
+    font-size: 12px;
+    margin-top: 15px;
 }
 
 /* ------------------ bodyPage content --------------------------- */
 .bodyPage {
-    padding: 20px;
-    background-color: #f8f8f8; /* Light background for the main content area */
+    padding: 40px 20px;
 }
 
 /* Header and Search Area */
 .headPageAndSearch {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 40px;
 }
 
-.headPageAndSearch h1 {
-    color: darkslategrey;
+.headPageAndSearch .page-title {
+    color: var(--brand-color-primary);
+    font-size: 32px;
+    font-weight: 800;
     margin-bottom: 5px;
 }
 
-.headPageAndSearch p {
-    color: #666;
-    margin-bottom: 10px;
+.headPageAndSearch .page-description {
+    color: var(--text-color-light);
+    margin-bottom: 20px;
+    font-size: 16px;
 }
 
-/* Create Post Button (must be left-aligned as requested) */
-.headPageAndSearch .CreatePost {
-    align-self: flex-start; /* Aligns button to the left */
-    padding: 10px 20px;
-    background-color: teal; /* Example color */
+/* Create Post Button */
+.CreatePost.primary-button {
+    align-self: flex-start;
+    padding: 12px 25px;
+    background-color: var(--brand-color-secondary);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-bottom: 30px;
 }
 
-.headPageAndSearch .CreatePost:hover {
-    background-color: darkcyan;
+.CreatePost.primary-button:hover {
+    background-color: #3b74c0;
+    transform: translateY(-1px);
+}
+.CreatePost i {
+    margin-right: 8px;
 }
 
-/* Search Area (Search inputs/dropdowns in one line) */
-.Search {
+/* Search/Filter Bar (Combined search, dropdowns, and filter button) */
+.SearchFilterBar {
     display: flex;
-    align-items: center;
-    gap: 15px; /* Spacing between search elements */
-    padding: 10px;
-    background-color: white;
-    border: 1px solid #ddd;
+    align-items: stretch; /* ทำให้ทุกองค์ประกอบมีความสูงเท่ากัน */
+    gap: 15px; 
+    padding: 15px;
+    background-color: #f7f9fc;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
 }
 
-.Search input[type="text"] {
-    flex-grow: 1; /* ทำให้ input ขยายเต็มพื้นที่ที่เหลือ */
-    padding: 8px;
+.search-input-group {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
+    background-color: white;
+    padding: 0 10px;
 }
 
-/* .Search input[type="text"], */
-.Search select {
-    padding: 8px;
+.search-icon {
+    color: var(--text-color-light);
+    margin-right: 10px;
+}
+
+.search-input-group input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.dropdown-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.label-filter {
+    font-size: 15px;
+    color: var(--text-color-light);
+    font-weight: 500;
+    white-space: nowrap; /* ป้องกันข้อความไม่ให้ตกบรรทัด */
+}
+
+.SearchFilterBar select {
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
+    font-size: 15px;
+    min-width: 120px;
+    appearance: none; /* ลบสไตล์ default ของ dropdown */
+    background-color: white;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 30px;
 }
 
-.Search button.Search {
-    padding: 8px 15px;
-    background-color: darkslategrey;
+.SearchFilterButton.secondary-button {
+    padding: 10px 20px;
+    background-color: var(--text-color-dark);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.3s;
 }
 
-.Search button.Search:hover {
+.SearchFilterButton.secondary-button:hover {
     background-color: #444;
+}
+.SearchFilterButton i {
+    margin-right: 5px;
 }
 
 /* ------------------ Post List --------------------------- */
@@ -175,55 +290,64 @@
     gap: 20px;
 }
 
-.PostBox {
+.PostBox.post-card {
     background-color: white;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--brand-color-primary); 
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+    
     display: grid;
-    /* Defines the layout structure using CSS Grid for complex alignment */
-    /* Rows: 1. Profile/Tags/Content, 2. Date/Reply/View */
-    /* Columns: Auto for profile/content, 1fr for flex columns, auto for actions */
+    /* 3 Rows: Header, Content, Footer */
+    /* 3 Columns: Profile (fixed width), Tag (flexible), Action Button (auto) */
     grid-template-areas: 
-        "profile tag tag"
-        "content content content"
+        "profile tag tag" /* PROFILE, TAG, TAG (ให้ TAG ขยายไปทางขวา) */
+        "content content content" 
         "post-date reply-count view-reply";
-    grid-template-columns: auto 1fr auto; /* Adjusted columns for better flow */
-    grid-template-rows: auto auto auto;
-    align-items: center; /* Vertical alignment in the grid */
+    /* แก้ไข: คอลัมน์แรก 120px, คอลัมน์กลางยืดหยุ่น, คอลัมน์สุดท้าย auto */
+    grid-template-columns: 120px 1fr auto; 
+    grid-template-rows: auto 1fr auto; 
+    align-items: center; 
 }
 
-/* Profile (Left-aligned, Name next to image) */
+.PostBox.post-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile & Tags (Top Row) */
 .Profile {
     grid-area: profile;
     display: flex;
+    flex-direction: column; /* เปลี่ยนเป็น column เพื่อให้รูปภาพและชื่ออยู่แนวตั้ง */
     align-items: center;
-    gap: 10px;
-    justify-content: flex-start; /* Ensures it is left-aligned */
+    gap: 5px;
     padding-bottom: 10px;
 }
 
-.Profile img {
+.profile-img {
     border-radius: 50%;
-    width: 50px;
+    width: 50px; /* เพิ่มขนาดรูปโปรไฟล์เล็กน้อย */
     height: 50px;
     object-fit: cover;
+    border: 2px solid var(--brand-color-primary);
 }
 
-.Profile h2 {
-    font-size: 18px;
-    color: teal;
+.username {
+    font-size: 14px; /* ปรับขนาดชื่อให้เล็กลง */
+    color: var(--brand-color-secondary);
+    font-weight: 600;
     margin: 0;
+    text-align: center;
 }
 
-/* Tag (Next to Name) */
 .Tag {
     grid-area: tag;
     display: flex;
-    align-items: center;
-    justify-content: flex-start; 
-    padding-left: 20px; /* Space from the Profile name */
+    justify-content: flex-start; /* ให้ Tags เริ่มต้นจากด้านซ้าย */
+    align-self: start; /* จัดให้อยู่ด้านบนของพื้นที่ Grid */
     padding-bottom: 10px;
 }
 
@@ -235,97 +359,121 @@
     gap: 10px;
 }
 
-.Tag li {
-    background-color: #ffe0b2; /* Light orange background for the tag */
-    color: #e65100; /* Darker text */
-    padding: 4px 8px;
+.tag-item {
+    padding: 4px 10px;
     border-radius: 4px;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.tag-item i {
+    margin-right: 4px;
 }
 
-/* Content (Below Profile/Tags, spanning full width) */
+.dog-tag {
+    background-color: var(--tag-dog-bg); 
+    color: var(--tag-dog-text); 
+}
+.cat-tag {
+    background-color: var(--tag-cat-bg); 
+    color: var(--tag-cat-text); 
+}
+.urgent-tag {
+    background-color: var(--tag-urgent-bg);
+    color: var(--tag-urgent-text);
+}
+
+/* Content Area (Middle Row, spans all columns) */
 .content {
     grid-area: content;
     padding: 10px 0;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
+    border-top: 1px dashed var(--border-color);
+    border-bottom: 1px dashed var(--border-color);
     margin: 10px 0;
-    width: 100%; /* Ensure it spans the grid area */
+    width: 100%; 
 }
 
-.content h1 {
-    font-size: 22px;
-    color: darkslategrey;
+.post-title {
+    font-size: 20px;
+    color: var(--text-color-dark);
     margin-top: 0;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    font-weight: 700;
 }
 
-.content p {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.5;
+.post-text {
+    font-size: 15px;
+    color: var(--text-color-light);
+    line-height: 1.6;
     margin-bottom: 0;
+    /* Truncate if too long */
+    display: -webkit-box;
+    /* -webkit-line-clamp: 2; */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* PostDate (Below Content) */
-.PostDate {
+/* Footer Items (Bottom Row) */
+.PostDate.footer-item {
     grid-area: post-date;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    gap: 8px;
     font-size: 14px;
-    color: #999;
-    padding-bottom: 5px;
+    color: var(--text-color-light);
+    justify-self: start;
 }
-
-.PostDate p {
+.PostDate.footer-item p {
     margin: 0;
-    line-height: 1.2;
 }
 
-/* ReplyCount (Next to PostDate) */
-.ReplyCount {
+.icon-small {
+    font-size: 14px;
+    color: var(--brand-color-primary);
+}
+
+.ReplyCount.footer-item {
     grid-area: reply-count;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    color: teal;
+    align-items: center;
+    gap: 5px;
+    color: var(--brand-color-secondary);
+    justify-self: start;
+    margin-left: 20px; /* Space from the date */
 }
 
-.ReplyCount h3 {
-    font-size: 24px;
+.reply-number {
+    font-size: 18px;
+    font-weight: 800;
     margin: 0;
 }
 
-.ReplyCount p {
+.reply-label {
     font-size: 14px;
+    font-weight: 500;
     margin: 0;
+    color: var(--text-color-light);
 }
 
-/* ViewReply (Bottom Left-aligned) - NOTE: I interpreted "ชิดล่างซ้าย" as aligned with the actions area, which is the bottom row of the grid. */
-.ViewReply {
-    /* grid-area: view-reply; ถูกขยายใน grid-template-areas */
-    /* grid-row: 3 / 5; ทำให้ ViewReply ครอบคลุมตั้งแต่แถวที่ 3 ถึงแถวที่ 4 */
-    /* grid-column: 2 / 4; ครอบคลุมคอลัมน์ที่ 2 และ 3 */
-    
-    padding: 8px 15px;
-    background-color: darkorange;
+/* View & Reply Button (Action) */
+.ViewReply.action-button {
+    grid-area: view-reply;
+    padding: 10px 20px;
+    background-color: var(--brand-color-primary);
     color: white;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    justify-self: end; /* Aligns to the right */
-    align-self: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    font-weight: 600;
+    font-size: 15px;
+    justify-self: end; 
+    align-self: center; 
+    transition: background-color 0.3s;
 }
 
-.ViewReply:hover {
-    background-color: #ff8c00;
+.ViewReply.action-button:hover {
+    background-color: #e66930;
 }
 
-/* Override the default Search class in the PostBox action area */
-.PostBox .Search {
-    display: none; /* Hide the search box if accidentally placed inside a post */
+.ViewReply.action-button i {
+    margin-right: 5px;
 }

@@ -3,103 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Community Board - TAILS & TRADE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="CommunityBoard.css">
 </head>
 <body>
     <div class="main-header"> 
         <div class="logo-container"> 
-            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="45px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
         </div>
 
         <ul class="headSectorHolder"> 
             <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
             <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
-            <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
+            <li class="headSector active" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
         </ul>
         
         <div class="profile-icon">
-            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
         </div>
     </div>
 
-    <div class="bodyPage">
+    <div class="bodyPage container">
         <div class="headPageAndSearch">
-            <h1>Community Board</h1>
-            <p>Can't find your perfect companion? Post a request and let our trusted sellers find a match for you.</p>
-            <button class="CreatePost" onclick="document.location='../CreateCommunityPost/CreateCommunityPost.html'">Create Post</button>
-            <div class="Search">
+            <h1 class="page-title">Community Board</h1>
+            <p class="page-description">Can't find your perfect companion? Post a request and let our trusted sellers find a match for you.</p>
+            
+            <button class="CreatePost primary-button" onclick="document.location='../CreateCommunityPost/CreateCommunityPost.html'">
+                <i class="fas fa-plus-circle"></i> Create New Post
+            </button>
+            
+            <div class="SearchFilterBar">
                 
-                <!-- <label for="TextSearch">Text Search</label><br> -->
-                <input type="text" id="TextSearch" placeholder="Search by breed, location, or keyword..."><br>
+                <div class="search-input-group">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="TextSearch" placeholder="Search by breed, location, or keyword...">
+                </div>
 
-                <!-- <label for="PetType">PetType</label><br> -->
-                <select name="PetType" id="PetType">
-                    <option value="AllPetType">All Pet Type</option>
-                    <option value="Dog">Dog</option>
-                    <option value="Cat">Cat</option>
-                    <option value="Bird">Bird</option>
-                </select><br>
+                <div class="dropdown-group">
+                    <label for="PetType" class="label-filter">Type</label>
+                    <select name="PetType" id="PetType">
+                        <option value="AllPetType">All Pet Type</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
+                        <option value="Bird">Bird</option>
+                    </select>
+                </div>
+                
+                <div class="dropdown-group">
+                    <label for="SortBy" class="label-filter">Sort by</label>
+                    <select name="SortBy" id="SortBy">
+                        <option value="Newest">Newest</option>
+                        <option value="Oldest">Oldest</option>
+                    </select>
+                </div>
 
-                <label for="SortBy">Sort by:</label>
-                <select name="SortBy" id="SortBy">
-                    <option value="Newest">Newest</option>
-                    <option value="Oldest">Oldest</option>
-                </select><br>
-
-                <button class="Search">Search</button>
+                <button class="SearchFilterButton secondary-button"><i class="fas fa-filter"></i> Filter</button>
             </div>
         </div>
 
         <div class="PostList">
-            <div class="PostBox">
+            
+            <div class="PostBox post-card">
                 <div class="Profile">
-                    <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
-                    <h2>Jane Smith</h2>
+                    <img src="../home/img/profileEmpty.png" alt="Profile Picture" class="profile-img">
+                    <h2 class="username">Jane Smith</h2>
                 </div>
                 <div class="Tag">
                     <ul>
-                        <li>Dog</li>
+                        <li class="tag-item dog-tag"><i class="fas fa-dog"></i> Dog</li>
                     </ul>
                 </div>
-
+                
                 <div class="content">
-                    <h1>Looking for a Golden Retriever puppy!</h1>
-                    <p>My family and I are looking to welcome a male Golden Retriever puppy into our home. 
+                    <h1 class="post-title">Looking for a Golden Retriever puppy!</h1>
+                    <p class="post-text">My family and I are looking to welcome a male Golden Retriever puppy into our home. 
                         We have a big yard and lots of love to give. Please reach out if you have a litter 
                         or know a reputable breeder!</p>
                 </div>
 
-                <div class="PostDate">
-                    <p>Posted</p>
-                    <p>2 hour ago</p>
+                <div class="PostDate footer-item">
+                    <i class="far fa-clock icon-small"></i>
+                    <p class="date-text">Posted <span>2 hours ago</span></p>
                 </div>
 
-                <div class="ReplyCount">
-                    <h3>3</h3>
-                    <p>Reply</p>
+                <div class="ReplyCount footer-item">
+                    <i class="fas fa-reply icon-small"></i>
+                    <h3 class="reply-number">3</h3>
+                    <p class="reply-label">Replies</p>
                 </div>
 
-                <div class="ViewReply">View & Reply</div>
-                
+                <div class="ViewReply action-button">
+                    <i class="fas fa-comment-dots"></i> View & Reply
+                </div>
             </div>
+
+            <div class="PostBox post-card">
+                <div class="Profile">
+                    <img src="../home/img/profileEmpty.png" alt="Profile Picture" class="profile-img">
+                    <h2 class="username">John Doe</h2>
+                </div>
+                <div class="Tag">
+                    <ul>
+                        <li class="tag-item cat-tag"><i class="fas fa-cat"></i> Cat</li>
+                        <li class="tag-item urgent-tag">URGENT</li>
+                    </ul>
+                </div>
+                
+                <div class="content">
+                    <h1 class="post-title">Seeking Persian Kitten for elderly Mother</h1>
+                    <p class="post-text">Looking for a quiet, female Persian kitten (under 6 months) in the Bangkok area. Must be fully vaccinated. Willing to pay a fair price for a healthy pet.</p>
+                </div>
+
+                <div class="PostDate footer-item">
+                    <i class="far fa-clock icon-small"></i>
+                    <p class="date-text">Posted <span>1 day ago</span></p>
+                </div>
+
+                <div class="ReplyCount footer-item">
+                    <i class="fas fa-reply icon-small"></i>
+                    <h3 class="reply-number">7</h3>
+                    <p class="reply-label">Replies</p>
+                </div>
+
+                <div class="ViewReply action-button">
+                    <i class="fas fa-comment-dots"></i> View & Reply
+                </div>
+            </div>
+
         </div>
     </div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="30px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
-        </div><br>
-        <div class="context">Connecting pets and people since 2025.</div><br>
-        <img src="../home/img/footer1.png" height="20px">
-        <img src="../home/img/footer2.webp" height="20px">
-        <img src="../home/img/footer3.png" height="20px"><br>
+        </div>
+        <div class="context">Connecting pets and people since 2025.</div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
-
     </div>
     
 </body>

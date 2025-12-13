@@ -1,333 +1,321 @@
-/* ------------------ header --------------------------- */
+/* --- Global Reset & Modern Font --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc; 
+    color: #333;
+}
+
+/* --- Branding & Color Palette --- */
+:root {
+    --brand-color-primary: #ff7f50; /* Coral/Salmon */
+    --brand-color-secondary: #4a90e2; /* Blue */
+    --text-color-dark: #333;
+    --text-color-light: #666;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --highlight-color: #008080; /* Teal/DarkCyan for Caretaker Highlight */
+    --tag-bg: #e0f7fa;
+    --tag-text: #00796b;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ------------------ header (Modern Style) --------------------------- */
 .main-header {
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    padding: 10px 20px; 
+    padding: 15px 40px; 
     background-color: white; 
-    color: white;
-    /* min-height: 80px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo-container {
     display: flex;
     align-items: center; 
-    gap: 15px;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 45px; 
 }
 
 .TAILSTRADE {
-    font-size: 50px;
-    font-weight: bold;
-    color: wheat;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand-color-primary);
 }
 
 .headSectorHolder {
     list-style: none;
     display: flex;
-    gap: 50px;
+    gap: 30px;
     padding: 0;
     margin: 0;
 }
 
 .headSector {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
-    color: darkslategrey;
+    color: var(--text-color-light);
     cursor: pointer;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
 }
 
-.profile-icon {
-    font-size: 30px;
-    color: darkslategrey;
-    cursor: pointer;
+.headSector:hover, .headSector.active {
+    color: var(--brand-color-primary);
 }
 
-/* ------------------ footer --------------------------- */
+.headSector.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-color-primary);
+    border-radius: 2px;
+}
 
-.footer{
-    display: block;
-    border: 2px solid white; 
-    padding: 15px;
-    margin: 20px auto;
+.profile-icon i {
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.profile-icon i:hover {
+    color: var(--brand-color-primary);
+}
+
+/* ------------------ footer (Modern Style) --------------------------- */
+.footer {
+    padding: 40px 20px;
+    margin-top: 50px; 
     text-align: center;
-    border-radius: 8px;
-    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+    background-color: #333; 
+    color: white;
 }
 
 .logo-container-footer {
     display: flex;
     align-items: center; 
-    justify-content: center; /* จัดให้อยู่กลาง footer */
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 8px;
 }
 
 .TAILSTRADE-footer {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--brand-color-primary); 
 }
 
-.footer img{
-    padding: 15px;
+.context {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
-.context{
-    color: white;
-    font-size: 20px;
-}
-
-.reg{
-    color: rgb(219, 211, 211);
-    font-size: 15px;
-}
-
-/* ------------------ bodyPage --------------------------- */
-
-.bodyPage {
-    padding: 20px 5%; /* เพิ่ม padding รอบด้าน */
-    background-color: #f7f7f7; /* สีพื้นหลังอ่อนๆ ให้ดูสบายตา */
-}
-
-/* ส่วนหัวและค้นหา */
-.headPageAndSearch {
-    text-align: center;
-    padding: 40px 0;
-    margin-bottom: 30px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.headPageAndSearch h1 {
-    font-size: 3em;
-    color: #4CAF50; /* สีเขียว */
-    margin-bottom: 5px;
-}
-
-.headPageAndSearch p {
-    font-size: 1.2em;
-    color: #555;
-    margin-bottom: 30px;
-}
-
-/* ฟอร์มค้นหา */
-.Search-Form {
+.social-icons {
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* จัดให้ปุ่มอยู่ระดับเดียวกับ input */
     gap: 15px;
-    padding: 0 20px;
+}
+
+.social-icons i {
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.social-icons i:hover {
+    color: var(--brand-color-primary);
+}
+
+.reg {
+    color: #999;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* ------------------ bodyPage and Search --------------------------- */
+
+.bodyPage {
+    padding: 40px 0;
+}
+
+.headPageAndSearch {
+    text-align: left;
+    padding: 30px; 
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, white, #eef3f8); /* Gradient Background */
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.page-title {
+    font-size: 36px;
+    color: var(--highlight-color);
+    margin: 0 0 5px 0;
+    font-weight: 800;
+}
+
+.page-description {
+    font-size: 18px;
+    color: var(--text-color-light);
+    margin-bottom: 25px;
+}
+
+/* Search Form Layout */
+.SearchForm {
+    display: flex; 
+    gap: 15px; 
+    align-items: flex-end; 
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    flex-wrap: wrap; 
 }
 
 .input-group {
-    text-align: left;
-    min-width: 180px; /* กำหนดความกว้างขั้นต่ำของแต่ละช่อง */
+    flex: 1 1 180px; /* Allows flexibility but ensures min width for each input */
+    min-width: 150px; 
 }
 
-.Search-Form label {
-    display: block;
-    font-weight: bold;
-    color: #333;
+.SearchForm label {
+    font-weight: 600;
+    color: var(--text-color-dark);
     margin-bottom: 5px;
-    font-size: 0.9em;
+    display: block; 
+    font-size: 15px;
 }
 
-.Search-Form input[type="text"],
-.Search-Form input[type="date"] {
+.SearchForm label i {
+    color: var(--brand-color-primary);
+    margin-right: 5px;
+}
+
+.SearchForm input[type="text"],
+.SearchForm input[type="date"],
+.SearchForm select {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* สำคัญมากในการจัด layout */
-}
-
-.Search-Button {
-    background-color: #FF9800; /* ส้มสดใส */
-    color: white;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    height: 42px; /* ทำให้ปุ่มสูงเท่ากับ input */
-}
-
-.Search-Button:hover {
-    background-color: #f57c00;
-}
-
-/* ------------------ bodyPage --------------------------- */
-
-.bodyPage {
-    max-width: 1200px; /* Set a max width for the main content */
-    margin: 0 auto; /* Center the content */
-    padding: 20px;
-    background-color: #f7f7f7; /* Background color */
-}
-
-/* Head Page and Search Section */
-.headPageAndSearch {
-    text-align: left; /* Ensures overall text-alignment is left */
-    padding: 40px 20px 20px 20px; /* Add internal padding */
-    margin-bottom: 30px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.headPageAndSearch h1 {
-    font-size: 40px;
-    color: darkslategrey;
-    margin-bottom: 10px;
-    text-align: left; /* Explicitly ensure left alignment */
-}
-
-.headPageAndSearch p {
-    font-size: 20px;
-    color: gray;
-    margin-bottom: 20px;
-    text-align: left; /* Explicitly ensure left alignment */
-}
-
-/* Search Form Layout (Main container for inputs/button) */
-.headPageAndSearch .Search {
-    display: flex; /* Use flexbox for horizontal layout */
-    gap: 10px; /* Space between form elements/inputs */
-    align-items: flex-end; /* Align items to the bottom */
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-}
-
-/* Style for each group of label and input */
-/* **NOTE: I recommend wrapping each label/input pair in a <div> in the HTML 
-   for better grouping and control, e.g., <div class="input-group">...</div>** */
-.headPageAndSearch .Search > * {
-    /* Targets label, input, and button */
-    /* Add flex basis for better responsiveness/distribution */
-    flex: 1 1 auto; /* Allows elements to grow, shrink, and have an auto width */
-    min-width: 150px; /* Minimum width for each input group */
-}
-/* Exclude the button from the min-width constraint to look better */
-.headPageAndSearch .Search button.Search {
-    flex: 0 0 auto; /* Prevents button from growing/shrinking, sets width to content */
-    min-width: 100px; 
-}
-
-
-.headPageAndSearch .Search label {
-    font-weight: bold;
-    color: darkslategrey;
-    margin-bottom: 5px;
-    display: block; /* Make the label a block element to properly stack with input */
-}
-
-.headPageAndSearch .Search input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%; /* Make input fill its container */
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     box-sizing: border-box;
-}
-
-/* Search Button */
-.headPageAndSearch .Search button.Search {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: teal;
-    color: white;
     font-size: 16px;
-    font-weight: bold;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    height: 42px; /* Standardize height */
+}
+
+.SearchForm input:focus, .SearchForm select:focus {
+    border-color: var(--brand-color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 127, 80, 0.2);
+}
+
+.SearchButton {
+    flex: 0 0 auto; 
+    min-width: 120px;
+    padding: 10px 20px;
+    height: 42px; 
+    background-color: var(--highlight-color);
+    color: white;
+    border: none;
+    border-radius: 6px; 
     cursor: pointer;
-    transition: background-color 0.3s;
-    height: 40px; /* Match the height of the inputs for better alignment */
-    /* margin-top: auto; /* Aligns button to the bottom if needed */
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.headPageAndSearch .Search button.Search:hover {
-    background-color: darkcyan;
+.SearchButton:hover {
+    background-color: #006666;
+    transform: translateY(-1px);
 }
 
+.SearchButton i {
+    margin-right: 5px;
+}
 
 /* --- Caretaker List Section --- */
 
-.CareTakerList h1 {
-    color: darkslategrey;
+.CareTakerList h2.results-title {
+    font-size: 24px;
+    color: var(--text-color-dark);
     margin-top: 40px;
     margin-bottom: 20px;
+    font-weight: 700;
 }
 
-/* CareTakerBox Layout: Image on left, Details on right */
 .CareTakerBox {
-    display: flex; /* Enable flexbox for main horizontal layout */
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    align-items: flex-start; /* Align all items to the top */
-    gap: 20px; /* Space between the image and the text content */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    /* ใช้ Anchor tag ให้คลิกได้ทั้ง Box */
+    display: flex; 
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    align-items: center; 
+    gap: 20px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     background-color: white;
-    position: relative; /* Needed for positioning VeiwProfile if desired */
+    text-decoration: none; /* Remove underline from <a> */
+    color: inherit;
+    transition: box-shadow 0.3s, transform 0.3s;
 }
 
-.CareTakerBox img {
-    /* Caretaker profile image */
-    flex-shrink: 0; /* Prevents the image from shrinking */
-    border-radius: 50%; /* Make the caretaker image round */
+.CareTakerBox:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.caretaker-photo {
+    flex-shrink: 0; 
+    border-radius: 50%; 
     object-fit: cover;
-    height: 70px;
-    width: 70px;
-    margin-top: 5px; /* Adjust if needed to align with h1 */
+    height: 80px;
+    width: 80px;
+    border: 3px solid var(--brand-color-primary);
 }
 
-/* Container for all the text details to the right of the image */
 .Detail {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    flex-grow: 1; /* Allows this content area to take up most of the remaining space */
-    margin: 0;
+    flex-direction: column; 
+    flex-grow: 1; 
 }
 
-.Detail h1 {
+.caretaker-name {
     font-size: 24px;
-    color: teal;
+    color: var(--highlight-color);
     margin: 0 0 5px 0;
+    font-weight: 700;
 }
 
-.Detail > p { /* Target the direct paragraph child (description) */
-    color: gray;
+.caretaker-tagline { 
+    color: var(--text-color-light);
     margin: 0 0 10px 0;
-}
-
-/* Price Section */
-.Price {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-    margin-bottom: 10px;
-}
-
-.Price h1 {
-    font-size: 28px;
-    color: darkgreen;
-    margin: 0;
-}
-
-.Price p {
     font-size: 16px;
-    color: darkgreen;
-    margin: 0;
-    /* align-self: flex-end; */
+}
+
+.rating-and-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 /* Star and Rating Section */
@@ -335,54 +323,139 @@
     display: flex;
     align-items: center;
     gap: 5px;
-    margin-bottom: 10px;
 }
 
-.StarAndRating img {
-    height: 15px; /* Adjust star size */
-    width: 15px;
-    border-radius: 0; /* Override the 50% radius if set globally */
+.rating-star {
+    color: gold; 
+    font-size: 16px;
 }
 
-.StarAndRating p {
+.rating-score {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color-dark);
+}
+
+.review-count {
     font-size: 14px;
-    margin: 0;
+    color: var(--text-color-light);
 }
 
 /* Tag Section */
-.Tag {
-    margin-bottom: 15px;
-}
-
-.Tag ul {
+.Tag ul.tag-list {
     list-style: none;
     padding: 0;
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    margin: 0;
 }
 
-.Tag li {
-    background-color: #e0f7fa;
-    color: #00796b;
-    padding: 5px 10px;
+.Tag li.tag-item {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 4px 10px;
     border-radius: 15px;
-    font-size: 14px;
-    margin-bottom: 5px; /* For wrapping tags */
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
-/* View Profile Button/Link */
-.VeiwProfile {
-    color: teal;
-    font-weight: bold;
+.Tag li.tag-item i {
+    margin-right: 5px;
+    color: var(--highlight-color);
+}
+
+.Tag li.cat-tag {
+    background-color: #fffde7;
+    color: #f57f17;
+}
+
+/* Price and Action Section (Right side) */
+.PriceAndAction {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align price and button/link to the right */
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.Price {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+.price-value {
+    font-size: 30px;
+    color: darkgreen;
+    font-weight: 800;
+}
+
+.price-unit {
+    font-size: 18px;
+    color: darkgreen;
+    font-weight: 500;
+}
+
+.primary-text-link {
+    color: var(--brand-color-secondary);
+    font-weight: 600;
     cursor: pointer;
-    text-decoration: none; /* Removed underline from the original for a cleaner look */
-    /* This positioning places it to the far right of the *whole* CareTakerBox */
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
+    transition: color 0.3s;
+}
+.primary-text-link:hover {
+    color: #3b74c0;
 }
 
-.VeiwProfile:hover {
-    text-decoration: underline;
+/* Media Queries for Responsiveness */
+@media (max-width: 992px) {
+    .SearchForm {
+        flex-wrap: wrap;
+    }
+    .input-group {
+        flex: 1 1 calc(50% - 10px); /* 2 columns on medium screens */
+    }
+    .SearchButton {
+        flex: 1 1 100%; /* Button full width */
+    }
+}
+
+@media (max-width: 600px) {
+    .headPageAndSearch {
+        padding: 20px;
+    }
+    .SearchForm {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .input-group {
+        flex: 1 1 100%; /* 1 column on small screens */
+    }
+
+    .CareTakerBox {
+        flex-wrap: wrap; /* Wrap content in Caretaker Box */
+        align-items: flex-start;
+    }
+    
+    .caretaker-photo {
+        height: 60px;
+        width: 60px;
+    }
+
+    .PriceAndAction {
+        flex-direction: row; /* Price and action side-by-side at the bottom */
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px dashed var(--border-color);
+    }
+    
+    .price-value {
+        font-size: 24px;
+    }
+    .price-unit {
+        font-size: 16px;
+    }
 }

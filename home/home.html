@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TAILS & TRADE - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
     <div class="main-header"> 
         <div class="logo-container"> 
-            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="45px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
         </div>
 
         <ul class="headSectorHolder"> 
-            <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
+            <li class="headSector active" onclick="document.location='../home/home.html'">Our Services</li>
             <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
@@ -22,148 +23,140 @@
         </ul>
         
         <div class="profile-icon">
-            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+             <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
         </div>
     </div>
 
     <div class="bodyPage">
         <div class="hero">
-        
-        
-            <div class="hero-content">
-                <img src="../home/img/HeroImg.webp">
-                <div class="Herotext">
-                    <h1>Find Your Perfect Companion</h1>
-                    <p>The ultimate platform connecting loving homes with adorable pets. Buy, sell, and find trusted care, all in one happy place.</p>
-                    <div class="BoxExploreService">Explore Our Services</div>
-                </div>
-                <div class="herobehideText-hero">TAILS & TRADES</div>
+            <div class="hero-image-container">
+                 <img src="../home/img/HeroImg.webp" alt="Pets in a happy home">
+                <div class="hero-overlay"></div>
             </div>
-        
+            
+            <div class="Herotext">
+                <h1>Find Your Perfect Companion</h1>
+                <p>The ultimate platform connecting loving homes with adorable pets. Buy, sell, and find trusted care, all in one happy place.</p>
+                <a href="../FindAPet/FindAPet.html" class="BoxExploreService">Explore Pets Now <i class="fas fa-paw"></i></a>
+            </div>
+            <div class="herobehideText-hero">TAILS & TRADES</div>
         </div>
 
-        <div class="FeaturedPet">
-            <h1>Featured Pets</h1>
-            <p>Meet some of our adorable friends waiting for new home.</p>
+        <div class="FeaturedPet section-padding">
+            <h2>🐶 Featured Pets</h2>
+            <p class="section-subtitle">Meet some of our adorable friends waiting for new homes.</p>
             <div class="containCard">
-                <div class="card">
-                    <img src="../home/img/card1.jpg" height="100px"><br>
-                    <div class="name">Buddy</div><br>
-                    <div class="breed">Golden Retriever</div><br>
-                    <div class="info">A playful and friendly companion ,great with kids.</div><br>
-                    <div class="BoxVeiwDetail">Veiw Details</div>
+                 <div class="card card-item" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
+                    <img src="../home/img/card1.jpg" alt="Buddy the Golden Retriever">
+                    <div class="card-details">
+                        <div class="name">Buddy</div>
+                        <div class="breed">Golden Retriever</div>
+                        <div class="info">A playful and friendly companion, great with kids.</div>
+                        <a href="../SelectBuyPage/SelectBuyPage.html" class="BoxVeiwDetail primary-button">View Details</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="../home/img/card1.jpg" height="100px"><br>
-                    <div class="name">Buddy</div><br>
-                    <div class="breed">Golden Retriever</div><br>
-                    <div class="info">A playful and friendly companion ,great with kids.</div><br>
-                    <div class="BoxVeiwDetail">Veiw Details</div>
+                <div class="card card-item" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
+                    <img src="../home/img/card2.jpg" alt="Luna the Siamese Cat">
+                    <div class="card-details">
+                        <div class="name">Luna</div>
+                        <div class="breed">Siamese Cat</div>
+                        <div class="info">Elegant and affectionate, loves indoor play.</div>
+                        <a href="../SelectBuyPage/SelectBuyPage.html" class="BoxVeiwDetail primary-button">View Details</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="../home/img/card1.jpg" height="100px"><br>
-                    <div class="name">Buddy</div><br>
-                    <div class="breed">Golden Retriever</div><br>
-                    <div class="info">A playful and friendly companion ,great with kids.</div><br>
-                    <div class="BoxVeiwDetail">Veiw Details</div>
+                <div class="card card-item" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
+                    <img src="../home/img/card3.jpg" alt="Charlie the Cockatiel">
+                    <div class="card-details">
+                        <div class="name">Charlie</div>
+                        <div class="breed">Cockatiel</div>
+                        <div class="info">A singing bird that brightens up any home.</div>
+                        <a href="../SelectBuyPage/SelectBuyPage.html" class="BoxVeiwDetail primary-button">View Details</a>
+                    </div>
                 </div>
-                <div class="card">
-                    <img src="../home/img/card1.jpg" height="100px"><br>
-                    <div class="name">Buddy</div><br>
-                    <div class="breed">Golden Retriever</div><br>
-                    <div class="info">A playful and friendly companion ,great with kids.</div><br>
-                    <div class="BoxVeiwDetail">Veiw Details</div>
+                <div class="card card-item" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
+                    <img src="../home/img/card4.jpg" alt="Rocky the Beagle">
+                    <div class="card-details">
+                        <div class="name">Rocky</div>
+                        <div class="breed">Beagle</div>
+                        <div class="info">Energetic and loyal, perfect for active families.</div>
+                        <a href="../SelectBuyPage/SelectBuyPage.html" class="BoxVeiwDetail primary-button">View Details</a>
+                    </div>
                 </div>
             </div>
-            
-            
         </div>
 
-        <div class="Offer">
-            <h1>What We Offer</h1>
-            <p>Everything you need for your pet journey.</p>
+        <div class="Offer section-padding background-light">
+            <h2>💡 What We Offer</h2>
+            <p class="section-subtitle">Everything you need for your pet journey.</p>
             <div class="containBox">
-                <div class="box">
-                    <img src="../home/img/offer1.webp" height="100px"><br>
-                    <div class="headWord">Selling platform</div><br>
-                    <div class="info">Register with us to find loving homes for your pets.
-                        Our platform connects you with responsible buyers in
-                        a safe and supportive environment.</div><br>
+                <div class="box offer-box">
+                     <img src="../home/img/offer1.webp" height="80px" alt="Selling Platform Icon">
+                    <div class="headWord">Selling Platform</div>
+                    <div class="info">Register with us to find loving homes for your pets. Our platform connects you with responsible buyers in a safe and supportive environment.</div>
                 </div>
-                <div class="box">
-                    <img src="../home/img/offer2.png" height="100px"><br>
-                    <div class="headWord">Community Board</div><br>
-                    <div class="info">Looking for a specific breed or type of pet? Post your
-                        requirements and let our network of sellers find the
-                        perfect match for you.</div><br>
+                <div class="box offer-box">
+                    <img src="../home/img/offer2.png" height="80px" alt="Community Board Icon">
+                    <div class="headWord">Community Board</div>
+                    <div class="info">Looking for a specific breed or type of pet? Post your requirements and let our network of sellers find the perfect match for you.</div>
                 </div>
-                <div class="box">
-                    <img src="../home/img/offer3.png" height="100px"><br>
-                    <div class="headWord">Expert Pet Care</div><br>
-                    <div class="info">Need someone to look after your furry friend?
-                        Connect with our trusted and vetted pet caretakers
-                        for peace of mind while you're away.</div><br>
+                <div class="box offer-box">
+                    <img src="../home/img/offer3.png" height="80px" alt="Pet Care Icon">
+                    <div class="headWord">Expert Pet Care</div>
+                    <div class="info">Need someone to look after your furry friend? Connect with our trusted and vetted pet caretakers for peace of mind while you're away.</div>
                 </div>
             </div>
-            
         </div>
 
-        <div class="HowItWork">
-            <h1>How It Work</h1>
-            <p>Getting started is as easy as 1-2-3.</p>
+        <div class="HowItWork section-padding">
+            <h2>🚀 How It Works</h2>
+            <p class="section-subtitle">Getting started is as easy as 1-2-3.</p>
             <div class="containBoxHTW">
-                <div class="boxHTW">
-                    <div class="number">1</div><br>
-                    <div class="headWord">Create an Account</div><br>
-                    <div class="info">Sign up as a buyer, seller, or caretaker to
-                        unlock all our features.</div><br>
+                <div class="boxHTW step-box">
+                    <div class="number">1</div>
+                    <div class="headWord">Create an Account</div>
+                    <div class="info">Sign up as a buyer, seller, or caretaker to unlock all our features.</div>
                 </div>
-                <div class="boxHTW">
-                    <div class="number">2</div><br>
-                    <div class="headWord">Create an Account</div><br>
-                    <div class="info">Browse listings, post on the community
-                        board, or find the perfect caretaker for
-                        your pet.</div><br>
+                <div class="boxHTW step-box">
+                    <div class="number">2</div>
+                    <div class="headWord">Explore & Connect</div>
+                    <div class="info">Browse listings, post on the community board, or find the perfect caretaker for your pet.</div>
                 </div>
-                <div class="boxHTW">
-                    <div class="number">3</div><br>
-                    <div class="headWord">Create an Account</div><br>
-                    <div class="info">Complete your journey by finding a new
-                        pet, a new home for one, or reliable care.</div><br>
+                <div class="boxHTW step-box">
+                    <div class="number">3</div>
+                    <div class="headWord">Find Your Match</div>
+                    <div class="info">Complete your journey by finding a new pet, a new home for one, or reliable care.</div>
                 </div>
             </div>
-
         </div>
 
-        <div class="JoinOurCommunity">
-            <h1>Join Our Community</h1>
-            <p>See how our community board connects people.</p>
-            <div class="communityBox">
-
-            </div>
-
+        <div class="JoinOurCommunity section-padding call-to-action">
+            <h2>🤝 Join Our Community Today</h2>
+            <p class="section-subtitle">Connect with thousands of pet lovers and find your perfect match.</p>
+             <a href="../CommunityBoard/CommunityBoard.html" class="primary-button-lg">Join Now <i class="fas fa-users"></i></a>
         </div>
 
     </div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="30px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
-        </div><br>
-        <div class="context">Connecting pets and people since 2025.</div><br>
-        <img src="../home/img/footer1.png" height="20px">
-        <img src="../home/img/footer2.webp" height="20px">
-        <img src="../home/img/footer3.png" height="20px"><br>
+        </div>
+        <div class="context">Connecting pets and people since 2025.</div>
+        <div class="social-icons">
+             <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
 
     </div>
 
 
-    <div class="form-popup" id="myForm">
+     <div class="form-popup" id="myForm">
         <form action="/action_page.php" class="form-container">
             <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
-            <h1>Login</h1>
+            <h1 class="login-header">Login</h1>
 
             <label for="email"><b>Email :</b></label>
             <input type="text" placeholder="Enter your email" name="email" required>
@@ -172,17 +165,26 @@
             <input type="password" placeholder="Enter your password" name="psw" required>
 
             <div class="Remember-Forget">
-                <input type="checkbox" id="checkboxRememberMe">
-                <label for="checkboxRememberMe">Remember me</label>
-
-                <label class="forgetPass">Forget password?</label>
+                <div class="remember-me">
+                    <input type="checkbox" id="checkboxRememberMe">
+                    <label for="checkboxRememberMe">Remember me</label>
+                </div>
+                
+                <a href="#" class="forgetPass">Forget password?</a>
             </div>
             
-
-            <button type="submit" class="btn">Login</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            <button type="submit" class="btn primary-button">Login</button>
+            <button type="button" class="btn secondary-button cancel" onclick="closeForm()">Close</button>
         </form>
     </div>
-    <script src="home.js"></script>
+    <script>
+        // Dummy functions for demonstration (you need to implement these in home.js)
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
 </body>
 </html>

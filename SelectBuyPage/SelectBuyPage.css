@@ -1,253 +1,385 @@
-/* ------------------ header --------------------------- */
+/* --- Global Reset & Modern Font (จาก home.css) --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc; 
+    color: #333;
+}
+
+/* --- Branding & Color Palette (จาก home.css) --- */
+:root {
+    --brand-color-primary: #ff7f50; /* Coral/Salmon */
+    --brand-color-secondary: #4a90e2; /* Blue */
+    --text-color-dark: #333;
+    --text-color-light: #666;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ------------------ header (ใช้สไตล์ร่วมกับ home.css) --------------------------- */
 .main-header {
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    padding: 10px 20px; 
+    padding: 15px 40px; 
     background-color: white; 
-    color: white;
-    /* min-height: 80px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo-container {
     display: flex;
     align-items: center; 
-    gap: 15px;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 45px;
 }
 
 .TAILSTRADE {
-    font-size: 50px;
-    font-weight: bold;
-    color: wheat;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand-color-primary);
 }
 
 .headSectorHolder {
     list-style: none;
     display: flex;
-    gap: 50px;
+    gap: 30px;
     padding: 0;
     margin: 0;
 }
 
 .headSector {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
-    color: darkslategrey;
+    color: var(--text-color-light);
     cursor: pointer;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
 }
 
-.profile-icon {
-    font-size: 30px;
-    color: darkslategrey;
-    cursor: pointer;
+.headSector:hover, .headSector.active {
+    color: var(--brand-color-primary);
 }
 
-/* ------------------ footer --------------------------- */
+.headSector.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-color-primary);
+    border-radius: 2px;
+}
 
-.footer{
-    display: block;
-    border: 2px solid white; 
-    padding: 15px;
-    margin: 20px auto;
+.profile-icon i {
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.profile-icon i:hover {
+    color: var(--brand-color-primary);
+}
+
+/* ------------------ footer (ใช้สไตล์ร่วมกับ home.css) --------------------------- */
+
+.footer {
+    padding: 40px 20px;
+    margin-top: 50px; /* เพิ่ม margin ด้านบนให้ดูแยกจากเนื้อหา */
     text-align: center;
-    border-radius: 8px;
-    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+    background-color: #333; 
+    color: white;
 }
 
 .logo-container-footer {
     display: flex;
     align-items: center; 
-    justify-content: center; /* จัดให้อยู่กลาง footer */
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 8px;
 }
 
 .TAILSTRADE-footer {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--brand-color-primary); 
 }
 
-.footer img{
-    padding: 15px;
+.context {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
-.context{
-    color: white;
-    font-size: 20px;
-}
-
-.reg{
-    color: rgb(219, 211, 211);
-    font-size: 15px;
-}
-
-/* ------------------ bodyPage Layout --------------------------- */
-
-/* Use Flexbox for the main content container to arrange items side-by-side */
-.pictureAndMessage {
-    display: flex;
-    /* Space between the image and the info block */
-    gap: 50px; 
-    /* Centers the items vertically */
-    align-items: flex-start; 
-    /* Adds some margin/padding around the content */
-    padding: 20px; 
-    max-width: 1200px; /* Optional: Limit the overall width */
-    margin: 20px auto; /* Optional: Center the entire content block on the page */
-    border: 1px solid #ddd; /* Optional: For visualization/styling */
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-/* Ensure the image container does not take up excessive space */
-.pictureAndSelectPic {
-    /* Optional: Allocate a specific width for the image block */
-    flex-basis: 550px; 
-    flex-shrink: 0;
-}
-
-/* Styling for the main image */
-.pictureAndSelectPic > img {
-    width: 100%; /* Make the image responsive within its container */
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-/* Arrange the smaller sub-images */
-.Subimg {
-    display: flex;
-    gap: 10px;
-}
-
-.Subimg img {
-    width: 100px; /* Set a specific size for the sub images */
-    height: 100px;
-    object-fit: cover;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Ensure the name and info block takes the remaining space */
-.nameAndBasicInfo {
-    flex-grow: 1; /* Allows this block to fill the remaining space */
-    padding: 10px;
-}
-
-.name {
-    font-size: 32px;
-    font-weight: bold;
-    color: darkslategrey;
-}
-
-.price {
-    font-size: 28px;
-    color: #ff6500; /* Example color for price */
-    font-weight: bold;
-    margin-top: 10px;
+.social-icons {
     margin-bottom: 20px;
 }
 
-/* Style for basic info lines (Breed, Gender, Age, Location) */
-.breed, .Gender, .Age, .locationInPetList {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #333;
+.social-icons i {
+    font-size: 20px;
+    margin: 0 10px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
+.social-icons i:hover {
+    color: var(--brand-color-primary);
+}
+
+.reg {
+    color: #999;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* ------------------ Page Specific Styles --------------------------- */
+
+.backToSelectPage {
+    margin: 20px auto 30px;
+    cursor: pointer;
+    color: var(--brand-color-secondary); /* ใช้สีรอง */
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s;
+    display: block; /* Ensure it takes up its own line */
+    width: fit-content;
+}
+
+.backToSelectPage:hover {
+    color: #3b74c0;
+    text-decoration: underline;
+}
+
+/* --- Main Detail Card --- */
+.pictureAndMessage {
+    display: flex;
+    gap: 40px; 
+    align-items: flex-start; 
+    padding: 30px; 
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light); /* ใช้เงาแบบนุ่มนวล */
+}
+
+/* Image Column */
+.pictureAndSelectPic {
+    flex-basis: 50%; /* ให้ภาพกินพื้นที่ 50% */
+    max-width: 550px; 
+    flex-shrink: 0;
+}
+
+.main-pet-img {
+    width: 100%; 
+    height: 400px; /* กำหนดความสูงเพื่อให้ภาพดูดีขึ้น */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Sub Images */
+.Subimg {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.Subimg img {
+    width: 80px; 
+    height: 80px;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.Subimg img:hover {
+    border-color: var(--brand-color-primary);
+}
+
+/* Info Column */
+.nameAndBasicInfo {
+    flex-grow: 1; 
+    padding: 10px 0;
+}
+
+.name {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text-color-dark);
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 32px;
+    color: var(--brand-color-primary); 
+    font-weight: 900;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+}
+
+/* Basic Info Group */
+.info-group {
+    margin-bottom: 30px;
+}
+
+.info-item {
+    font-size: 18px;
+    line-height: 2.2;
+    color: var(--text-color-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.info-item .label {
+    font-weight: 600;
+    color: var(--text-color-light);
+    width: 80px; /* จัด alignment ให้ดีขึ้น */
+}
+
+.icon-primary {
+    color: var(--brand-color-secondary);
+    font-size: 16px;
+}
+
+/* Sold By */
 .soldBy {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
-    font-size: 18px;
-    color: #555;
+    padding: 15px;
+    background-color: #f7f9fc;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.seller-label {
+    font-weight: 500;
+    color: var(--text-color-light);
 }
 
 .sellerName {
-    font-weight: bold;
-    color: darkslategrey;
+    font-weight: 700;
+    color: var(--brand-color-secondary);
     cursor: pointer;
 }
 
-.MessageToSeller, .AddToFavorites {
-    display: inline-block;
-    padding: 12px 25px;
-    margin-top: 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s;
-}
-
-.MessageToSeller {
-    background-color: #008080; /* Teal/Dark Cyan */
-    color: white;
-    margin-right: 15px;
-}
-
-.MessageToSeller:hover {
-    background-color: #006666;
-}
-
-.AddToFavorites {
-    background-color: #ccc;
-    color: #333;
-    border: 1px solid #bbb;
-}
-
-.AddToFavorites:hover {
-    background-color: #bbb;
-}
-
-/* Styling the "About" and "Health" sections below the main info */
-.About-MoreInfo {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 20px;
-}
-
-.About h1, .HealthAndInfo h1 {
-    color: darkslategrey;
-    border-bottom: 2px solid #ff6500;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
-}
-
-.About p {
-    line-height: 1.6;
-    color: #444;
-}
-
-.HealthAndInfo ul {
-    list-style: disc;
-    margin-left: 20px;
-    padding-left: 0;
-    line-height: 1.8;
-    color: #444;
-}
-
-.backToSelectPage {
-    max-width: 1200px;
-    margin: 20px auto 0;
-    cursor: pointer;
-    color: #008080;
-    font-weight: 500;
-}
-
-.backToSelectPage:hover {
+.sellerName:hover {
     text-decoration: underline;
 }
 
-/* Ensure the TAILSTRADE color is visible in the header */
-.TAILSTRADE {
-    /* ... existing styles ... */
-    color: #008080; /* Setting a specific color for visibility, as 'wheat' on 'white' is hard to see */
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.MessageToSeller, .AddToFavorites {
+    padding: 12px 25px;
+    border-radius: 50px; /* ทำให้ปุ่มโค้งมน */
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    flex-grow: 1;
+    border: none;
+    font-size: 16px;
+}
+
+.MessageToSeller.primary-button {
+    background-color: var(--brand-color-primary);
+    color: white;
+}
+
+.MessageToSeller.primary-button:hover {
+    background-color: #d85c30;
+    transform: translateY(-1px);
+}
+
+.AddToFavorites.secondary-button {
+    background-color: #f0f0f0;
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color);
+}
+
+.AddToFavorites.secondary-button:hover {
+    background-color: #e8e8e8;
+    transform: translateY(-1px);
+}
+.AddToFavorites.secondary-button i {
+    color: #ff4d4d; /* สีหัวใจ */
+    margin-right: 5px;
+}
+
+
+/* --- About & Health Sections --- */
+.About-MoreInfo {
+    display: flex;
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.info-box {
+    flex: 1;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-color-dark);
+    border-bottom: 3px solid var(--brand-color-primary);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.About p {
+    line-height: 1.7;
+    color: var(--text-color-light);
+    font-size: 16px;
+}
+
+.HealthAndInfo ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.HealthAndInfo li {
+    line-height: 2;
+    color: var(--text-color-dark);
+    font-size: 16px;
+    border-bottom: 1px dashed #eee;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-list {
+    color: var(--brand-color-primary);
+    font-size: 16px;
 }

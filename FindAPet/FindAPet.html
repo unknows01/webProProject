@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Find Your New Friend - TAILS & TRADE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="FindAPet.css">
 </head>
 <body>
     <div class="main-header"> 
         <div class="logo-container"> 
-            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
         </div>
 
         <ul class="headSectorHolder"> 
             <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
-            <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
+            <li class="headSector active" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
         </ul>
         
         <div class="profile-icon">
-            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
         </div>
     </div>
 
@@ -34,89 +35,111 @@
 
         <div class="mid-page-layout">
             <div class="filter-box">
-                <h1>Filters</h1>
+                <h2>🐾 Filters</h2>
 
-                <h1>Pet Type</h1>
-                <div class="checkBoxList" >
-                    <input type="checkbox" id="DogCheckBox">
-                    <label for="DogCheckBox">Dogs</label><br>
+                <div class="filter-group">
+                    <h3>Pet Type</h3>
+                    <div class="checkBoxList" >
+                        <input type="checkbox" id="DogCheckBox">
+                        <label for="DogCheckBox">Dogs</label><br>
 
-                    <input type="checkbox" id="CatCheckBox">
-                    <label for="CatCheckBox">Cats</label><br>
+                        <input type="checkbox" id="CatCheckBox">
+                        <label for="CatCheckBox">Cats</label><br>
 
-                    <input type="checkbox" id="BirdCheckBox">
-                    <label for="BirdCheckBox">Birds</label><br>
+                        <input type="checkbox" id="BirdCheckBox">
+                        <label for="BirdCheckBox">Birds</label><br>
+                        
+                        <input type="checkbox" id="OtherCheckBox">
+                        <label for="OtherCheckBox">Other</label><br>
+                    </div>
                 </div>
 
-                <h1>Price Range</h1>
-                <div class="max-min">
-                    <input type="text" id="minRange" placeholder="Min">
-                    <div>-</div>
-                    <input type="text" id="maxRange" placeholder="Max">
+                <div class="filter-group">
+                    <h3>Price Range</h3>
+                    <div class="max-min">
+                        <input type="number" id="minRange" placeholder="Min Price">
+                        <span>-</span>
+                        <input type="number" id="maxRange" placeholder="Max Price">
+                    </div>
                 </div>
 
-                <h1>Location</h1>
-                <div class="location">
-                    <input type="text" id="locationInput" placeholder="e.g. Bankok">
+                <div class="filter-group">
+                    <h3>Location</h3>
+                    <div class="location">
+                        <input type="text" id="locationInput" placeholder="e.g. Bangkok">
+                    </div>
                 </div>
 
                 <div class="buttonApply-Reset">
-                    <button type="button" id="minRange">Apply Filters</button>
-                    <button type="button" id="minRange">Reset</button>
+                    <button class="primary-button">Apply Filters</button>
+                    <button class="secondary-button">Reset</button>
                 </div>
                 
             </div>
 
             <div class="product-list-box">
                 <div class="headCard">
-                    <div class="showNumList">Showing x-y of n results</div>
-                    <div class="sortBy">Sort by: TEXT</div>
+                    <div class="showNumList">Showing 1-4 of 12 results</div>
+                    <div class="sortBy">
+                        Sort by: 
+                        <select id="sortByDropdown">
+                            <option value="latest">Latest</option>
+                            <option value="priceLow">Price: Low to High</option>
+                            <option value="priceHigh">Price: High to Low</option>
+                            <option value="popular">Most Popular</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="containCard">
 
                     <div class="card" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
-                        <img src="../home/img/card1.jpg" height="100px"><br>
-                        <div class="name">Playful Golden Retriever Puppies</div><br>
-                        <div class="price">$1200</div><br>
-                        <div class="breed">Golden Retriever</div><br>
-                        <div class="locationInPetList">Bankok , BKK</div><br>
+                        <img src="../home/img/card1.jpg" alt="Golden Retriever" loading="lazy">
+                        <div class="card-details">
+                            <div class="name">Playful Golden Retriever Puppies</div>
+                            <div class="price-tag">$1200</div>
+                            <div class="breed">Golden Retriever</div>
+                            <div class="locationInPetList"><i class="fas fa-map-marker-alt"></i> Bangkok, BKK</div>
+                        </div>
                     </div>
 
                     <div class="card" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
-                        <img src="../home/img/card1.jpg" height="100px"><br>
-                        <div class="name">Playful Golden Retriever Puppies</div><br>
-                        <div class="price">$1200</div><br>
-                        <div class="breed">Golden Retriever</div><br>
-                        <div class="locationInPetList">Bankok , BKK</div><br>
+                        <img src="../home/img/card2.jpg" alt="Siamese Cat" loading="lazy">
+                        <div class="card-details">
+                            <div class="name">Adorable Siamese Kittens</div>
+                            <div class="price-tag">$800</div>
+                            <div class="breed">Siamese Cat</div>
+                            <div class="locationInPetList"><i class="fas fa-map-marker-alt"></i> Chiang Mai</div>
+                        </div>
                     </div>
 
                     <div class="card" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
-                        <img src="../home/img/card1.jpg" height="100px"><br>
-                        <div class="name">Playful Golden Retriever Puppies</div><br>
-                        <div class="price">$1200</div><br>
-                        <div class="breed">Golden Retriever</div><br>
-                        <div class="locationInPetList">Bankok , BKK</div><br>
+                        <img src="../home/img/card3.jpg" alt="Cockatiel Bird" loading="lazy">
+                        <div class="card-details">
+                            <div class="name">Singing Cockatiel Bird</div>
+                            <div class="price-tag">$250</div>
+                            <div class="breed">Cockatiel</div>
+                            <div class="locationInPetList"><i class="fas fa-map-marker-alt"></i> Phuket</div>
+                        </div>
                     </div>
 
                     <div class="card" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
-                        <img src="../home/img/card1.jpg" height="100px"><br>
-                        <div class="name">Playful Golden Retriever Puppies</div><br>
-                        <div class="price">$1200</div><br>
-                        <div class="breed">Golden Retriever</div><br>
-                        <div class="locationInPetList">Bankok , BKK</div><br>
+                        <img src="../home/img/card4.jpg" alt="Beagle Puppy" loading="lazy">
+                        <div class="card-details">
+                            <div class="name">Energetic Beagle Puppy</div>
+                            <div class="price-tag">$950</div>
+                            <div class="breed">Beagle</div>
+                            <div class="locationInPetList"><i class="fas fa-map-marker-alt"></i> Khon Kaen</div>
+                        </div>
                     </div>
-
-                    
-                    
                     
                 </div>
                 
-            </div>
-
-            <div class="productPage">
-                <div class="page">1</div>
-                <div class="page">2</div> 
-                <div class="page">3</div>
+                <div class="productPage">
+                    <div class="page active-page">1</div>
+                    <div class="page">2</div> 
+                    <div class="page">3</div>
+                    <div class="page next-page"><i class="fas fa-angle-right"></i></div> 
+                </div>
             </div>
             
         </div>
@@ -125,13 +148,15 @@
 
     <div class="footer">
         <div class="logo-container-footer"> 
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="30px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
-        </div><br>
-        <div class="context">Connecting pets and people since 2025.</div><br>
-        <img src="../home/img/footer1.png" height="20px">
-        <img src="../home/img/footer2.webp" height="20px">
-        <img src="../home/img/footer3.png" height="20px"><br>
+        </div>
+        <div class="context">Connecting pets and people since 2025.</div>
+        <div class="social-icons">
+             <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
 
     </div>

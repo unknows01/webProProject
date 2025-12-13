@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Pet Profile - TAILS & TRADE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="AddAPetProfile.css">
 </head>
 <body>
     <div class="main-header"> 
         <div class="logo-container"> 
-            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="45px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
         </div>
 
@@ -17,82 +18,148 @@
             <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
             <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
-            <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
+            <li class="headSector active" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
         </ul>
         
         <div class="profile-icon">
-            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
         </div>
     </div>
 
-    <div class="bodyPage">
-        <div class="backToSelectPage" onclick="document.location='../MyPet/MyPet.html'"> < Back to My Pet</div>
-        <h1>Add a Pet Profile</h1>
-        <p>Create a profile for your pet. This information will be securely saved and can be shared with caretakers when you book a service.</p>
-
-        <div class="containBox">
-            <div class="BasicInformation">
-                <h1>Basic Information</h1>
-
-                <label for="PetName">Pet's Name</label><br>
-                <input type="text" id="PetName" placeholder="e.g., Buddy"><br>
-
-                <label for="PetType">Pet Type</label><br>
-                <input type="text" id="PetType" placeholder="e.g., Dog"><br>
-
-                <label for="Breed">Breed</label><br>
-                <input type="text" id="Breed" placeholder="e.g., Golden Retriever"><br>
-
-                <label for="Age">Age</label><br>
-                <input type="text" id="Age" placeholder="e.g., 2 year"><br>
-            </div>
-
-            <div class="ProfilePhoto">
-                <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
-                <span class="ProfilePhotoText">Upload Photo</span> 
-            </div>
-
-            <div class="careAndBehavior">
-                <h1>Care & Behavior</h1>
-
-                <label for="FeedingInstructions">Feeding Instructions</label><br>
-                <input type="text" id="FeedingInstructions" placeholder="e.g., 2 cups of dry food, once in the morning and once at night."><br>
-
-                <label for="FeedingInstructions">Behavioral Notes</label><br>
-                <input type="text" id="FeedingInstructions" placeholder="e.g., Friendly with other dogs, but shy around new people. Loves belly rubs."><br>
-
-            </div>
-
-            <div class="medicalInformation">
-                <h1>Medical Information</h1>
-
-                <label for="AllergiesOrSpecialConditions">Allergies or Special Conditions</label><br>
-                <input type="text" id="AllergiesOrSpecialConditions" placeholder="e.g., Allergic to chicken. Has mild separation anxiety."><br>
-
-                <label for="EmergencyVetContact">Emergency Vet Contact</label><br>
-                <input type="text" id="EmergencyVetContact" placeholder="Vet's Name & Phone Number"><br>
-            </div>
-
-            <div class="SavePetProfile">Save Pet Profile</div>
-            <div class="Cancel" onclick="document.location='../MyPet/MyPet.html'">Cancel</div>
-
+    <div class="bodyPage container">
+        <div class="backToSelectPage" onclick="document.location='../MyPet/MyPet.html'"> 
+            <i class="fas fa-arrow-left"></i> Back to My Pet Dashboard
         </div>
+        
+        <h1 class="page-title">Add a Pet Profile</h1>
+        <p class="page-description">Create a profile for your pet. This information will be securely saved and can be shared with caretakers when you book a service.</p>
 
-    </div>
+        <form class="containBox">
+            
+            <div class="info-section profile-section">
+                
+                <div class="BasicInformation">
+                    <h2 class="section-title"><i class="fas fa-id-card-alt"></i> Basic Information</h2>
+
+                    <div class="form-group">
+                        <label for="PetName">Pet's Name</label>
+                        <input type="text" id="PetName" name="pet_name" placeholder="e.g., Buddy" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="PetType">Pet Type</label>
+                            <select id="PetType" name="pet_type" required>
+                                <option value="">Select Type...</option>
+                                <option value="Dog">Dog</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Bird">Bird</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group half-width">
+                            <label for="Breed">Breed</label>
+                            <input type="text" id="Breed" name="pet_breed" placeholder="e.g., Golden Retriever">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                         <div class="form-group half-width">
+                            <label for="Age">Age (Years)</label>
+                            <input type="number" id="Age" name="pet_age" placeholder="e.g., 2" min="0" required>
+                        </div>
+                        <div class="form-group half-width">
+                            <label for="Gender">Gender</label>
+                            <select id="Gender" name="pet_gender" required>
+                                <option value="">Select Gender...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ProfilePhoto">
+                    <div class="photo-placeholder">
+                        <i class="fas fa-camera fa-2x"></i>
+                        <img src="" alt="Pet Profile Photo" id="pet-photo-preview" class="pet-photo-preview">
+                    </div>
+                    <input type="file" id="PetPhotoFile" name="pet_photo" accept="image/*" style="display: none;">
+                    <label for="PetPhotoFile" class="ProfilePhotoText primary-text-link">
+                        <i class="fas fa-upload"></i> Upload Photo
+                    </label>
+                </div>
+            </div>
+
+            <div class="info-section care-section">
+                <h2 class="section-title"><i class="fas fa-dog"></i> Care & Behavior</h2>
+
+                <div class="form-group">
+                    <label for="FeedingInstructions">Feeding Instructions</label>
+                    <textarea id="FeedingInstructions" name="feeding_instructions" rows="4" placeholder="e.g., 2 cups of dry food, once in the morning and once at night."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="BehavioralNotes">Behavioral Notes</label>
+                    <textarea id="BehavioralNotes" name="behavioral_notes" rows="4" placeholder="e.g., Friendly with other dogs, but shy around new people. Loves belly rubs."></textarea>
+                </div>
+            </div>
+
+            <div class="info-section medical-section">
+                <h2 class="section-title"><i class="fas fa-notes-medical"></i> Medical Information</h2>
+
+                <div class="form-group">
+                    <label for="AllergiesOrSpecialConditions">Allergies or Special Conditions</label>
+                    <textarea id="AllergiesOrSpecialConditions" name="medical_conditions" rows="3" placeholder="e.g., Allergic to chicken. Has mild separation anxiety."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="EmergencyVetContact">Emergency Vet Contact</label>
+                    <input type="tel" id="EmergencyVetContact" name="emergency_vet_contact" placeholder="Vet's Name & Phone Number (e.g., 081-123-4567)">
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button type="button" class="Cancel secondary-button" onclick="document.location='../MyPet/MyPet.html'">
+                    <i class="fas fa-times-circle"></i> Cancel
+                </button>
+                <button type="submit" class="SavePetProfile primary-button">
+                    <i class="fas fa-save"></i> Save Pet Profile
+                </button>
+            </div>
+
+        </form>
+        </div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="30px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
-        </div><br>
-        <div class="context">Connecting pets and people since 2025.</div><br>
-        <img src="../home/img/footer1.png" height="20px">
-        <img src="../home/img/footer2.webp" height="20px">
-        <img src="../home/img/footer3.png" height="20px"><br>
+        </div>
+        <div class="context">Connecting pets and people since 2025.</div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
-
     </div>
     
+    <script>
+        document.getElementById('PetPhotoFile').addEventListener('change', function(event) {
+            const [file] = event.target.files
+            if (file) {
+                const preview = document.getElementById('pet-photo-preview');
+                const placeholder = document.querySelector('.photo-placeholder .fa-camera');
+                
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = 'block';
+                if (placeholder) {
+                    placeholder.style.display = 'none';
+                }
+            }
+        });
+    </script>
 </body>
 </html>

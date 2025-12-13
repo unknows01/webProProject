@@ -1,266 +1,415 @@
-/* ------------------ header --------------------------- */
+/* --- Global Reset & Modern Font --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc; 
+    color: #333;
+}
+
+/* --- Branding & Color Palette --- */
+:root {
+    --brand-color-primary: #ff7f50; /* Coral/Salmon */
+    --brand-color-secondary: #4a90e2; /* Blue */
+    --text-color-dark: #333;
+    --text-color-light: #666;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ------------------ header (Modern Style) --------------------------- */
 .main-header {
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    padding: 10px 20px; 
+    padding: 15px 40px; 
     background-color: white; 
-    color: white;
-    /* min-height: 80px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo-container {
     display: flex;
     align-items: center; 
-    gap: 15px;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 45px; 
 }
 
 .TAILSTRADE {
-    font-size: 50px;
-    font-weight: bold;
-    color: wheat;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand-color-primary);
 }
 
 .headSectorHolder {
     list-style: none;
     display: flex;
-    gap: 50px;
+    gap: 30px;
     padding: 0;
     margin: 0;
 }
 
 .headSector {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
-    color: darkslategrey;
+    color: var(--text-color-light);
     cursor: pointer;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
 }
 
-.profile-icon {
-    font-size: 30px;
-    color: darkslategrey;
-    cursor: pointer;
+.headSector:hover, .headSector.active {
+    color: var(--brand-color-primary);
 }
 
-/* ------------------ footer --------------------------- */
+.headSector.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-color-primary);
+    border-radius: 2px;
+}
 
-.footer{
-    display: block;
-    border: 2px solid white; 
-    padding: 15px;
-    margin: 20px auto;
+.profile-icon i {
+    color: var(--text-color-light);
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.profile-icon i:hover {
+    color: var(--brand-color-primary);
+}
+
+/* ------------------ footer (Modern Style) --------------------------- */
+.footer {
+    padding: 40px 20px;
+    margin-top: 50px; 
     text-align: center;
-    border-radius: 8px;
-    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+    background-color: #333; 
+    color: white;
 }
 
 .logo-container-footer {
     display: flex;
     align-items: center; 
-    justify-content: center; /* จัดให้อยู่กลาง footer */
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 8px;
 }
 
 .TAILSTRADE-footer {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--brand-color-primary); 
 }
 
-.footer img{
-    padding: 15px;
+.context {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
 
-.context{
-    color: white;
+.social-icons {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons i {
     font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
-.reg{
-    color: rgb(219, 211, 211);
-    font-size: 15px;
+.social-icons i:hover {
+    color: var(--brand-color-primary);
+}
+
+.reg {
+    color: #999;
+    font-size: 12px;
+    margin-top: 15px;
 }
 
 /* ------------------ bodyPage and content --------------------------- */
-
 .bodyPage {
-    background-color: #f4f7f6;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 40px 0;
     color: #333;
+    max-width: 1000px; /* จำกัดความกว้างรวมของฟอร์ม */
+    margin: 0 auto;
 }
 
-.bodyPage h1 {
-    color: teal;
-    margin-bottom: 5px;
+.page-title {
+    font-size: 32px;
+    color: var(--text-color-dark);
+    margin: 0 0 5px 0;
+    font-weight: 800;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
-.bodyPage p {
+.page-description {
     font-size: 16px;
+    color: var(--text-color-light);
     margin-bottom: 30px;
 }
 
 .backToSelectPage {
     font-size: 16px;
-    color: #007bff;
+    color: var(--brand-color-secondary);
     cursor: pointer;
     margin-bottom: 20px;
-    display: inline-block;
+    display: block;
+    width: fit-content;
+    font-weight: 600;
+}
+
+.backToSelectPage:hover {
+    text-decoration: underline;
+}
+
+.backToSelectPage i {
+    margin-right: 5px;
 }
 
 /* ------------------ Contain Box for Form --------------------------- */
 
 .containBox {
-    display: grid;
-    grid-template-columns: 2fr 1fr; 
-    /* grid-template-rows: auto auto auto auto; */
+    display: flex;
+    flex-direction: column;
     gap: 30px;
-    padding: 30px;
+    padding: 40px;
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-light);
+}
+
+.info-section {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fcfcfc;
+}
+
+.section-title {
+    font-size: 22px;
+    color: var(--brand-color-primary);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.section-title i {
+    margin-right: 10px;
+    color: var(--brand-color-secondary);
+}
+
+/* --- Layout for Basic Information & Photo --- */
+.profile-section {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* 3 ส่วนสำหรับ Basic Info, 1 ส่วนสำหรับ Photo */
+    gap: 30px;
 }
 
 .BasicInformation {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+    /* พื้นที่สำหรับฟอร์มข้อมูลพื้นฐาน */
 }
 
 .ProfilePhoto {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 2px dashed #ccc;
+    border: 2px dashed var(--border-color);
     border-radius: 8px;
-    padding: 20px;
+    padding: 20px 10px;
     text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-.ProfilePhoto img {
-    height: 120px;
+.ProfilePhoto:hover {
+    background-color: #f0f0f0;
+}
+
+.photo-placeholder {
     width: 120px;
-    object-fit: cover;
+    height: 120px;
     border-radius: 50%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid var(--brand-color-primary);
 }
 
-.ProfilePhotoText {
-    color: #007bff;
-    font-weight: bold;
+.photo-placeholder i {
+    color: #999;
+}
+
+.pet-photo-preview {
+    display: none; /* ซ่อนรูปภาพเริ่มต้น */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.primary-text-link {
+    color: var(--brand-color-secondary);
+    font-weight: 600;
     cursor: pointer;
+    transition: color 0.3s;
 }
-
-/* ------------------ Care & Behavior ------------------ */
-.careAndBehavior {
-    grid-column: 1 / 3;
-    grid-row: 2 / 3;
-}
-
-/* ------------------ Medical Information ------------------ */
-.medicalInformation {
-    grid-column: 1 / 3;
-    grid-row: 3 / 4;
-}
-
-/* ------------------ Buttons ------------------  */
-.SavePetProfile {
-    grid-column: 1 / 2;
-    grid-row: 4 / 5;
-    background-color: teal;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.Cancel {
-    grid-column: 2 / 3;
-    grid-row: 4 / 5;
-    background-color: #ccc;
-    color: #333;
-    text-align: center;
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-/* (ส่วน CSS อื่นๆ ที่เกี่ยวข้องกับ bodyPage, inputs, h1, และ Media Query ยังคงเหมือนเดิม) */
-
-/* Media Query สำหรับหน้าจอขนาดเล็ก (ยังคงใช้ 1 คอลัมน์) */
-@media (max-width: 768px) {
-    .containBox {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .BasicInformation, .ProfilePhoto, .careAndBehavior, .medicalInformation, .SavePetProfile, .Cancel {
-        grid-column: 1 / 2;
-        grid-row: auto;
-    }
+.primary-text-link:hover {
+    color: #3b74c0;
 }
 
 /* ------------------ Common Form Styles --------------------------- */
 
-.containBox h1 {
-    font-size: 24px;
-    color: #555;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-top: 0;
+.form-group {
     margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.half-width {
+    flex: 1; /* Makes both groups take up 50% width */
 }
 
 .containBox label {
     display: block;
     font-weight: 600;
-    margin-top: 15px;
     margin-bottom: 5px;
-    color: #444;
+    color: var(--text-color-dark);
+    font-size: 15px;
 }
 
-.containBox input[type="text"] {
+.containBox input[type="text"],
+.containBox input[type="number"],
+.containBox input[type="tel"],
+.containBox select,
+.containBox textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
+    padding: 10px 12px;
     border: 1px solid #ddd;
     border-radius: 6px;
     box-sizing: border-box;
     font-size: 16px;
-    transition: border-color 0.3s;
+    background-color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.containBox input[type="text"]:focus {
-    border-color: teal;
+.containBox textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.containBox input:focus,
+.containBox select:focus,
+.containBox textarea:focus {
+    border-color: var(--brand-color-primary);
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+    box-shadow: 0 0 0 3px rgba(255, 127, 80, 0.2);
 }
 
-/* Media Query สำหรับหน้าจอขนาดเล็ก (เช่น มือถือ) */
+/* ------------------ Action Buttons ------------------  */
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.primary-button, .secondary-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary-button {
+    background-color: teal; /* ใช้สีที่ใกล้เคียงกับเดิม (teal) */
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: darkcyan;
+    transform: translateY(-1px);
+}
+
+.secondary-button {
+    background-color: #e0e0e0;
+    color: var(--text-color-dark);
+}
+
+.secondary-button:hover {
+    background-color: #ccc;
+    transform: translateY(-1px);
+}
+
+.primary-button i, .secondary-button i {
+    margin-right: 8px;
+}
+
+/* Media Query สำหรับหน้าจอขนาดเล็ก (มือถือ) */
 @media (max-width: 768px) {
+    .bodyPage {
+        padding: 20px 0;
+    }
+    
     .containBox {
-        grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์ */
-        gap: 20px;
         padding: 20px;
     }
+    
+    .profile-section {
+        grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์ */
+    }
 
-    .BasicInformation, .ProfilePhoto, .careAndBehavior, .medicalInformation, .SavePetProfile, .Cancel {
-        grid-column: 1 / 2;
-        grid-row: auto; 
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .primary-button, .secondary-button {
+        width: 100%;
     }
 }

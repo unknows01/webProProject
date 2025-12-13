@@ -1,240 +1,316 @@
-/* ------------------ header --------------------------- */
-.main-header {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center;
-    padding: 10px 20px; 
-    background-color: white; 
-    color: white;
-    /* min-height: 80px; */
-}
-
-.logo-container {
-    display: flex;
-    align-items: center; 
-    gap: 15px;
-}
-
-.TAILSTRADE {
-    font-size: 50px;
-    font-weight: bold;
-    color: wheat;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-}
-
-.headSectorHolder {
-    list-style: none;
-    display: flex;
-    gap: 50px;
-    padding: 0;
+/* --- Global Reset & Modern Font --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #f7f9fc; 
+    color: #333;
 }
 
-.headSector {
-    font-size: 20px;
-    font-weight: 500;
-    color: darkslategrey;
-    cursor: pointer;
+/* --- Branding & Color Palette --- */
+:root {
+    --brand-color-primary: #ff7f50; /* Coral/Salmon */
+    --brand-color-secondary: #4a90e2; /* Blue */
+    --text-color-dark: #333;
+    --text-color-light: #666;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    --highlight-color: #008080; /* Teal/DarkCyan */
 }
 
-.profile-icon {
-    font-size: 30px;
-    color: darkslategrey;
-    cursor: pointer;
+.container {
+    max-width: 1000px; /* จำกัดความกว้างรวมของฟอร์ม */
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* ------------------ footer --------------------------- */
+/* ------------------ Header & Footer (Reuse Modern Styles) --------------------------- */
+/* นำเข้าสไตล์ Header & Footer จากโค้ดก่อนหน้า (ตัดมาเฉพาะส่วนหลักๆ ที่จำเป็น) */
 
-.footer{
-    display: block;
-    border: 2px solid white; 
-    padding: 15px;
-    margin: 20px auto;
-    text-align: center;
-    border-radius: 8px;
-    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+.main-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 40px; background-color: white; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.logo-container { display: flex; align-items: center; gap: 10px; }
+.logo-container img { height: 45px; }
+.TAILSTRADE { font-size: 28px; font-weight: 700; color: var(--brand-color-primary); }
+.headSectorHolder { list-style: none; display: flex; gap: 30px; padding: 0; margin: 0; }
+.headSector { font-size: 16px; font-weight: 500; color: var(--text-color-light); cursor: pointer; padding: 5px 0; position: relative; }
+.headSector:hover, .headSector.active { color: var(--brand-color-primary); }
+.profile-icon i { color: var(--text-color-light); cursor: pointer; }
+
+.footer {
+    padding: 40px 20px; margin-top: 50px; text-align: center;
+    background-color: #333; color: white;
+}
+.logo-container-footer { display: flex; align-items: center; justify-content: center; margin-bottom: 10px; gap: 8px; }
+.TAILSTRADE-footer { font-size: 22px; font-weight: 700; color: var(--brand-color-primary); }
+.context { color: #ccc; font-size: 16px; margin-bottom: 15px; }
+.social-icons { margin-bottom: 20px; display: flex; justify-content: center; gap: 15px; }
+.social-icons i { font-size: 20px; color: #ccc; cursor: pointer; }
+.reg { color: #999; font-size: 12px; margin-top: 15px; }
+
+
+/* ------------------ bodyPage and Form Structure --------------------------- */
+.bodyPage {
+    padding: 40px 0;
 }
 
-.logo-container-footer {
+.page-title {
+    font-size: 36px;
+    color: var(--highlight-color);
+    margin: 0 0 5px 0;
+    font-weight: 800;
+}
+
+.page-description {
+    font-size: 18px;
+    color: var(--text-color-light);
+    margin-bottom: 30px;
+}
+
+.listing-form {
     display: flex;
-    align-items: center; 
-    justify-content: center; /* จัดให้อยู่กลาง footer */
+    flex-direction: column;
+    gap: 30px;
 }
 
-.TAILSTRADE-footer {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+.info-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
 }
 
-.footer img{
-    padding: 15px;
+.section-title {
+    font-size: 24px;
+    color: var(--text-color-dark);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
 }
 
-.context{
-    color: white;
-    font-size: 20px;
+.section-title i {
+    margin-right: 10px;
+    color: var(--brand-color-primary);
 }
 
-.reg{
-    color: rgb(219, 211, 211);
+/* --- Common Form Grouping --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.half-width {
+    flex: 1;
+}
+
+.info-section label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-color-dark);
     font-size: 15px;
 }
 
-/* ------------------ bodyPage --------------------------- */
-.bodyPage {
-    /* กำหนดความกว้างสูงสุดและจัดให้อยู่กึ่งกลาง */
-    max-width: 900px; /* จำกัดความกว้างเพื่อให้เนื้อหาอ่านง่ายขึ้น */
-    margin: 40px auto; /* เว้นระยะห่างด้านบน/ล่าง และจัดให้อยู่กึ่งกลาง */
-    padding: 0 20px; /* เพิ่ม padding ด้านซ้าย/ขวา เพื่อไม่ให้เนื้อหาชิดขอบจอ */
-}
-
-.bodyPage h1 {
-    font-size: 40px;
-    color: darkslategrey;
-    margin-bottom: 5px; /* ลดระยะห่างด้านล่างของหัวข้อหลัก */
-}
-
-.bodyPage p {
-    font-size: 18px;
-    color: gray;
-    margin-bottom: 30px; /* เพิ่มระยะห่างด้านล่างของคำอธิบาย */
-}
-
-/* ------------------ Pet Details Section (ContainPetDetail) --------------------------- */
-.ContainPetDetail {
-    background-color: #f9f9f9; /* สีพื้นหลังอ่อนๆ เพื่อให้ดูเป็นกล่องข้อมูล */
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเล็กน้อย */
-}
-
-.ContainPetDetail h1 {
-    font-size: 28px;
-    color: darkslategrey;
-    border-bottom: 2px solid lightgray; /* เส้นแบ่งใต้หัวข้อ */
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.ContainPetDetail label {
-    display: block; /* ทำให้ label กินพื้นที่ทั้งบรรทัด */
-    font-weight: bold;
-    color: #333;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    font-size: 16px;
-}
-
-.ContainPetDetail input[type="text"] {
-    width: 100%; /* ทำให้ input กว้างเต็มพื้นที่ ContainPetDetail */
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+.info-section input,
+.info-section select,
+.info-section textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
     border-radius: 6px;
-    box-sizing: border-box; /* สำคัญ: ทำให้ padding ไม่เพิ่มขนาดรวมของ input */
+    box-sizing: border-box;
     font-size: 16px;
+    background-color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.ContainPetDetail input[type="text"]::placeholder {
-    color: #aaa;
+.info-section textarea {
+    resize: vertical;
+    min-height: 120px;
 }
 
-/* ------------------ Photos & Videos Section --------------------------- */
-.Photos\ \&\ Videos {
-    margin-bottom: 30px;
+.info-section input:focus,
+.info-section select:focus,
+.info-section textarea:focus {
+    border-color: var(--highlight-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.2);
 }
 
-.Photos\ \&\ Videos h1 {
-    font-size: 28px;
-    color: darkslategrey;
-    margin-bottom: 20px;
+/* --- Price Input Specific Style --- */
+.price-input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: white;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.price-input-container:focus-within {
+     border-color: var(--highlight-color);
+    box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.2);
+}
+
+.currency-symbol {
+    padding: 0 10px;
+    font-weight: bold;
+    color: var(--text-color-light);
+    background-color: #f0f0f0;
+    height: 42px;
+    display: flex;
+    align-items: center;
+}
+
+.price-input-container input[type="number"] {
+    border: none;
+    padding: 10px 12px;
+    /* Ensure no focus styles on the inner input as the container handles the visual focus */
+    box-shadow: none; 
+}
+.price-input-container input[type="number"]:focus {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+
+/* ------------------ Photos & Videos Section (Dropzone) --------------------------- */
+.PhotosVideos {
+    /* Uses .info-section styling */
 }
 
 .BoxInputPhotosVideos {
-    border: 2px dashed #ccc; /* เส้นขอบแบบจุด/ประ */
+    border: 2px dashed var(--brand-color-primary); 
     border-radius: 10px;
-    padding: 50px 20px;
+    padding: 40px 20px;
     text-align: center;
-    background-color: #fcfcfc;
+    background-color: #fff8f5; /* Very light salmon background */
     cursor: pointer;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, background-color 0.3s;
 }
 
 .BoxInputPhotosVideos:hover {
-    border-color: darkslategrey; /* เปลี่ยนสีเมื่อโฮเวอร์ */
+    border-color: var(--brand-color-secondary); 
+    background-color: #f7f7f7;
+}
+
+.upload-icon {
+    color: var(--brand-color-primary);
+    margin-bottom: 10px;
 }
 
 .BoxInputPhotosVideos p {
     margin: 5px 0;
-    color: #666;
+    color: var(--text-color-light);
     font-size: 16px;
 }
 
-/* ------------------ Description Section --------------------------- */
-.Description {
-    margin-bottom: 40px;
+.file-info {
+    font-size: 14px !important;
+    color: #999 !important;
 }
 
-.Description h1 {
-    font-size: 28px;
-    color: darkslategrey;
-    margin-bottom: 20px;
-}
-
-/* ปรับปรุง .BoxInputDescription สำหรับ <textarea> */
-.BoxInputDescription { 
-    width: 100%; /* ทำให้กว้างเต็มพื้นที่ */
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    min-height: 150px; /* กำหนดความสูงขั้นต่ำ */
-    background-color: white;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box; /* สำคัญมาก: ให้ padding อยู่ภายในความกว้าง 100% */
-    resize: vertical; /* อนุญาตให้ผู้ใช้ปรับขนาดได้เฉพาะแนวตั้งเท่านั้น */
-    font-size: 16px; /* กำหนดขนาดตัวอักษรภายในกล่อง */
-    color: #333; /* สีข้อความปกติ */
-}
-
-.BoxInputDescription::placeholder {
-    color: #888; /* สีสำหรับข้อความ placeholder */
-}
-
-/* ------------------ Buttons --------------------------- */
-.PublishListing,
-.SaveDraft {
-    display: inline-block; /* ทำให้เป็นปุ่มที่อยู่ติดกัน */
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 18px;
-    text-align: center;
+.primary-text-link {
+    color: var(--brand-color-secondary);
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s, opacity 0.3s;
-    margin-right: 20px; /* เว้นระยะห่างระหว่างปุ่ม */
+    transition: color 0.3s;
+}
+.primary-text-link:hover {
+    color: #3b74c0;
 }
 
-.PublishListing {
-    background-color: teal; /* สีหลักสำหรับปุ่มหลัก */
+.file-preview-area {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* (Styling for uploaded file cards would go here) */
+}
+
+
+/* ------------------ Action Buttons ------------------  */
+.action-buttons {
+    display: flex;
+    justify-content: flex-end; 
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.primary-button, .secondary-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px; 
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.primary-button {
+    background-color: var(--highlight-color); 
     color: white;
 }
 
-.PublishListing:hover {
+.primary-button:hover {
     background-color: darkcyan;
+    transform: translateY(-1px);
 }
 
-.SaveDraft {
-    background-color: #e0e0e0; /* สีรองสำหรับปุ่มรอง */
-    color: #333;
+.secondary-button {
+    background-color: #e0e0e0;
+    color: var(--text-color-dark);
 }
 
-.SaveDraft:hover {
+.secondary-button:hover {
     background-color: #ccc;
+    transform: translateY(-1px);
+}
+
+.primary-button i, .secondary-button i {
+    margin-right: 8px;
+}
+
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .bodyPage {
+        padding: 20px 0;
+    }
+    
+    .info-section {
+        padding: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .primary-button, .secondary-button {
+        width: 100%;
+    }
+    
+    .main-header {
+        padding: 15px 20px;
+    }
+    
+    .headSectorHolder {
+        display: none; /* Hide navigation on small screens */
+    }
 }

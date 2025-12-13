@@ -3,98 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="SelectBuyPage.css">
+    <title>Buddy - Golden Retriever Puppies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="SelectBuyPage.css"> 
 </head>
 <body>
     <div class="main-header"> 
         <div class="logo-container"> 
-            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="45px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
         </div>
 
         <ul class="headSectorHolder"> 
             <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
-            <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
+            <li class="headSector active" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
         </ul>
         
         <div class="profile-icon">
-            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
         </div>
     </div>
 
-    <div class="bodyPage">
-        <div class="backToSelectPage" onclick="document.location='../FindAPet/FindAPet.html'"> < Back to search Results</div>
+    <div class="bodyPage container">
+        <div class="backToSelectPage" onclick="document.location='../FindAPet/FindAPet.html'"> 
+            <i class="fas fa-arrow-left"></i> Back to Search Results
+        </div>
 
-        <div class="pictureAndMessage">
+        <div class="pictureAndMessage detail-card">
             <div class="pictureAndSelectPic">
-                <img src="../home/img/card1.jpg" height="500px">
+                <img src="../home/img/card1.jpg" alt="Main picture of Golden Retriever puppy" class="main-pet-img">
                 <div class="Subimg">
-                    <img src="../home/img/card1.jpg" height="50px">
-                    <img src="../home/img/card1.jpg" height="50px">
-                    <img src="../home/img/card1.jpg" height="50px">
+                    <img src="../home/img/card1.jpg" alt="Pet sub-image 1">
+                    <img src="../home/img/card1.jpg" alt="Pet sub-image 2">
+                    <img src="../home/img/card1.jpg" alt="Pet sub-image 3">
                 </div>
-
             </div>
 
             <div class="nameAndBasicInfo">
-                <div class="name">Playful Golden Retriever Puppies</div><br>
-                <div class="price">$1200</div><br>
-                <div class="breed">Breed: Golden Retriever</div><br>
-                <div class="Gender">Gender: Male</div><br>
-                <div class="Age">Age: 8 week</div><br>
-                <div class="locationInPetList">Location: Bankok , BKK</div><br>
-
-                <div class="soldBy">
-                    <div >Sold By</div>
-                    <div class="sellerName">Hello</div>
+                <h1 class="name">Playful Golden Retriever Puppies</h1>
+                <div class="price">$1,200</div>
+                
+                <div class="info-group">
+                    <div class="info-item"><i class="fas fa-tags icon-primary"></i> <span class="label">Breed:</span> **Golden Retriever**</div>
+                    <div class="info-item"><i class="fas fa-venus-mars icon-primary"></i> <span class="label">Gender:</span> **Male**</div>
+                    <div class="info-item"><i class="fas fa-birthday-cake icon-primary"></i> <span class="label">Age:</span> **8 weeks**</div>
+                    <div class="info-item"><i class="fas fa-map-marker-alt icon-primary"></i> <span class="label">Location:</span> **Bangkok, BKK**</div>
                 </div>
 
-                <div class="MessageToSeller">Message Seller</div>
-                <div class="AddToFavorites">Add to Favorites</div>
+                <div class="soldBy">
+                    <div class="seller-label">Sold By:</div>
+                    <div class="sellerName">**Hello** (View Profile <i class="fas fa-external-link-alt fa-xs"></i>)</div>
+                </div>
 
+                <div class="action-buttons">
+                    <button class="MessageToSeller primary-button"><i class="fas fa-comment"></i> Message Seller</button>
+                    <button class="AddToFavorites secondary-button"><i class="fas fa-heart"></i> Add to Favorites</button>
+                </div>
             </div>
-
         </div>
 
-        <div class="About-MoreInfo">
-            <div class="About">
-                <h1>About this Litter</h1>
+        <div class="About-MoreInfo detail-section">
+            <div class="About info-box">
+                <h2 class="section-header">🐾 About this Litter</h2>
                 <p>We have a beautiful litter of 5 male and 3 female purebred Golden Retriever puppies 
                     ready for their forever homes! They have been raised in a loving family environment 
                     with children and other pets. All puppies have been dewormed, have their first round 
                     of vaccinations, and come with a health guarantee. They are energetic, playful, and 
                     have wonderful temperaments. Please feel free to reach out with any questions!
                 </p>
-
             </div>
 
-            <div class="HealthAndInfo">
-                <h1>Health & Information</h1>
+            <div class="HealthAndInfo info-box">
+                <h2 class="section-header">⚕️ Health & Information</h2>
                 <ul>
-                    <li>Vaccinations: First round completed.</li>
-                    <li>Health Check: Vet-checked and cleared.</li>
-                    <li>Includes: Starter pack of food, favorite toy, and health records.</li>
-                </ul>  
+                    <li><i class="fas fa-syringe icon-list"></i> Vaccinations: First round completed.</li>
+                    <li><i class="fas fa-stethoscope icon-list"></i> Health Check: Vet-checked and cleared.</li>
+                    <li><i class="fas fa-box-open icon-list"></i> Includes: Starter pack of food, favorite toy, and health records.</li>
+                </ul> 
             </div>
-
         </div>
     </div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="30px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
-        </div><br>
-        <div class="context">Connecting pets and people since 2025.</div><br>
-        <img src="../home/img/footer1.png" height="20px">
-        <img src="../home/img/footer2.webp" height="20px">
-        <img src="../home/img/footer3.png" height="20px"><br>
+        </div>
+        <div class="context">Connecting pets and people since 2025.</div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
-
     </div>
     
 </body>

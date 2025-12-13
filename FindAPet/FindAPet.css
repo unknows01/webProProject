@@ -1,216 +1,406 @@
+/* กำหนดค่าเริ่มต้นและใช้ Font ที่ดู Modern (เช่น Google Fonts: Poppins, Inter, System UI) */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc; /* สีพื้นหลังที่ดูสะอาดตา */
+    color: #333;
+}
+
+/* --- Branding & Color Palette --- */
+:root {
+    --brand-color-primary: #ff7f50; /* Coral/Salmon - สีหลักที่อบอุ่นและโดดเด่น */
+    --brand-color-secondary: #4a90e2; /* Blue - ใช้ตัดกับสีหลัก */
+    --text-color-dark: #333;
+    --text-color-light: #666;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* เงาแบบนุ่มนวล */
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
 /* ------------------ header --------------------------- */
 .main-header {
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    padding: 10px 20px; 
+    padding: 15px 40px; 
     background-color: white; 
-    color: white;
-    /* min-height: 80px; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* เงาบางๆ */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .logo-container {
     display: flex;
     align-items: center; 
-    gap: 15px;
+    gap: 10px;
+}
+
+.logo-container img {
+    height: 45px; /* ปรับขนาดโลโก้ใน Header */
 }
 
 .TAILSTRADE {
-    font-size: 50px;
-    font-weight: bold;
-    color: wheat;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand-color-primary); /* ใช้สีหลักของแบรนด์ */
 }
 
 .headSectorHolder {
     list-style: none;
     display: flex;
-    gap: 50px;
+    gap: 30px;
     padding: 0;
     margin: 0;
 }
 
 .headSector {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
-    color: darkslategrey;
+    color: var(--text-color-light);
     cursor: pointer;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s;
 }
 
-.profile-icon {
-    font-size: 30px;
-    color: darkslategrey;
+.headSector:hover, .headSector.active {
+    color: var(--brand-color-primary);
+}
+
+.headSector.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--brand-color-primary);
+    border-radius: 2px;
+}
+
+.profile-icon i {
+    color: var(--text-color-light);
     cursor: pointer;
+    transition: color 0.3s;
 }
 
-/* ------------------ footer --------------------------- */
+.profile-icon i:hover {
+    color: var(--brand-color-primary);
+}
 
-.footer{
-    display: block;
-    border: 2px solid white; 
-    padding: 15px;
-    margin: 20px auto;
+
+/* ------------------ HeadContain (Banner) --------------------------- */
+
+.HeadContain {
+    padding: 50px 20px 30px;
+    background-color: #e8f0f8; /* สีพื้นหลังอ่อนๆ สำหรับส่วนหัว */
     text-align: center;
-    border-radius: 8px;
-    background: linear-gradient(90deg, rgb(0, 128, 128), rgb(255, 218, 185));
+    border-bottom: 1px solid var(--border-color);
 }
 
-.logo-container-footer {
-    display: flex;
-    align-items: center; 
-    justify-content: center; /* จัดให้อยู่กลาง footer */
+.HeadContain h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--text-color-dark);
+    margin-bottom: 10px;
 }
-
-.TAILSTRADE-footer {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    /* background: linear-gradient(90deg, #fe6500, #ffcc00);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
-}
-
-.footer img{
-    padding: 15px;
-}
-
-.context{
-    color: white;
-    font-size: 20px;
-}
-
-.reg{
-    color: rgb(219, 211, 211);
-    font-size: 15px;
-}
-
-/* ------------------ HeadContain --------------------------- */
-
-.HeadContain h1{
-    justify-content: center; 
-    text-align: center;
-    font-size: 50px;
-}
-.HeadContain p{
-    justify-content: center; 
-    text-align: center;
-    font-size: 30px;
+.HeadContain p {
+    font-size: 18px;
+    color: var(--text-color-light);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 /* ------------------ Main Layout --------------------------- */
 
 .mid-page-layout {
-    display: flex; /* เปิดใช้งาน Flexbox */
-    justify-content: flex-start; 
+    display: flex; 
+    justify-content: center; /* จัดให้เนื้อหาอยู่กึ่งกลาง */
     align-items: flex-start; 
-    gap: 30px; 
-    margin: 20px 50px; 
+    gap: 40px; 
+    padding: 40px 80px; 
 }
 
 /* ------------------ Filter box --------------------------- */
 
-.filter-box{
-    display: block;
+.filter-box {
     width: 300px;
-    border: 2px solid darkslategrey; 
-    padding: 15px;
-    margin: 20px auto;
-    text-align: left;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    position: sticky; /* ทำให้ Filter Box ติดอยู่ด้านบนเมื่อ Scroll */
+    top: 100px;
 }
 
-.product-list-box {
-    flex-grow: 1; 
-    display: flex;
-    flex-direction: column;
-}
-/* ------------------ headCard --------------------------- */
-
-.headCard .showNumList{
-    margin-left: auto;
-    display: inline-block;
-}
-
-.headCard .sortBy{
-    display: flex;
-}
-
-/* ------------------ Card --------------------------- */
-
-.containCard {
-    display: flex;
-    gap: 20px;        
-    flex-wrap: wrap;
-    justify-content: flex-start;
+.filter-box h2 {
+    font-size: 24px;
+    color: var(--brand-color-primary);
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
     margin-bottom: 20px;
 }
 
-
-.card{
-    display: block;
-    width: 300px;
-    border: 2px solid darkslategrey; 
-    padding: 15px;
-    margin: 20px auto;
-    text-align: left;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-.card img{
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    display: block;
+.filter-group {
+    margin-bottom: 25px;
 }
 
-.card .name, .card .breed, .card .info {
-    display: block;
-    /* margin-bottom: 3px; */
+.filter-box h3 {
+    font-size: 18px;
+    color: var(--text-color-dark);
+    margin-bottom: 10px;
+    font-weight: 600;
 }
-.card .name {
-    font-size: 30px;
-    font-weight: bold;
-    color: black;
-    margin-top: 10px;
+
+.checkBoxList input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--brand-color-primary); /* เปลี่ยนสี Checkbox */
 }
-.card .price {
-    font-size: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.card .breed {
+
+.checkBoxList label {
     font-size: 15px;
-    margin-top: 10px;
-    color: gray;
+    color: var(--text-color-light);
+    cursor: pointer;
+}
+
+.max-min {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.max-min input, .location input {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.max-min input:focus, .location input:focus {
+    border-color: var(--brand-color-primary);
+    outline: none;
+}
+
+.max-min span {
+    color: var(--text-color-light);
+}
+
+/* Buttons */
+.buttonApply-Reset {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.primary-button, .secondary-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 50%;
+}
+
+.primary-button {
+    background-color: var(--brand-color-primary);
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #d85c30; /* สีเข้มขึ้นเมื่อ Hover */
+    box-shadow: 0 4px 8px rgba(255, 127, 80, 0.4);
+}
+
+.secondary-button {
+    background-color: #f0f0f0;
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-button:hover {
+    background-color: #e0e0e0;
+}
+
+/* ------------------ Product List Box --------------------------- */
+
+.product-list-box {
+    flex-grow: 1; 
+    max-width: 900px; 
+}
+
+/* ------------------ headCard (Sort & Count) --------------------------- */
+
+.headCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    color: var(--text-color-light);
+    font-size: 15px;
+}
+
+.sortBy select {
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-left: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* ------------------ Card Layout (Grid for Modern Look) --------------------------- */
+
+.containCard {
+    display: grid;
+    /* ใช้ grid-template-columns เพื่อสร้างคอลัมน์แบบ Responsive */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px; 
+    margin-bottom: 30px;
+}
+
+
+.card {
+    background-color: white;
+    border: 1px solid #eee;
+    padding: 0;
+    border-radius: 12px;
+    overflow: hidden; /* ซ่อนส่วนเกินของรูปภาพ */
+    box-shadow: var(--shadow-light); 
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* ยกขึ้นเล็กน้อยเมื่อ hover */
+    box-shadow: var(--shadow-hover);
+}
+
+.card img {
+    width: 100%;
+    height: 200px; /* กำหนดความสูงคงที่สำหรับภาพ */
+    object-fit: cover; /* ทำให้ภาพเต็มพื้นที่โดยไม่ผิดสัดส่วน */
+    display: block;
+}
+
+.card-details {
+    padding: 15px;
+}
+
+.card .name {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-color-dark);
+    margin-top: 0;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+.card .price-tag { /* เปลี่ยน class จาก .price เป็น .price-tag */
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--brand-color-primary);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.card .breed {
+    font-size: 14px;
+    color: var(--text-color-light);
+    margin-bottom: 5px;
 }
 .card .locationInPetList {
     font-size: 14px;
-    margin-bottom: 5px;
-    color: gray;
+    color: var(--text-color-light);
 }
 
-/* ------------------ productPage --------------------------- */
+.card .locationInPetList i {
+    margin-right: 5px;
+    color: var(--brand-color-secondary);
+}
+
+/* ------------------ productPage (Pagination) --------------------------- */
 
 .productPage {
-    display: block;
+    display: flex;
     justify-content: center;
     gap: 5px;
-    /* padding: 10px 0; */
-    margin-top: auto;
+    padding: 20px 0;
 }
 
-.productPage .page {
-    border: 1px solid darkslategrey;
-    padding: 8px 12px;
+.productPage .page, .productPage .next-page {
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
     cursor: pointer;
-    border-radius: 4px;
-    background-color: #f0f0f0;
-    font-weight: bold;
+    border-radius: 8px;
+    background-color: white;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    user-select: none; /* ป้องกันการเลือกข้อความ */
 }
 
-.productPage .page:hover {
-    background-color: lightgray;
+.productPage .page:hover:not(.active-page) {
+    background-color: #f0f0f0;
+}
+
+.productPage .active-page {
+    background-color: var(--brand-color-primary);
+    color: white;
+    border-color: var(--brand-color-primary);
+}
+
+/* ------------------ footer --------------------------- */
+
+.footer {
+    padding: 40px 20px;
+    margin: 0;
+    text-align: center;
+    background-color: #333; /* Dark background */
+    color: white;
+}
+
+.logo-container-footer {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 8px;
+}
+
+.TAILSTRADE-footer {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--brand-color-primary); /* ใช้สีหลักของแบรนด์ */
+}
+
+.context {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icons i {
+    font-size: 20px;
+    margin: 0 10px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.social-icons i:hover {
+    color: var(--brand-color-primary);
+}
+
+.reg {
+    color: #999;
+    font-size: 12px;
+    margin-top: 15px;
 }

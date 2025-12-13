@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pet Dashboard - TAILS & TRADE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="MyPet.css">
 </head>
 <body>
     <div class="main-header"> 
         <div class="logo-container"> 
-            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="45px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
         </div>
 
@@ -17,55 +18,88 @@
             <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
             <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
-            <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
+            <li class="headSector active" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
         </ul>
         
         <div class="profile-icon">
-            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
         </div>
     </div>
 
-    <div class="bodyPage">
+    <div class="bodyPage container">
         <div class="header-controls"> 
             <div>
-                <h1>My Pets</h1>
-                <p>Manage your pet profiles here. Keep them up-to-date for a seamless caretaker booking experience.</p>
+                <h1 class="page-title">My Pets</h1>
+                <p class="page-description">Manage your pet profiles here. Keep them up-to-date for a seamless caretaker booking experience.</p>
             </div>
-            <div class="AddNewPetButton" onclick="document.location='../AddAPetProfile/AddAPetProfile.html'">Add New Pet</div>
+            <button class="AddNewPetButton primary-button" onclick="document.location='../AddAPetProfile/AddAPetProfile.html'">
+                <i class="fas fa-plus"></i> Add New Pet
+            </button>
         </div>
-        <div class="MyPetListBox">
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
-            <h1>No pets have been added yet</h1>
-            <p>Add a profile for your pet to make booking a trusted caretaker quick and easy.</p>
+        
+        <div class="MyPetListBox empty-state" id="empty-state-section"> 
+            <i class="fas fa-paw fa-3x icon-placeholder"></i>
+            <h2 class="empty-title">No pets have been added yet</h2>
+            <p class="empty-description">Add a profile for your pet to make booking a trusted caretaker quick and easy.</p>
         </div>
 
-        <!-- <div class="PetCard">
-            <img src="path/to/pet_image_2.jpg" alt="Pet's Photo" class="pet-photo">
-            <div class="pet-info">
-                <h2>Luna the Siamese</h2>
-                <p><strong>Species:</strong> Cat (Siamese)</p>
-                <p><strong>Age:</strong> 1 year</p>
+        <div class="MyPetListContainer is-hidden" id="pet-list-section">
+            
+            <div class="PetCard">
+                <img src="path/to/golden_retriever.jpg" alt="Pet's Photo - Max" class="pet-photo">
+                <div class="pet-info">
+                    <div class="pet-name-section">
+                        <h2>Max the Golden</h2>
+                        <span class="pet-tag dog-tag"><i class="fas fa-dog"></i> Dog</span>
+                    </div>
+                    <div class="pet-details">
+                        <p><strong><i class="fas fa-venus-mars"></i> Gender:</strong> Male</p>
+                        <p><strong><i class="fas fa-birthday-cake"></i> Age:</strong> 2 years</p>
+                        <p><strong><i class="fas fa-paw"></i> Breed:</strong> Golden Retriever</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="edit-btn secondary-button"><i class="fas fa-edit"></i> Edit Profile</button>
+                    <button class="book-btn primary-button"><i class="fas fa-calendar-check"></i> Book Caretaker</button>
+                </div>
             </div>
-            <div class="card-actions">
-                <button class="edit-btn">Edit Profile</button>
-                <button class="book-btn">Book Caretaker</button>
+
+            <div class="PetCard">
+                <img src="path/to/siamese_cat.jpg" alt="Pet's Photo - Luna" class="pet-photo">
+                <div class="pet-info">
+                    <div class="pet-name-section">
+                        <h2>Luna the Siamese</h2>
+                        <span class="pet-tag cat-tag"><i class="fas fa-cat"></i> Cat</span>
+                    </div>
+                    <div class="pet-details">
+                        <p><strong><i class="fas fa-venus-mars"></i> Gender:</strong> Female</p>
+                        <p><strong><i class="fas fa-birthday-cake"></i> Age:</strong> 1 year</p>
+                        <p><strong><i class="fas fa-paw"></i> Breed:</strong> Siamese</p>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="edit-btn secondary-button"><i class="fas fa-edit"></i> Edit Profile</button>
+                    <button class="book-btn primary-button"><i class="fas fa-calendar-check"></i> Book Caretaker</button>
+                </div>
             </div>
-        </div> -->
+            
+        </div>
         
     </div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="30px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
-        </div><br>
-        <div class="context">Connecting pets and people since 2025.</div><br>
-        <img src="../home/img/footer1.png" height="20px">
-        <img src="../home/img/footer2.webp" height="20px">
-        <img src="../home/img/footer3.png" height="20px"><br>
+        </div>
+        <div class="context">Connecting pets and people since 2025.</div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
-
     </div>
     
 </body>

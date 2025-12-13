@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Find Caretaker - TAILS & TRADE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="FindCareTaker.css">
 </head>
 <body>
     <div class="main-header"> 
         <div class="logo-container"> 
-            <img src="../home/img/tailAndtrade_img.png" height="100px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="45px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
         </div>
 
@@ -18,77 +19,131 @@
             <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
-            <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
+            <li class="headSector active" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
         </ul>
         
         <div class="profile-icon">
-            <img src="../home/img/profileEmpty.png" height="75px" onclick="openForm()">
+            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
         </div>
     </div>
 
-    <div class="bodyPage">
+    <div class="bodyPage container">
         <div class="headPageAndSearch">
-            <h1>Find a trusted caretaker</h1>
-            <p>Search for experience and loving pet sittiers near you.</p>
-            <div class="Search">
-                
-                <label for="location">Location</label><br>
-                <input type="text" id="location" placeholder="Bangkok, Thailand"><br>
+            <h1 class="page-title">Find a trusted caretaker</h1>
+            <p class="page-description">Search for experienced and loving pet sitters near you.</p>
+            
+            <form class="SearchForm">
+                <div class="input-group">
+                    <label for="location"><i class="fas fa-map-marker-alt"></i> Location</label>
+                    <input type="text" id="location" name="location" placeholder="e.g., Bangkok, Thailand" required>
+                </div>
 
-                <label for="DropOff">Drop-off</label><br>
-                <input type="text" id="DropOff" placeholder="Oct 20, 2025"><br>
+                <div class="input-group">
+                    <label for="DropOff"><i class="fas fa-calendar-alt"></i> Drop-off</label>
+                    <input type="date" id="DropOff" name="drop_off_date" required>
+                </div>
 
-                <label for="PickUp">Pick-up</label><br>
-                <input type="text" id="PickUp" placeholder="Oct 25, 2025"><br>
+                <div class="input-group">
+                    <label for="PickUp"><i class="fas fa-calendar-alt"></i> Pick-up</label>
+                    <input type="date" id="PickUp" name="pick_up_date" required>
+                </div>
 
-                <label for="ForWhichPet">For which Pet?</label><br>
-                <input type="text" id="ForWhichPet" placeholder="Buddy (dog)"><br>
+                <div class="input-group">
+                    <label for="ForWhichPet"><i class="fas fa-paw"></i> For which Pet?</label>
+                    <select id="ForWhichPet" name="pet_profile_id" required>
+                        <option value="">Select your Pet...</option>
+                        <option value="1">Buddy (Dog)</option>
+                        <option value="2">Luna (Cat)</option>
+                    </select>
+                </div>
 
-                <button class="Search">Search</button>
-            </div>
+                <button type="submit" class="SearchButton primary-button">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </form>
+            
         </div>
         
         <div class="CareTakerList">
-            <h1>Caretaker</h1>
+            <h2 class="results-title">Available Caretakers (Showing 5 results)</h2>
 
-            <div class="CareTakerBox">
-                <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <a href="#" class="CareTakerBox">
+                <img src="img/Manee.jpg" alt="Manee K. Profile Photo" class="caretaker-photo">
                 <div class="Detail">
-                    <h1>Manee K.</h1>
-                    <p>Experienced & loving dog sitter</p>
-                    <div class="Price">
-                        <h1>$45</h1>
-                        <p>/night</p>
-                    </div>
-                    <div class="StarAndRating">
-                        <img src="img/star.png" height="25px" alt="TAILS & TRADE Logo">
-                        <p>4.9</p>
-                        <p>(69 reviews)</p>
-                    </div>
-                    <div class="Tag">
-                        <ul>
-                            <li>Has a fenced yard</li>
-                            <li>First aid certified</li>
-                        </ul>
+                    <h3 class="caretaker-name">Manee K.</h3>
+                    <p class="caretaker-tagline">Experienced & loving dog sitter</p>
+                    
+                    <div class="rating-and-tags">
+                        <div class="StarAndRating">
+                            <i class="fas fa-star rating-star"></i>
+                            <span class="rating-score">4.9</span>
+                            <span class="review-count">(69 reviews)</span>
+                        </div>
+                        <div class="Tag">
+                            <ul class="tag-list">
+                                <li class="tag-item"><i class="fas fa-home"></i> Fenced Yard</li>
+                                <li class="tag-item"><i class="fas fa-medkit"></i> First Aid Certified</li>
+                                <li class="tag-item"><i class="fas fa-dog"></i> Large Dog Friendly</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="VeiwProfile">Veiw Profile & Book ></div>
-            </div>
+
+                <div class="PriceAndAction">
+                    <div class="Price">
+                        <span class="price-value">$45</span>
+                        <span class="price-unit">/night</span>
+                    </div>
+                    <div class="VeiwProfile primary-text-link">View Profile & Book <i class="fas fa-angle-right"></i></div>
+                </div>
+            </a>
+            
+            <a href="#" class="CareTakerBox">
+                <img src="img/Somsri.jpg" alt="Somsri T. Profile Photo" class="caretaker-photo">
+                <div class="Detail">
+                    <h3 class="caretaker-name">Somsri T.</h3>
+                    <p class="caretaker-tagline">Specialized in cats & small pets</p>
+                    
+                    <div class="rating-and-tags">
+                        <div class="StarAndRating">
+                            <i class="fas fa-star rating-star"></i>
+                            <span class="rating-score">5.0</span>
+                            <span class="review-count">(32 reviews)</span>
+                        </div>
+                        <div class="Tag">
+                            <ul class="tag-list">
+                                <li class="tag-item cat-tag"><i class="fas fa-cat"></i> Cat Specialist</li>
+                                <li class="tag-item"><i class="fas fa-syringe"></i> Medication Admin</li>
+                                <li class="tag-item"><i class="fas fa-car"></i> Pet Taxi Available</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="PriceAndAction">
+                    <div class="Price">
+                        <span class="price-value">$35</span>
+                        <span class="price-unit">/night</span>
+                    </div>
+                    <div class="VeiwProfile primary-text-link">View Profile & Book <i class="fas fa-angle-right"></i></div>
+                </div>
+            </a>
             
         </div>
     </div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="30px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
-        </div><br>
-        <div class="context">Connecting pets and people since 2025.</div><br>
-        <img src="../home/img/footer1.png" height="20px">
-        <img src="../home/img/footer2.webp" height="20px">
-        <img src="../home/img/footer3.png" height="20px"><br>
+        </div>
+        <div class="context">Connecting pets and people since 2025.</div>
+        <div class="social-icons">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
-
     </div>
     
 </body>

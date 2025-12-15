@@ -381,3 +381,206 @@ body {
 .primary-button i, .secondary-button i {
     margin-right: 8px;
 }
+
+/* ------------------ Base & Utilities Adjustments --------------------------- */
+/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
+.section-padding {
+    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+}
+
+/* ------------------ Header Adjustments --------------------------- */
+/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
+@media (max-width: 992px) {
+    .main-header {
+        padding: 15px 30px;
+    }
+    .headSectorHolder {
+        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
+    .main-header {
+        padding: 10px 20px;
+        flex-wrap: wrap; 
+    }
+
+    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
+    .logo-container { order: 1; }
+    .profile-icon { order: 2; margin-left: auto; }
+    .RoleHolder { 
+        order: 3; 
+        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
+        margin-right: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
+    .headSectorHolder { 
+        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
+        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
+        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
+        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
+        gap: 0; /* ลบช่องว่างแนวนอน */
+        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+    }
+
+    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
+    .headSector {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
+    .headSector.active::after {
+        content: none; 
+    }
+}
+
+/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
+@media (max-width: 400px) {
+    .TAILSTRADE { 
+        font-size: 24px; /* ลดขนาดโลโก้ */
+    }
+    .logo-container img {
+        height: 35px; /* ลดขนาดรูปโลโก้ */
+    }
+    .profile-icon i { 
+        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+    }
+}
+
+/* ------------------ Footer Adjustments --------------------------- */
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 30px 10px;
+    }
+    .TAILSTRADE-footer {
+        font-size: 20px;
+    }
+    .context {
+        font-size: 14px;
+    }
+}
+
+/* ------------------ Modal Popup Adjustments --------------------------- */
+/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
+@media (max-width: 576px) {
+    .modal-content { 
+        max-width: 90%; 
+        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        margin: 20px; 
+        padding: 20px; 
+    }
+    .login-header {
+        font-size: 24px;
+    }
+    .form-container input {
+        padding: 10px;
+    }
+    .Remember-Forget {
+        font-size: 12px;
+    }
+    .form-container .btn {
+        padding: 10px 20px;
+    }
+}
+
+/* ------------------ Form Page Content Responsiveness --------------------------- */
+
+/* ปรับปรุง Layout สำหรับหน้าจอ Tablet (Medium devices, 992px max) */
+@media (max-width: 992px) {
+    /* 1. Container หลัก: ลดความกว้างสูงสุดและ Padding */
+    .bodyPage {
+        max-width: 750px;
+        padding: 30px;
+        margin: 30px auto;
+    }
+    
+    /* 2. Header: ลดขนาด Title */
+    .page-title {
+        font-size: 28px;
+    }
+    
+    /* 3. Form Input: ลด Padding ใน Input/Textarea เล็กน้อย */
+    .CreatePostBox input[type="text"],
+    .CreatePostBox select,
+    .CreatePostBox textarea {
+        padding: 10px 12px;
+    }
+}
+
+
+/* ปรับปรุง Layout สำหรับโทรศัพท์มือถือ (Small devices, 768px max) */
+@media (max-width: 768px) {
+    
+    /* 1. Container หลัก: เปลี่ยนเป็นใช้ความกว้างเต็มจอและลด Padding */
+    .bodyPage {
+        max-width: 100%; /* ใช้ความกว้างเต็มที่ */
+        margin: 20px auto; /* ลด margin บน/ล่าง */
+        padding: 15px; /* ลด padding รอบนอก */
+        border-radius: 0; /* ลบมุมโค้งมนที่ขอบจอ */
+        box-shadow: none; /* ลบเงา */
+    }
+
+    /* 2. Header/Title */
+    .page-title {
+        font-size: 24px;
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+    }
+    .page-description {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .backToCommunityBoard {
+        margin-bottom: 15px;
+    }
+
+    /* 3. Form Wrapper: ลด Padding */
+    .CreatePostBox {
+        padding: 20px 15px; /* ลด Padding ในกล่องฟอร์ม */
+    }
+
+    /* 4. Form Row: เปลี่ยนจาก 2 คอลัมน์เป็น 1 คอลัมน์ (STACKED) */
+    .form-row {
+        flex-direction: column; /* เรียงจากซ้ายไปขวาเป็น บนลงล่าง */
+        gap: 0; /* ลบช่องว่างแนวนอน */
+        margin-bottom: 0; /* ลบ margin เดิมออก */
+    }
+
+    .half-width {
+        flex: none; /* ยกเลิกการยึดพื้นที่ 50% */
+        width: 100%;
+    }
+    
+    /* จัดการช่องว่างระหว่าง form-group ที่ถูกเรียงซ้อนกัน */
+    .form-row .form-group {
+        margin-bottom: 20px; /* ใช้ margin-bottom ของ form-group เพื่อเว้นช่องไฟ */
+    }
+    /* form-group สุดท้ายใน form-row ไม่ต้องมี margin-bottom */
+    /* เนื่องจาก .form-row มี margin-bottom 20px อยู่แล้ว แต่เราตั้งค่าเป็น 0 ด้านบน */
+    /* เราจึงใช้ form-group margin-bottom 20px ไปเลย */
+
+
+    /* 5. Action Buttons: เรียงเป็นแนวตั้งและใช้ความกว้างเต็มจอ */
+    .action-buttons {
+        flex-direction: column; /* ปุ่มเรียงจากบนลงล่าง */
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .secondary-button, .primary-button {
+        width: 100%; /* ใช้ความกว้างเต็ม */
+        box-sizing: border-box;
+        padding: 12px 15px;
+        font-size: 15px;
+        border-radius: 8px; /* เปลี่ยนเป็นมุมมนน้อยลง */
+    }
+}

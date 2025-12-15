@@ -559,3 +559,380 @@ body {
 .ViewReply.action-button i {
     margin-right: 5px;
 }
+
+/* ------------------ Base & Utilities Adjustments --------------------------- */
+/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
+.section-padding {
+    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+}
+
+/* ------------------ Header Adjustments --------------------------- */
+/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
+@media (max-width: 992px) {
+    .main-header {
+        padding: 15px 30px;
+    }
+    .headSectorHolder {
+        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
+    .main-header {
+        padding: 10px 20px;
+        flex-wrap: wrap; 
+    }
+
+    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
+    .logo-container { order: 1; }
+    .profile-icon { order: 2; margin-left: auto; }
+    .RoleHolder { 
+        order: 3; 
+        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
+        margin-right: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
+    .headSectorHolder { 
+        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
+        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
+        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
+        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
+        gap: 0; /* ลบช่องว่างแนวนอน */
+        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+    }
+
+    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
+    .headSector {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
+    .headSector.active::after {
+        content: none; 
+    }
+}
+
+/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
+@media (max-width: 400px) {
+    .TAILSTRADE { 
+        font-size: 24px; /* ลดขนาดโลโก้ */
+    }
+    .logo-container img {
+        height: 35px; /* ลดขนาดรูปโลโก้ */
+    }
+    .profile-icon i { 
+        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+    }
+}
+
+/* ------------------ Footer Adjustments --------------------------- */
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 30px 10px;
+    }
+    .TAILSTRADE-footer {
+        font-size: 20px;
+    }
+    .context {
+        font-size: 14px;
+    }
+}
+
+/* ------------------ Modal Popup Adjustments --------------------------- */
+/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
+@media (max-width: 576px) {
+    .modal-content { 
+        max-width: 90%; 
+        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        margin: 20px; 
+        padding: 20px; 
+    }
+    .login-header {
+        font-size: 24px;
+    }
+    .form-container input {
+        padding: 10px;
+    }
+    .Remember-Forget {
+        font-size: 12px;
+    }
+    .form-container .btn {
+        padding: 10px 20px;
+    }
+}
+
+/* ------------------ Community Board Content Responsiveness --------------------------- */
+
+/* ปรับปรุง Layout สำหรับหน้าจอ Tablet/Mobile (768px max) */
+@media (max-width: 768px) {
+    
+    /* 1. Body Page Padding & Container */
+    .bodyPage {
+        padding: 15px 10px; /* ลด padding โดยรวม */
+    }
+
+    /* 2. Header and Search Area */
+    .headPageAndSearch {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    .headPageAndSearch .page-title {
+        font-size: 26px;
+    }
+    .headPageAndSearch .page-description {
+        font-size: 15px;
+    }
+
+    /* 3. Create Post Button */
+    .CreatePost.primary-button {
+        width: 100%; /* ทำให้ปุ่มสร้างโพสต์เต็มความกว้าง */
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    /* 4. Search/Filter Bar: เปลี่ยนเป็นคอลัมน์แนวตั้ง */
+    .SearchFilterBar {
+        flex-direction: column; /* เรียงจากซ้ายไปขวาเป็น บนลงล่าง */
+        gap: 10px;
+        padding: 15px 10px;
+    }
+    
+    .search-input-group {
+        width: 100%;
+        margin-bottom: 5px; 
+        box-sizing: border-box; /* **(เพิ่ม)** สำคัญ: ทำให้ padding/border ไม่ล้น */
+    }
+    .search-input-group input[type="text"] {
+        box-sizing: border-box;
+    }
+
+    .SearchFilterBar select {
+        width: 100%;
+        min-width: unset;
+        box-sizing: border-box;
+    }
+    
+    /* จัดกลุ่ม Dropdown ให้เรียงเป็นคอลัมน์เดียว (ถ้ามีหลายตัว) */
+    .dropdown-group {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .SearchFilterButton.secondary-button {
+        width: 100%;
+        padding: 12px 20px;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ------------------ Post Card (Grid to Stacked Layout) --------------------------- */
+
+@media (max-width: 600px) {
+    /* เปลี่ยน Post Card เป็น Grid/Flex ที่ง่ายขึ้นสำหรับมือถือ */
+    .PostBox.post-card {
+        padding: 15px;
+        /* เปลี่ยน Grid Layout เป็น 1 คอลัมน์ที่ Profile และ Tag อยู่แถวแรก, ที่เหลืออยู่ถัดไป */
+        display: flex; /* เปลี่ยนเป็น Flexbox เพื่อการจัดการบนมือถือที่ง่ายขึ้น */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        border-left-width: 4px; /* ลดขนาดแถบสี */
+    }
+    
+    /* 1. Profile Area: จัดให้อยู่ด้านบนซ้าย */
+    .Profile {
+        flex-direction: row; /* รูปและชื่ออยู่แนวนอน */
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        padding-bottom: 0;
+        border-bottom: 1px dashed var(--border-color);
+    }
+    
+    .profile-img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .username {
+        text-align: left;
+        font-size: 15px;
+    }
+
+    /* 2. Tag Area: จัด Tag ให้อยู่ใต้ Profile (ในส่วน Tag) */
+    .Tag {
+        width: 100%;
+        justify-content: flex-start;
+        padding-bottom: 0;
+        margin-top: 10px;
+    }
+    
+    .Tag ul {
+        flex-wrap: wrap; /* อนุญาตให้ Tags พันบรรทัดได้ */
+        gap: 8px;
+    }
+    
+    .tag-item {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+
+    /* 3. Content Area: เต็มความกว้าง */
+    .content {
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px 0;
+        border: none; /* ลบเส้นประบน/ล่างออก */
+    }
+    
+    .post-title {
+        font-size: 18px;
+    }
+    
+    .post-text {
+        font-size: 14px;
+        /* -webkit-line-clamp: 3; */ /* อาจเพิ่มจำนวนบรรทัดที่แสดง */
+    }
+
+    /* 4. Footer Items: จัดเรียงเป็นแถวแนวนอน */
+    .PostDate.footer-item, 
+    .ReplyCount.footer-item {
+        justify-self: start;
+        align-self: flex-start;
+        margin: 5px 0 0 0; /* ลบ margin-left 20px ของ ReplyCount */
+    }
+    .PostDate.footer-item {
+        order: 1; /* Date อยู่ก่อน */
+    }
+    .ReplyCount.footer-item {
+        order: 2; /* Reply Count อยู่ถัดไป */
+        margin-left: 15px; /* เพิ่มช่องว่างระหว่าง Date และ Reply Count */
+    }
+    
+    .footer-section {
+        display: flex; /* สร้าง wrapper ใหม่เพื่อควบคุม Date/ReplyCount/Button */
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    /* 5. Action Button: จัดไปด้านขวาในแถวเดียวกับ Date/Reply Count */
+    .ViewReply.action-button {
+        order: 3;
+        padding: 8px 15px;
+        font-size: 14px;
+        border-radius: 6px;
+        margin-left: auto; /* ดันไปทางขวา */
+    }
+    
+    /* หากต้องใช้ Grid ต่อไป สามารถใช้ Grid Area ใหม่ได้ดังนี้: */
+    /*
+    .PostBox.post-card {
+        grid-template-areas: 
+            "profile profile"
+            "tag tag"
+            "content content"
+            "footer footer";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto 1fr auto;
+    }
+    .Profile { grid-area: profile; flex-direction: row; }
+    .Tag { grid-area: tag; }
+    .content { grid-area: content; }
+    .footer-items-wrapper { grid-area: footer; display: flex; justify-content: space-between; }
+    */
+    /* *********** แนะนำให้ใช้ Flexbox ที่กำหนดไว้ด้านบนง่ายกว่า *********** */
+    
+    /* ต้องปรับโครงสร้าง HTML เล็กน้อยเพื่อใช้ .footer-section หรือปรับ Grid ให้สอดคล้อง */
+    /* สมมติว่าใน HTML คุณสามารถ wrap PostDate, ReplyCount, ViewReply ด้วย div ที่ชื่อว่า .post-footer-row */
+    
+    /* หากไม่สามารถแก้ HTML ได้ (ต้องใช้ Flexbox บนมือถือ): */
+    /* ต้องยกเลิก Grid Area และใช้ Flexbox แทน */
+    
+    .PostBox.post-card {
+        /* ยกเลิก Grid เพื่อให้ Flexbox ที่กำหนดด้านบนทำงาน */
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        grid-template-areas: unset;
+        grid-template-columns: unset;
+        grid-template-rows: unset;
+    }
+    
+    /* สร้างแถว Footer ใหม่ (ต้องรวม Date, ReplyCount, ViewReply เข้าด้วยกันใน HTML) */
+    /* ถ้าไม่สามารถแก้ HTML ได้: ให้ใช้ Grid Layout เดิม แต่ปรับ Col/Area ใหม่ */
+    
+    .PostBox.post-card {
+        /* ใช้ Grid Layout บนมือถือแทน Flexbox เพื่อไม่ให้ต้องแก้ HTML */
+        display: grid;
+        grid-template-areas: 
+            "profile profile"
+            "tag tag"
+            "content content"
+            "post-date reply-count"
+            "view-reply view-reply";
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: auto auto 1fr auto auto; 
+        align-items: start;
+        gap: 0 10px; /* ลด gap ระหว่างแถวให้เหลือ 0 */
+    }
+    
+    .Profile {
+        grid-area: profile;
+        flex-direction: row;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+        padding-bottom: 10px;
+        border-bottom: 1px dashed var(--border-color);
+    }
+    .Tag {
+        grid-area: tag;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .content {
+        grid-area: content;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px 0;
+        border-top: none;
+        border-bottom: 1px dashed var(--border-color); /* เพิ่มเส้นแบ่งด้านล่าง Content */
+    }
+    
+    /* จัดการ Footer Items (เปลี่ยนตำแหน่งใหม่) */
+    .PostDate.footer-item {
+        grid-area: post-date;
+        justify-self: start;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .ReplyCount.footer-item {
+        grid-area: reply-count;
+        justify-self: start;
+        margin-top: 10px;
+        margin-left: 0; /* ลบ margin-left เดิม */
+    }
+    .ViewReply.action-button {
+        grid-area: view-reply;
+        justify-self: stretch; 
+        width: 100%; /* **(เพิ่ม)** ยืนยันว่าใช้ 100% */
+        box-sizing: border-box; /* **(เพิ่ม)** สำคัญ: ทำให้ padding/border ไม่ล้น */
+        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        margin-bottom: 0;
+    }
+}

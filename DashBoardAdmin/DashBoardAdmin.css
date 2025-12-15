@@ -207,7 +207,7 @@ body {
     border: none; /* ลบ border เดิมออก */
     padding: 10px 20px; 
     border-radius: 0; /* ลบมุมโค้งมนของปุ่มออก */
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -260,4 +260,220 @@ body {
 /* ปรับให้ RoleHolder ที่ใช้ JS แสดงผลอย่างถูกต้อง */
 .RoleHolder.show-roles {
     display: flex;
+}
+
+/* ------------------ Base & Utilities Adjustments --------------------------- */
+/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
+.section-padding {
+    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+}
+
+/* ------------------ Header Adjustments --------------------------- */
+/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
+@media (max-width: 992px) {
+    .main-header {
+        padding: 15px 30px;
+    }
+    .headSectorHolder {
+        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
+    .main-header {
+        padding: 10px 20px;
+        flex-wrap: wrap; 
+    }
+
+    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
+    .logo-container { order: 1; }
+    .profile-icon { order: 2; margin-left: auto; }
+    .RoleHolder { 
+        order: 3; 
+        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
+        margin-right: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
+    .headSectorHolder { 
+        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
+        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
+        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
+        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
+        gap: 0; /* ลบช่องว่างแนวนอน */
+        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+    }
+
+    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
+    .headSector {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
+    .headSector.active::after {
+        content: none; 
+    }
+}
+
+/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
+@media (max-width: 400px) {
+    .TAILSTRADE { 
+        font-size: 24px; /* ลดขนาดโลโก้ */
+    }
+    .logo-container img {
+        height: 35px; /* ลดขนาดรูปโลโก้ */
+    }
+    .profile-icon i { 
+        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+    }
+}
+
+/* ------------------ Footer Adjustments --------------------------- */
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 30px 10px;
+    }
+    .TAILSTRADE-footer {
+        font-size: 20px;
+    }
+    .context {
+        font-size: 14px;
+    }
+}
+
+/* ------------------ Modal Popup Adjustments --------------------------- */
+/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
+@media (max-width: 576px) {
+    .modal-content { 
+        max-width: 90%; 
+        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        margin: 20px; 
+        padding: 20px; 
+    }
+    .login-header {
+        font-size: 24px;
+    }
+    .form-container input {
+        padding: 10px;
+    }
+    .Remember-Forget {
+        font-size: 12px;
+    }
+    .form-container .btn {
+        padding: 10px 20px;
+    }
+}
+
+/* ------------------ Role Selector (Top Center) Adjustments --------------------------- */
+
+/* ปรับปรุง Layout สำหรับหน้าจอ Tablet (Medium devices, 992px max) */
+@media (max-width: 992px) {
+    /* ลดขนาด font และ padding ของปุ่ม Role Selector เพื่อประหยัดพื้นที่แนวนอน */
+    .user-role-selector .Role {
+        padding: 8px 18px; 
+        font-size: 18px;
+    }
+}
+
+/* ปรับปรุง Layout สำหรับโทรศัพท์มือถือ (Small devices, 768px max) */
+@media (max-width: 768px) {
+    
+    /* 1. Body Page Padding */
+    .bodyPage {
+        padding: 0 15px 40px 15px; /* ลด padding ด้านข้าง */
+        margin-top: 10px;
+    }
+    
+    .dashboard-container {
+        padding: 15px;
+    }
+    
+    /* 2. Role Selector Layout: เปลี่ยนเป็น Stack (ซ้อนทับ/พันบรรทัด) */
+    .user-role-selector {
+        width: 100%;
+        flex-wrap: wrap; /* อนุญาตให้ปุ่มพันบรรทัด */
+        border: none; /* ลบกรอบหลักออก */
+        box-shadow: none; /* ลบเงาหลักออก */
+        gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่มที่พันบรรทัด */
+        margin: 20px auto 25px auto;
+        
+    }
+
+    /* 3. Role Button Styling */
+    .user-role-selector .Role {
+        font-size: 15px; /* ลดขนาด font ให้เล็กลง */
+        padding: 10px 15px;
+        flex-grow: 1; /* ทำให้ปุ่มพยายามขยายเท่ากัน */
+        border-right: none; /* ลบเส้นแบ่งแนวตั้งออก */
+        border: 1px solid var(--border-color); /* เพิ่มกรอบให้แต่ละปุ่มแทน */
+        border-radius: 6px; /* ใส่ขอบมนให้แต่ละปุ่ม */
+    }
+    
+    /* ลบสไตล์เดิมที่ควบคุมเส้นขวาของปุ่มสุดท้ายออก */
+    .user-role-selector .Role:last-child {
+        border-right: 1px solid var(--border-color);
+    }
+
+    /* 4. Active Role Styling บนมือถือ */
+    .user-role-selector .Role.active-role {
+        /* ใช้สีเดิม แต่เปลี่ยน border ให้ดูโดดเด่น */
+        border-color: var(--brand-color-primary); 
+    }
+    
+    /* ลบเส้นซ้ายของ Active Role ที่ใช้สำหรับเวอร์ชัน Desktop ออก */
+    .user-role-selector .Role.active-role + .Role {
+        border-left: 1px solid var(--border-color); /* คืนค่า border-left เป็นค่าปกติ */
+    }
+
+    /* 5. Sell List Title (h1) */
+    .sellList h1 {
+        font-size: 24px;
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+    }
+    
+    /* 6. Back Button */
+    .backToDashBoard {
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* 7. New Sell Button */
+    .newSellButton {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* ปรับปรุงสำหรับจอที่แคบที่สุด (Very Small devices, 400px max) */
+@media (max-width: 400px) {
+    /* 1. Role Selector: บังคับให้ปุ่มเรียงเป็นแถวเดียวเต็มความกว้าง */
+    .user-role-selector {
+        flex-direction: column; /* เรียงปุ่มเป็นแนวตั้งทั้งหมด */
+        align-items: stretch; /* ขยายปุ่มให้เต็มความกว้าง */
+    }
+    
+    .user-role-selector .Role {
+        width: 100%;
+        box-sizing: border-box; /* สำคัญเพื่อให้ padding ไม่ดันกว้างเกินไป */
+    }
+
+    /* 2. Pet Card: ลดขนาดองค์ประกอบเล็กน้อย (ซ้ำกับ @800px แต่ช่วยย้ำ) */
+    .pet-actions {
+        flex-wrap: wrap; /* ปุ่ม Action สามารถพันบรรทัดได้ ถ้าจอแคบมากๆ */
+        gap: 8px;
+    }
+    .action-btn {
+        min-width: unset;
+        font-size: 13px;
+        padding: 8px 10px;
+    }
 }

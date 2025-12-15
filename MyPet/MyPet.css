@@ -438,3 +438,228 @@ body {
 .is-hidden {
     display: none !important;
 }
+
+/* ------------------ Base & Utilities Adjustments --------------------------- */
+/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
+.section-padding {
+    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+}
+
+/* ------------------ Header Adjustments --------------------------- */
+/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
+@media (max-width: 992px) {
+    .main-header {
+        padding: 15px 30px;
+    }
+    .headSectorHolder {
+        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
+    .main-header {
+        padding: 10px 20px;
+        flex-wrap: wrap; 
+    }
+
+    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
+    .logo-container { order: 1; }
+    .profile-icon { order: 2; margin-left: auto; }
+    .RoleHolder { 
+        order: 3; 
+        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
+        margin-right: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
+    .headSectorHolder { 
+        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
+        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
+        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
+        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
+        gap: 0; /* ลบช่องว่างแนวนอน */
+        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+    }
+
+    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
+    .headSector {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
+    .headSector.active::after {
+        content: none; 
+    }
+}
+
+/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
+@media (max-width: 400px) {
+    .TAILSTRADE { 
+        font-size: 24px; /* ลดขนาดโลโก้ */
+    }
+    .logo-container img {
+        height: 35px; /* ลดขนาดรูปโลโก้ */
+    }
+    .profile-icon i { 
+        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+    }
+}
+
+/* ------------------ Footer Adjustments --------------------------- */
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 30px 10px;
+    }
+    .TAILSTRADE-footer {
+        font-size: 20px;
+    }
+    .context {
+        font-size: 14px;
+    }
+}
+
+/* ------------------ Modal Popup Adjustments --------------------------- */
+/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
+@media (max-width: 576px) {
+    .modal-content { 
+        max-width: 90%; 
+        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        margin: 20px; 
+        padding: 20px; 
+    }
+    .login-header {
+        font-size: 24px;
+    }
+    .form-container input {
+        padding: 10px;
+    }
+    .Remember-Forget {
+        font-size: 12px;
+    }
+    .form-container .btn {
+        padding: 10px 20px;
+    }
+}
+
+/* ------------------ Body & List Responsiveness --------------------------- */
+
+/* ปรับปรุง Layout สำหรับหน้าจอ Tablet (Medium devices, 992px max) */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* ปรับปรุง Grid Layout: ให้มี 2 คอลัมน์บน Tablet */
+    .MyPetListContainer {
+        /* เปลี่ยน minmax(320px, 1fr) เป็น minmax(280px, 1fr) เพื่อให้รองรับ 2 คอลัมน์ได้ง่ายขึ้น */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 20px; 
+    }
+    
+    .pet-photo {
+        height: 200px; /* ลดความสูงรูปภาพเล็กน้อย */
+    }
+
+    .pet-info h2 {
+        font-size: 22px;
+    }
+}
+
+
+/* ปรับปรุง Layout สำหรับโทรศัพท์มือถือ (Small devices, 768px max) */
+@media (max-width: 768px) {
+    .bodyPage {
+        padding: 20px 0;
+    }
+
+    /* 1. Header Controls (ชื่อหน้า + ปุ่ม) */
+    .header-controls {
+        flex-direction: column; /* เปลี่ยนจากแนวนอนเป็นแนวตั้ง */
+        align-items: flex-start; /* จัดเรียงชิดซ้าย */
+        gap: 15px; /* เพิ่มช่องว่างระหว่างชื่อหน้ากับปุ่ม */
+        margin-bottom: 30px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+    .page-description {
+        font-size: 15px;
+    }
+
+    /* ให้ปุ่มหลักขยายเต็มความกว้าง */
+    .primary-button {
+        width: 100%;
+        box-sizing: border-box; /* สำคัญเพื่อให้ padding ไม่ดันกว้างเกินไป */
+        padding: 15px 20px;
+    }
+
+    /* 2. Empty State */
+    .MyPetListBox.empty-state {
+        margin: 40px auto; 
+        padding: 40px 15px;
+    }
+    .empty-title {
+        font-size: 20px;
+    }
+    .empty-description {
+        font-size: 14px;
+    }
+
+    /* 3. Pet List Container: เปลี่ยนเป็น 1 คอลัมน์เต็มบนมือถือ */
+    .MyPetListContainer {
+        /* บังคับให้เป็น 1 คอลัมน์ (ใช้ auto-fit, minmax(100%, 1fr) ก็ได้) */
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+    
+    .pet-photo {
+        height: 180px; /* ลดความสูงของรูปภาพให้เหมาะสมกับจอแคบ */
+    }
+
+    .pet-info {
+        padding: 15px;
+    }
+
+    .pet-info h2 {
+        font-size: 20px;
+    }
+    .pet-details p {
+        font-size: 14px;
+    }
+
+    /* 4. Card Actions */
+    .card-actions {
+        padding: 10px 15px 15px 15px;
+        flex-direction: column; /* ให้ปุ่ม Edit และ Book/View เรียงเป็นแนวตั้ง */
+        gap: 8px;
+    }
+    .secondary-button, .book-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* ปรับปรุงสำหรับจอที่แคบที่สุด (Very Small devices, 400px max) */
+@media (max-width: 400px) {
+    .page-title {
+        font-size: 24px;
+    }
+    .pet-name-section {
+        flex-direction: column; /* เรียงชื่อและแท็กเป็นแนวตั้ง */
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .pet-info h2 {
+        font-size: 18px;
+    }
+}

@@ -683,22 +683,181 @@ body {
     background-color: #c0392b;
 }
 
-/* เพิ่ม Media Query สำหรับ RoleHolder ในโหมด Responsive (ถ้าจำเป็น) */
+/* ------------------ Base & Utilities Adjustments --------------------------- */
+/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
+.section-padding {
+    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+}
+
+/* ------------------ Header Adjustments --------------------------- */
+/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
+@media (max-width: 992px) {
+    .main-header {
+        padding: 15px 30px;
+    }
+    .headSectorHolder {
+        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+    }
+}
+
 @media (max-width: 768px) {
-    .RoleHolder {
-        /* อาจจะต้องจัดรูปแบบใหม่ใน Mobile view */
+    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
+    .main-header {
+        padding: 10px 20px;
+        flex-wrap: wrap; 
+    }
+
+    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
+    .logo-container { order: 1; }
+    .profile-icon { order: 2; margin-left: auto; }
+    .RoleHolder { 
+        order: 3; 
+        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
         margin-right: 0;
         margin-top: 10px;
         justify-content: center;
         width: 100%;
-        order: 3; /* ให้ RoleHolder ไปอยู่ด้านล่างใน Header สำหรับมือถือ */
     }
-    .main-header {
-        flex-wrap: wrap; /* อนุญาตให้องค์ประกอบพันบรรทัดเมื่อจอเล็ก */
-        padding: 15px 20px;
+
+    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
+    .headSectorHolder { 
+        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
+        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
+        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
+        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
+        gap: 0; /* ลบช่องว่างแนวนอน */
+        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+    }
+
+    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
+    .headSector {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
+    .headSector.active::after {
+        content: none; 
     }
 }
 
+/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
+@media (max-width: 400px) {
+    .TAILSTRADE { 
+        font-size: 24px; /* ลดขนาดโลโก้ */
+    }
+    .logo-container img {
+        height: 35px; /* ลดขนาดรูปโลโก้ */
+    }
+    .profile-icon i { 
+        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+    }
+}
+/* ------------------ Hero Section Adjustments --------------------------- */
+@media (max-width: 992px) {
+    .hero { height: 500px; }
+    .Herotext h1 { font-size: 50px; }
+    .Herotext p { font-size: 20px; }
+}
 
+@media (max-width: 576px) {
+    .hero { height: 400px; }
+    .Herotext h1 { 
+        font-size: 36px; /* ลดขนาดหัวข้อลงสำหรับมือถือ */
+        margin-bottom: 15px;
+    }
+    .Herotext p { 
+        font-size: 16px; 
+        margin-bottom: 25px;
+    }
+    .BoxExploreService {
+        padding: 12px 30px;
+        font-size: 18px;
+    }
+    .herobehideText-hero { 
+        font-size: 50px; /* ลดขนาด Text เบื้องหลัง */
+        opacity: 0.1;
+    }
+}
 
+/* ------------------ Content Card/Box Adjustments --------------------------- */
 
+/* ทำให้ Card และ Box จัดเรียงเป็นแนวตั้งบนมือถือและแคบลงบนแท็บเล็ต */
+.containCard, .containBox, .containBoxHTW { 
+    gap: 20px; 
+}
+
+@media (max-width: 992px) {
+    .card, .box.offer-box {
+        width: 45%; /* ให้แสดง 2 คอลัมน์บนหน้าจอที่แคบกว่า 992px */
+        max-width: none; /* ลบ max-width เดิมออกเพื่อให้ยืดหยุ่น */
+    }
+    .boxHTW.step-box {
+        width: 30%; /* ให้แสดง 3 คอลัมน์บนหน้าจอแท็บเล็ต */
+    }
+}
+
+@media (max-width: 768px) {
+    /* สไตล์เดิมที่จำเป็นต้องปรับปรุง */
+    .card, .box.offer-box, .boxHTW.step-box { 
+        width: 100%; 
+        max-width: 400px; /* จำกัดความกว้างสูงสุดเพื่อให้ไม่กว้างเกินไปบนจอเล็กๆ */
+    }
+    .box.offer-box, .boxHTW.step-box {
+        margin-bottom: 20px;
+    }
+}
+
+/* ------------------ Join Our Community Adjustments --------------------------- */
+
+@media (max-width: 768px) {
+    .JoinOurCommunity h2 { 
+        font-size: 36px; 
+    }
+    .JoinOurCommunity .section-subtitle { 
+        font-size: 18px; 
+    }
+    .primary-button-lg { 
+        padding: 12px 30px; 
+        font-size: 20px; 
+    }
+}
+
+/* ------------------ Footer Adjustments --------------------------- */
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 30px 10px;
+    }
+    .TAILSTRADE-footer {
+        font-size: 20px;
+    }
+    .context {
+        font-size: 14px;
+    }
+}
+
+/* ------------------ Modal Popup Adjustments --------------------------- */
+/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
+@media (max-width: 576px) {
+    .modal-content { 
+        max-width: 90%; 
+        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        margin: 20px; 
+        padding: 20px; 
+    }
+    .login-header {
+        font-size: 24px;
+    }
+    .form-container input {
+        padding: 10px;
+    }
+    .Remember-Forget {
+        font-size: 12px;
+    }
+    .form-container .btn {
+        padding: 10px 20px;
+    }
+}

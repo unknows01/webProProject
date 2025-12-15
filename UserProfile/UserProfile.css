@@ -493,18 +493,215 @@ body {
     font-weight: 500;
 }
 
-/* --- Media Queries for Responsiveness --- */
+/* ------------------ Base & Utilities Adjustments --------------------------- */
+/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
+.section-padding {
+    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+}
+
+/* ------------------ Header Adjustments --------------------------- */
+/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
+@media (max-width: 992px) {
+    .main-header {
+        padding: 15px 30px;
+    }
+    .headSectorHolder {
+        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+    }
+}
 
 @media (max-width: 768px) {
+    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
+    .main-header {
+        padding: 10px 20px;
+        flex-wrap: wrap; 
+    }
+
+    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
+    .logo-container { order: 1; }
+    .profile-icon { order: 2; margin-left: auto; }
+    .RoleHolder { 
+        order: 3; 
+        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
+        margin-right: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
+    .headSectorHolder { 
+        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
+        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
+        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
+        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
+        gap: 0; /* ลบช่องว่างแนวนอน */
+        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+    }
+
+    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
+    .headSector {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
+    .headSector.active::after {
+        content: none; 
+    }
+}
+
+/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
+@media (max-width: 400px) {
+    .TAILSTRADE { 
+        font-size: 24px; /* ลดขนาดโลโก้ */
+    }
+    .logo-container img {
+        height: 35px; /* ลดขนาดรูปโลโก้ */
+    }
+    .profile-icon i { 
+        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+    }
+}
+
+/* ------------------ Footer Adjustments --------------------------- */
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 30px 10px;
+    }
+    .TAILSTRADE-footer {
+        font-size: 20px;
+    }
+    .context {
+        font-size: 14px;
+    }
+}
+
+/* ------------------ Modal Popup Adjustments --------------------------- */
+/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
+@media (max-width: 576px) {
+    .modal-content { 
+        max-width: 90%; 
+        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        margin: 20px; 
+        padding: 20px; 
+    }
+    .login-header {
+        font-size: 24px;
+    }
+    .form-container input {
+        padding: 10px;
+    }
+    .Remember-Forget {
+        font-size: 12px;
+    }
+    .form-container .btn {
+        padding: 10px 20px;
+    }
+}
+
+/* ------------------ Profile Card Responsiveness --------------------------- */
+
+/* ปรับปรุง Layout ทั่วไปสำหรับหน้าจอ Tablet (Medium devices, 992px max) */
+@media (max-width: 992px) {
+    .container {
+        /* ขยายความกว้างของ container เล็กน้อยบน tablet */
+        max-width: 90%; 
+    }
+    .profile-card {
+        padding: 30px;
+    }
     .profile-details-grid {
-        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        gap: 20px; /* ลดช่องว่างระหว่างคอลัมน์ */
+    }
+    .display-name {
+        font-size: 2em; /* ลดขนาดชื่อ */
+    }
+}
+
+/* ปรับปรุง Layout สำหรับโทรศัพท์มือถือ (Small devices, 768px max) */
+@media (max-width: 768px) {
+    .bodyPage {
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+    .profile-card {
+        padding: 20px;
     }
 
-    .stats-container {
+    /* 1. Profile Header */
+    .profile-image-container {
+        width: 120px; /* ลดขนาดรูปโปรไฟล์ */
+        height: 120px;
+    }
+    .edit-image-btn {
+        width: 30px; /* ลดขนาดปุ่ม Edit */
+        height: 30px;
+        font-size: 12px;
+        bottom: 0px;
+        right: 0px;
+    }
+    .display-name {
+        font-size: 1.8em;
+    }
+    .role-tags-container {
+        /* จัดเรียงแท็กให้พันบรรทัดบนมือถือ */
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 8px;
+    }
+
+    /* 2. Grid Layout: เปลี่ยนจาก 2 คอลัมน์เป็น 1 คอลัมน์ */
+    .profile-details-grid {
+        grid-template-columns: 1fr; /* เปลี่ยนเป็น 1 คอลัมน์เต็ม */
+        gap: 30px; /* เพิ่มช่องว่างระหว่าง Section */
+    }
+    .full-width {
+        grid-column: 1 / 1; /* ไม่จำเป็นต้องใช้ full-width แล้ว เมื่อเป็น 1 คอลัมน์ */
+    }
+
+    /* 3. Detail Section */
+    .detail-section {
+        padding: 15px;
+    }
+    .detail-item {
+        /* ทำให้ Detail Item จัดเรียงเป็นแนวตั้งหากข้อมูลยาวมาก */
         flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 0;
+    }
+    .detail-value {
+        font-size: 16px;
+        margin-top: 5px;
     }
 
+    /* 4. Stats Section */
+    .stats-container {
+        flex-direction: column; /* จัดเรียง Stat Box เป็นแนวตั้ง */
+        gap: 10px;
+    }
     .stat-box {
-        margin-bottom: 10px;
+        padding: 10px;
+    }
+    .stat-number {
+        font-size: 1.8em; /* ลดขนาดตัวเลขสถิติ */
+    }
+    .stat-label {
+        font-size: 0.9em;
+    }
+}
+
+
+/* ปรับปรุง Layout สำหรับจอที่แคบมาก (Very Small devices, 480px max) */
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 15px;
+    }
+    .primary-button {
+        padding: 10px 20px;
+        font-size: 15px;
     }
 }

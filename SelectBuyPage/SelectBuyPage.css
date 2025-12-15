@@ -467,3 +467,250 @@ body {
     color: var(--brand-color-primary);
     font-size: 16px;
 }
+
+/* ------------------ Base & Utilities Adjustments --------------------------- */
+/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
+.section-padding {
+    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+}
+
+/* ------------------ Header Adjustments --------------------------- */
+/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
+@media (max-width: 992px) {
+    .main-header {
+        padding: 15px 30px;
+    }
+    .headSectorHolder {
+        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+    }
+}
+
+@media (max-width: 768px) {
+    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
+    .main-header {
+        padding: 10px 20px;
+        flex-wrap: wrap; 
+    }
+
+    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
+    .logo-container { order: 1; }
+    .profile-icon { order: 2; margin-left: auto; }
+    .RoleHolder { 
+        order: 3; 
+        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
+        margin-right: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
+    .headSectorHolder { 
+        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
+        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
+        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
+        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
+        gap: 0; /* ลบช่องว่างแนวนอน */
+        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+    }
+
+    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
+    .headSector {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
+    .headSector.active::after {
+        content: none; 
+    }
+}
+
+/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
+@media (max-width: 400px) {
+    .TAILSTRADE { 
+        font-size: 24px; /* ลดขนาดโลโก้ */
+    }
+    .logo-container img {
+        height: 35px; /* ลดขนาดรูปโลโก้ */
+    }
+    .profile-icon i { 
+        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+    }
+}
+
+/* ------------------ Footer Adjustments --------------------------- */
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 30px 10px;
+    }
+    .TAILSTRADE-footer {
+        font-size: 20px;
+    }
+    .context {
+        font-size: 14px;
+    }
+}
+
+/* ------------------ Modal Popup Adjustments --------------------------- */
+/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
+@media (max-width: 576px) {
+    .modal-content { 
+        max-width: 90%; 
+        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        margin: 20px; 
+        padding: 20px; 
+    }
+    .login-header {
+        font-size: 24px;
+    }
+    .form-container input {
+        padding: 10px;
+    }
+    .Remember-Forget {
+        font-size: 12px;
+    }
+    .form-container .btn {
+        padding: 10px 20px;
+    }
+}
+
+/* ------------------ Content Section Responsiveness (New) --------------------------- */
+
+/* ปรับปรุง Layout สำหรับหน้าจอ Tablet (Medium devices, 992px max) */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    /* 1. Main Detail Card: ลดช่องว่างและ padding */
+    .pictureAndMessage {
+        gap: 20px;
+        padding: 20px;
+        /* อนุญาตให้พันบรรทัดหากพื้นที่ไม่พอ */
+        flex-wrap: wrap; 
+    }
+
+    /* 2. Image Column */
+    .pictureAndSelectPic {
+        /* ปรับให้ Image Column ใช้ความกว้างเต็มเมื่อจอเล็กลง (768px จะเปลี่ยนเป็น 100%) */
+        flex-basis: 100%; 
+        max-width: 100%; 
+    }
+
+    .main-pet-img {
+        height: 350px; /* ลดความสูงลงเล็กน้อย */
+    }
+
+    /* 3. Info Column */
+    .nameAndBasicInfo {
+        flex-basis: 100%; /* ให้ Info Column ใช้ความกว้างเต็มเมื่อจอเล็กลง */
+        padding: 0;
+    }
+    .name {
+        font-size: 30px;
+    }
+    .price {
+        font-size: 26px;
+    }
+
+    /* 4. About & Health Sections: เปลี่ยนจาก 2 คอลัมน์เป็น 1 คอลัมน์ */
+    .About-MoreInfo {
+        flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+        gap: 30px;
+        margin-top: 30px;
+    }
+}
+
+
+/* ปรับปรุง Layout สำหรับโทรศัพท์มือถือ (Small devices, 768px max) */
+@media (max-width: 768px) {
+    /* ส่วน Header ถูกจัดการไว้แล้วด้านบน */
+
+    .backToSelectPage {
+        margin: 15px auto 20px;
+    }
+
+    .pictureAndMessage {
+        /* เมื่อเข้าสู่ 768px: */
+        flex-direction: column; /* เปลี่ยนเป็นเรียงแนวตั้ง */
+        padding: 15px;
+        gap: 15px;
+    }
+
+    .main-pet-img {
+        height: 250px; /* ลดความสูงของรูปภาพหลักสำหรับมือถือ */
+    }
+
+    .Subimg {
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .Subimg img {
+        width: 60px; /* ลดขนาดรูปภาพย่อย */
+        height: 60px;
+    }
+    
+    .name {
+        font-size: 28px;
+    }
+    .price {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    /* ปรับปรุง Info Items ให้ดูดีขึ้นในพื้นที่จำกัด */
+    .info-item {
+        font-size: 16px;
+        line-height: 1.8;
+        flex-direction: row; /* คงไว้เป็นแนวนอนเพื่อให้ดูเป็นตาราง */
+        flex-wrap: wrap;
+    }
+    .info-item .label {
+        width: 100px; /* เพิ่มความกว้างของ label เล็กน้อย */
+    }
+
+    /* Action Buttons: เปลี่ยนจากแนวนอนเป็นแนวตั้งเพื่อให้ปุ่มใหญ่ขึ้น */
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .MessageToSeller, .AddToFavorites {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* About & Health Sections (ที่ 768px ถูกเปลี่ยนเป็นแนวตั้งแล้ว) */
+    .info-box {
+        padding: 20px;
+    }
+    .section-header {
+        font-size: 24px;
+        border-bottom-width: 2px;
+    }
+    .HealthAndInfo li {
+        font-size: 15px;
+    }
+}
+
+/* ปรับปรุงสำหรับจอที่แคบที่สุด (Very Small devices, 400px max) */
+@media (max-width: 400px) {
+    .main-pet-img {
+        height: 200px; /* ลดความสูงของรูปภาพหลักลงอีก */
+    }
+    .name {
+        font-size: 24px;
+    }
+    .price {
+        font-size: 22px;
+    }
+    .Subimg {
+        /* ทำให้รูปภาพย่อยเลื่อนได้ง่ายขึ้น */
+        overflow-x: scroll; 
+        justify-content: flex-start;
+    }
+}

@@ -181,60 +181,77 @@ body {
     margin-top: 15px;
 }
 
-/* ------------------ Role Holder (Hidden by Default) --------------------------- */
+/* ------------------ Role Selector (Top Center) --------------------------- */
 
-.RoleHolder {
-    /* ซ่อนโดยค่าเริ่มต้น - ต้องใช้ JavaScript เพื่อเพิ่มคลาส .show-roles เมื่อมี Role */
-    display: none; 
-    align-items: center;
-    gap: 10px;
-    margin-right: 20px;
-}
-
-/* คลาสที่จะเพิ่มด้วย JavaScript เพื่อแสดง RoleHolder */
-.RoleHolder.show-roles {
+/* กำหนดให้ ul.user-role-selector แสดงผลอยู่ตรงกลาง และเป็นคอนเทนเนอร์ของกลุ่มปุ่ม */
+.user-role-selector {
+    list-style: none;
+    padding: 0;
+    margin: 25px auto 30px auto; 
     display: flex;
+    justify-content: center; 
+    align-items: center;
+/* ลบ gap เดิมออกเพื่อรวมปุ่มเข้าด้วยกัน */
+
+/* **[การแก้ไขหลัก: ทำให้เป็นกล่องเดียว]** */
+    border: 1px solid var(--border-color); /* เพิ่มกรอบรอบนอก */
+    border-radius: 8px; /* มุมโค้งมนของกล่อง */
+    overflow: hidden; /* สำคัญ: เพื่อให้มุมโค้งมนแสดงผลได้ถูกต้อง */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* เพิ่มเงาให้ดูโดดเด่น */
 }
 
-.Role {
-    background-color: var(--brand-color-secondary); /* สีน้ำเงินสำหรับ Role */
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 14px;
+/* สไตล์สำหรับปุ่ม Role (li.Role) ที่อยู่ในกล่องเดียว */
+.user-role-selector .Role {
+    background-color: white;
+    color: var(--text-color-light); /* ใช้สีเทาอ่อนสำหรับปุ่มที่ไม่ได้เลือก */
+    border: none; /* ลบ border เดิมออก */
+    padding: 10px 20px; 
+    border-radius: 0; /* ลบมุมโค้งมนของปุ่มออก */
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    white-space: nowrap; /* ป้องกันข้อความแตกบรรทัด */
+
+/* **[การแก้ไขหลัก: เพิ่มเส้นคั่น]** */
+    border-right: 1px solid var(--border-color); 
 }
 
-.Role:hover {
-    background-color: #3b74c0; /* สีเข้มขึ้นเมื่อโฮเวอร์ */
-    transform: translateY(-1px);
+/* ลบเส้นคั่นด้านขวาของปุ่มสุดท้ายออก */
+    .user-role-selector .Role:last-child {
+    border-right: none;
 }
 
-/* สไตล์สำหรับ Role เฉพาะเจาะจง (ถ้าต้องการให้แต่ละ Role มีสีต่างกัน) */
-.Role[Role="Seller"] {
-    background-color: #2ecc71; /* สีเขียว */
-}
-.Role[Role="Care Taker"] {
-    background-color: #f39c12; /* สีส้ม */
-}
-.Role[Role="Admin"] {
-    background-color: #e74c3c; /* สีแดง */
+/* สไตล์เมื่อนำเมาส์ไปชี้ (Hover) */
+    .user-role-selector .Role:hover {
+    background-color: #f0f4f8; /* สีพื้นหลังอ่อนๆ เมื่อโฮเวอร์ */
+    color: var(--brand-color-secondary); /* สีข้อความเปลี่ยนไปตาม Brand */
+    transform: none; /* ลบ transform: translateY(-1px) ออก */
 }
 
-.Role[Role="Seller"]:hover {
-    background-color: #27ae60;
-}
-.Role[Role="Care Taker"]:hover {
-    background-color: #d8800a;
-}
-.Role[Role="Admin"]:hover {
-    background-color: #c0392b;
+/* สไตล์สำหรับปุ่มที่ถูกเน้น (Active/Current Role) */
+.user-role-selector .Role.active-role {
+    background-color: var(--brand-color-primary); /* สี Brand หลัก */
+    color: white;
+    border-color: var(--brand-color-primary);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาด้านในเพื่อเน้น */
 }
 
+.user-role-selector .Role.active-role:hover {
+    background-color: #e66b41; /* สีเข้มขึ้นเล็กน้อยเมื่อโฮเวอร์บน active */
+    color: white;
+}
+
+/* หากต้องการให้เส้นคั่นของปุ่ม active เป็นสีขาวเพื่อให้ดูกลมกลืน */
+    .user-role-selector .Role.active-role + .Role {
+    border-left: 1px solid var(--brand-color-primary); /* ทำให้เส้นคั่นถัดไปดูกลมกลืน */
+}
+
+/* หากต้องการให้ปุ่ม Admin มีสีแดงเป็นพิเศษ */
+    .user-role-selector .Role[Role="Admin"].active-role {
+    background-color: #e74c3c; 
+    border-color: #e74c3c;
+}
 /* เพิ่ม/แก้ไขใน DashBoard.css */
 
 .bodyPage {
@@ -245,29 +262,8 @@ body {
     padding: 0 20px 50px 20px; /* เพิ่ม padding ด้านล่าง */
 }
 
-/* ปรับปรุงการจัดวาง RoleHolder ให้อยู่ตรงกลางใน Body */
-.RoleHolder {
-    list-style: none;
-    display: none; /* ยังคงซ่อนไว้ตามค่าเริ่มต้น */
-    padding: 0;
-    margin: 0 auto 30px auto; /* จัดให้อยู่ตรงกลางและเพิ่มระยะห่างด้านล่าง */
-    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
-    align-items: center;
-    gap: 15px; /* เพิ่มระยะห่างระหว่างปุ่ม */
-    /* ลบ margin-right: 20px; ออกถ้ามีอยู่เดิมใน CSS */
-}
 
-.RoleHolder.show-roles {
-    display: flex;
-}
 
-/* จัดรูปแบบปุ่ม Role ให้ดูดีขึ้น */
-.Role {
-    /* ... สไตล์เดิม ... */
-    padding: 10px 20px; /* เพิ่มขนาดปุ่มเล็กน้อย */
-    font-size: 15px;
-    white-space: nowrap; /* ป้องกันข้อความหด */
-}
 
 /* อาจจะเพิ่มสไตล์สำหรับพื้นที่รอบๆ เพื่อให้เห็นชัดเจน */
 .dashboard-container {
@@ -285,35 +281,6 @@ body {
     padding: 0 20px;
 }
 
-/* ------------------ Role Holder (Selector) Styling --------------------------- */
-.user-role-selector {
-    list-style: none;
-    padding: 0;
-    /* จัดให้อยู่ตรงกลาง */
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 30px 0 40px 0; /* เว้นระยะห่างจากด้านบนและส่วน Dashboard */
-}
-
-/* สไตล์พื้นฐานของ Role Button (เดิม) - เพิ่ม transform/shadow */
-.Role {
-    background-color: var(--brand-color-secondary);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 25px; /* ทำให้ปุ่มโค้งมนมากขึ้น */
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.Role:hover {
-    background-color: #3b74c0;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
 
 .backToDashBoard {
     /* margin: 20px auto 30px; */
@@ -337,10 +304,6 @@ body {
     display: none !important;
 }
 
-/* ปรับให้ RoleHolder ที่ใช้ JS แสดงผลอย่างถูกต้อง */
-.RoleHolder.show-roles {
-    display: flex;
-}
 
 /* ------------------ Caretaker Specific Styles --------------------------- */
 

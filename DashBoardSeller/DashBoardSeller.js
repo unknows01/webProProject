@@ -129,62 +129,117 @@ document.addEventListener('DOMContentLoaded', function() {
 // และ displayUserRoles ยังคงเหมือนเดิม
 
 // --- ฟังก์ชันสำหรับแสดง/ซ่อนปุ่ม Role และ Dashboard Stats ที่เกี่ยวข้อง ---
-displayUserRoles(['Seller' , 'Care Taker' , 'Admin'])
 function displayUserRoles(userRoles) {
-    const roleHolder = document.querySelector('.user-role-selector'); // ใช้คลาสใหม่ .user-role-selector
-    
-    // กำหนดเส้นทาง URL สำหรับแต่ละ Role
-    const rolePaths = {
-        'Seller': '../DashBoardSeller/DashBoardSeller.html',
-        'Care Taker': '../DashBoardCareTaker/DashBoardCareTaker.html',
-        'Admin': '../DashBoardAdmin/DashBoardAdmin.html'
-    };
+    // กำหนด Role ปัจจุบัน (Current Role) ที่กำลังแสดงอยู่
+    // ในหน้า DashBoard.html นี้ Role ปัจจุบันคือ 'User'
+    const currentRole = 'Seller'; 
+    
+    const roleHolder = document.querySelector('.user-role-selector');
+    
+    // กำหนดเส้นทาง URL สำหรับแต่ละ Role
+    const rolePaths = {
+        'User': '../DashBoard/DashBoard.html', // เพิ่ม User Dashboard
+        'Seller': '../DashBoardSeller/DashBoardSeller.html',
+        'Care Taker': '../DashBoardCareTaker/DashBoardCareTaker.html',
+        'Admin': '../DashboardAdmin/DashboardAdmin.html'
+    };
 
-    // Card สถิติที่เกี่ยวข้องกับ Role
-    const roleStatCards = {
-        'Seller': 'listingStat', // สำหรับ Seller
-        'Care Taker': 'careTakerStat', // สำหรับ Care Taker
-    };
+    // Card สถิติที่เกี่ยวข้องกับ Role
+    const roleStatCards = {
+        'Seller': 'listingStat', 
+        'Care Taker': 'careTakerStat', 
+    };
 
-    // 1. ล้างปุ่ม Role ที่มีอยู่และซ่อน RoleHolder
-    roleHolder.innerHTML = '';
-    roleHolder.classList.remove('show-roles');
+    // 1. ล้างปุ่ม Role ที่มีอยู่และซ่อน Stat Card ทั้งหมด
+    roleHolder.innerHTML = '';
+    
+    document.querySelectorAll('.stat-card-role').forEach(card => {
+        card.classList.add('hidden');
+    });
+    
+    // รวม 'User' เข้าไปในรายการบทบาทที่ต้องแสดงเสมอ
+    const rolesToDisplay = Array.from(new Set(['User', ...userRoles]));
 
-    // 2. ซ่อน Stat Card ที่เกี่ยวข้องกับ Role ทั้งหมดก่อน
-    document.querySelectorAll('.stat-card-role').forEach(card => {
-        card.classList.add('hidden');
-    });
+    if (rolesToDisplay.length > 0) {
+        
+        rolesToDisplay.forEach(roleName => {
+            // สร้างปุ่ม Role
+            const button = document.createElement('li'); 
+            button.className = 'Role';
+            button.setAttribute('Role', roleName);
+            button.textContent = roleName;
 
-    if (userRoles && userRoles.length > 0) {
-        // 3. แสดง RoleHolder
-        roleHolder.classList.add('show-roles'); 
-        
-        userRoles.forEach(roleName => {
-            // สร้างปุ่ม Role
-            const button = document.createElement('li'); // เปลี่ยนเป็น <li> เพื่อให้เป็นไปตาม ul
-            button.className = 'Role';
-            button.setAttribute('Role', roleName);
-            button.textContent = roleName;
+            const targetPath = rolePaths[roleName];
+            
+            // **ไฮไลต์บทบาทปัจจุบัน**
+            if (roleName === currentRole) {
+                button.classList.add('active-role');
+            }
 
-            const targetPath = rolePaths[roleName];
+            if (targetPath) {
+                // ผูก Event Listener สำหรับการนำทาง
+                button.addEventListener('click', function() {
+                    // ป้องกันการโหลดซ้ำหน้าเดิม
+                    if (roleName !== currentRole) {
+                        document.location = targetPath;
+                    }
+                });
+            }
 
-            if (targetPath) {
-                // ผูก Event Listener สำหรับการนำทาง
-                button.addEventListener('click', function() {
-                    document.location = targetPath;
-                });
-            }
+            roleHolder.appendChild(button);
 
-            roleHolder.appendChild(button);
+            // 4. แสดง Stat Card ที่เกี่ยวข้องกับ Role ปัจจุบันเท่านั้น
+            if (roleName === currentRole) {
+                // ใน User Dashboard นี้ เราจะแสดง Stat Card ของ Seller และ Care Taker
+                // หากผู้ใช้มีสิทธิ์ใน Role นั้นๆ ด้วย
+                const hasSeller = userRoles.includes('Seller');
+                const hasCareTaker = userRoles.includes('Care Taker');
 
-            // 4. แสดง Stat Card ที่เกี่ยวข้องกับ Role
-            const statCardId = roleStatCards[roleName];
-            if (statCardId) {
-                const statCard = document.getElementById(statCardId);
-                if (statCard) {
-                    statCard.classList.remove('hidden');
-                }
-            }
-        });
-    }
+                if (hasSeller) {
+                    document.getElementById(roleStatCards['Seller'])?.classList.remove('hidden');
+                }
+                if (hasCareTaker) {
+                    document.getElementById(roleStatCards['Care Taker'])?.classList.remove('hidden');
+                }
+            }
+        });
+    }
 }
+
+// --- ฟังก์ชันจำลองการดึงข้อมูลผู้ใช้ (แทนที่ด้วยการเรียก API จริง) ---
+function fetchUserProfile() {
+    // *** ทดสอบ: ผู้ใช้คนนี้เป็น User, Seller, และ Admin ***
+    const user = {
+        name: "John Doe", 
+        roles: ["Seller", "Admin"], // บทบาทเสริมที่นอกเหนือจาก 'User'
+        stats: {
+            pets: 4,
+            messages: 2,
+            listings: 1 
+        }
+    };
+    return user;
+}
+
+// --- อัปเดต DOMContentLoaded Listener ---
+// document.addEventListener('DOMContentLoaded', function() {
+//     UserProfileHandler();
+
+//     try {
+//         const user = fetchUserProfile();
+//         
+//         // อัปเดตชื่อผู้ใช้
+//         const userNameDisplay = document.getElementById('userNameDisplay');
+//         if (userNameDisplay) {
+//             userNameDisplay.textContent = user.name;
+//         }
+//         
+//         // แสดงปุ่ม Role และ Stat Cards ตามบทบาท
+//         displayUserRoles(user.roles);
+
+//     } catch (error) {
+//         console.error("Error loading user profile:", error);
+//     }
+// });
+
+displayUserRoles(['Seller' , 'Care Taker' , 'Admin'])

@@ -1,4 +1,4 @@
-/* --- Global Reset & Modern Font --- */
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
@@ -7,16 +7,15 @@ body {
     color: #333;
 }
 
-/* --- Branding & Color Palette --- */
 :root {
-    --brand-color-primary: #ff7f50; /* Coral/Salmon */
-    --brand-color-secondary: #4a90e2; /* Blue */
+    --brand-color-primary: #ff7f50;
+    --brand-color-secondary: #4a90e2;
     --text-color-dark: #333;
     --text-color-light: #666;
     --border-color: #e0e0e0;
     --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
     --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
-    --highlight-color: #008080; /* Teal/DarkCyan for Caretaker Highlight */
+    --highlight-color: #008080;
     --tag-bg: #e0f7fa;
     --tag-text: #00796b;
 }
@@ -78,32 +77,28 @@ body {
     cursor: pointer; 
     transition: color 0.3s; 
 }
-.profile-icon i:hover, .profile-icon.active i { /* เพิ่ม .profile-icon.active i */
+.profile-icon i:hover, .profile-icon.active i {
     color: var(--brand-color-primary); 
 }
 
-/* ------------------ profile-icon (Dropdown) --------------------------- */
+/* ------------------ profil --------------------------- */
 
-/* ทำให้ dropdown-content อยู่ในตำแหน่งที่สัมพันธ์กับ profile-icon */
 .profile-icon {
-    position: relative; /* สำคัญ: เป็นตัวอ้างอิงสำหรับตำแหน่ง absolute ของ dropdown */
+    position: relative;
     display: inline-block;
 }
 
-/* ซ่อน Dropdown Menu ไว้ก่อน */
 .dropdown-content {
     display: none;
     position: absolute;
-    /* ตำแหน่งเมนู: เยื้องไปทางซ้ายมือเพื่อให้เมนูไปอยู่ใต้ไอคอน */
     right: 0; 
-    /* ให้เมนูอยู่ใต้ไอคอน */
     top: 100%; 
     background-color: white;
     min-width: 160px;
-    box-shadow: var(--shadow-light); /* ใช้ shadow ที่กำหนดไว้ */
-    z-index: 1001; /* ให้อยู่เหนือ Header */
+    box-shadow: var(--shadow-light);
+    z-index: 1001;
     border-radius: 5px;
-    margin-top: 10px; /* เว้นระยะห่างจากไอคอนเล็กน้อย */
+    margin-top: 10px;
     border: 1px solid var(--border-color);
 }
 
@@ -120,15 +115,13 @@ body {
     background-color: #f1f1f1;
     color: var(--brand-color-primary);
 }
-
-/* Class ที่ใช้ JavaScript ในการเปิด/ปิด Dropdown */
 .profile-icon:hover .dropdown-content,
 .profile-icon.active .dropdown-content {
     display: block;
 }
 
 
-/* ------------------ footer (Modern Style) --------------------------- */
+/* ------------------ footer --------------------------- */
 .footer {
     padding: 40px 20px;
     margin-top: 50px; 
@@ -181,9 +174,8 @@ body {
     margin-top: 15px;
 }
 
-/* ------------------ Role Selector (Top Center) --------------------------- */
+/* ------------------ Role Selector --------------------------- */
 
-/* กำหนดให้ ul.user-role-selector แสดงผลอยู่ตรงกลาง และเป็นคอนเทนเนอร์ของกลุ่มปุ่ม */
 .user-role-selector {
     list-style: none;
     padding: 0;
@@ -191,81 +183,65 @@ body {
     display: flex;
     justify-content: center; 
     align-items: center;
-/* ลบ gap เดิมออกเพื่อรวมปุ่มเข้าด้วยกัน */
-
-/* **[การแก้ไขหลัก: ทำให้เป็นกล่องเดียว]** */
-    border: 1px solid var(--border-color); /* เพิ่มกรอบรอบนอก */
-    border-radius: 8px; /* มุมโค้งมนของกล่อง */
-    overflow: hidden; /* สำคัญ: เพื่อให้มุมโค้งมนแสดงผลได้ถูกต้อง */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* เพิ่มเงาให้ดูโดดเด่น */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
 }
 
-/* สไตล์สำหรับปุ่ม Role (li.Role) ที่อยู่ในกล่องเดียว */
 .user-role-selector .Role {
     background-color: white;
-    color: var(--text-color-light); /* ใช้สีเทาอ่อนสำหรับปุ่มที่ไม่ได้เลือก */
-    border: none; /* ลบ border เดิมออก */
+    color: var(--text-color-light);
+    border: none;
     padding: 10px 20px; 
-    border-radius: 0; /* ลบมุมโค้งมนของปุ่มออก */
+    border-radius: 0;
     font-size: 20px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    white-space: nowrap; /* ป้องกันข้อความแตกบรรทัด */
+    white-space: nowrap;
 
-/* **[การแก้ไขหลัก: เพิ่มเส้นคั่น]** */
     border-right: 1px solid var(--border-color); 
 }
 
-/* ลบเส้นคั่นด้านขวาของปุ่มสุดท้ายออก */
-    .user-role-selector .Role:last-child {
+.user-role-selector .Role:last-child {
     border-right: none;
 }
 
-/* สไตล์เมื่อนำเมาส์ไปชี้ (Hover) */
-    .user-role-selector .Role:hover {
-    background-color: #f0f4f8; /* สีพื้นหลังอ่อนๆ เมื่อโฮเวอร์ */
-    color: var(--brand-color-secondary); /* สีข้อความเปลี่ยนไปตาม Brand */
-    transform: none; /* ลบ transform: translateY(-1px) ออก */
+.user-role-selector .Role:hover {
+    background-color: #f0f4f8;
+    color: var(--brand-color-secondary);
+    transform: none;
 }
 
-/* สไตล์สำหรับปุ่มที่ถูกเน้น (Active/Current Role) */
 .user-role-selector .Role.active-role {
-    background-color: var(--brand-color-primary); /* สี Brand หลัก */
+    background-color: var(--brand-color-primary);
     color: white;
     border-color: var(--brand-color-primary);
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* เพิ่มเงาด้านในเพื่อเน้น */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .user-role-selector .Role.active-role:hover {
-    background-color: #e66b41; /* สีเข้มขึ้นเล็กน้อยเมื่อโฮเวอร์บน active */
+    background-color: #e66b41;
     color: white;
 }
 
-/* หากต้องการให้เส้นคั่นของปุ่ม active เป็นสีขาวเพื่อให้ดูกลมกลืน */
-    .user-role-selector .Role.active-role + .Role {
-    border-left: 1px solid var(--brand-color-primary); /* ทำให้เส้นคั่นถัดไปดูกลมกลืน */
+.user-role-selector .Role.active-role + .Role {
+    border-left: 1px solid var(--brand-color-primary);
 }
 
-/* หากต้องการให้ปุ่ม Admin มีสีแดงเป็นพิเศษ */
-    .user-role-selector .Role[Role="Admin"].active-role {
+.user-role-selector .Role[Role="Admin"].active-role {
     background-color: #e74c3c; 
     border-color: #e74c3c;
 }
-/* เพิ่ม/แก้ไขใน DashBoard.css */
 
 .bodyPage {
-    /* จัดการการเว้นระยะห่างด้านบนเพื่อไม่ให้ติดขอบ Header เกินไป */
     padding-top: 30px; 
-    max-width: 1200px; /* จำกัดความกว้างเพื่อให้ดูดีขึ้น */
-    margin: 0 auto; /* จัดกึ่งกลางหน้า */
-    padding: 0 20px 50px 20px; /* เพิ่ม padding ด้านล่าง */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 50px 20px;
 }
 
-
-
-
-/* อาจจะเพิ่มสไตล์สำหรับพื้นที่รอบๆ เพื่อให้เห็นชัดเจน */
 .dashboard-container {
     padding: 20px;
     background-color: white;
@@ -273,23 +249,20 @@ body {
     box-shadow: var(--shadow-light);
 }
 
-/* --- bodyPage Layout and Modern Styling --- */
-
 .bodyPage {
     max-width: 1200px;
-    margin: 20px auto 50px; /* เพิ่ม margin บนและล่าง */
+    margin: 20px auto 50px;
     padding: 0 20px;
 }
 
 
 .backToDashBoard {
-    /* margin: 20px auto 30px; */
     cursor: pointer;
-    color: var(--brand-color-secondary); /* ใช้สีรอง */
+    color: var(--brand-color-secondary);
     font-weight: 600;
     font-size: 16px;
     transition: color 0.3s;
-    display: block; /* Ensure it takes up its own line */
+    display: block;
     width: fit-content;
 }
 
@@ -298,27 +271,19 @@ body {
     text-decoration: underline;
 }
 
-
-/* ------------------ Utility Classes --------------------------- */
 .hidden {
     display: none !important;
 }
 
-
-/* ------------------ Caretaker Specific Styles --------------------------- */
-
-/* ใช้สี Caretaker สำหรับ Element ที่เกี่ยวข้อง */
 :root {
-    /* ... สไตล์เดิม ... */
-    --highlight-color: #008080; /* Teal/DarkCyan for Caretaker Highlight */
+    --highlight-color: #008080;
     --caretaker-primary: var(--highlight-color);
-    --caretaker-bg-light: #e0ffff; /* Light Cyan for backgrounds */
+    --caretaker-bg-light: #e0ffff;
 }
 
-/* ปรับสี Back to Dashboard ให้เป็น Caretaker Color */
 .backToDashBoard {
     cursor: pointer;
-    color: var(--caretaker-primary); /* ใช้สี Caretaker */
+    color: var(--caretaker-primary);
     font-weight: 600;
     font-size: 16px;
     transition: color 0.3s;
@@ -326,15 +291,15 @@ body {
     align-items: center;
     gap: 8px;
     width: fit-content;
-    margin: 20px 0 30px 0; /* เพิ่ม margin ด้านล่าง */
+    margin: 20px 0 30px 0;
 }
 
 .backToDashBoard:hover {
-    color: #005f5f; /* Darker Teal */
+    color: #005f5f;
     text-decoration: underline;
 }
 
-/* ------------------ Location Header & Add Button --------------------------- */
+/* ------------------ Location Header and Add Button --------------------------- */
 
 .location-header-actions {
     display: flex;
@@ -369,12 +334,12 @@ body {
 }
 
 .add-location-button:hover {
-    background-color: #006666; /* Darker Teal */
+    background-color: #006666;
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(0, 128, 128, 0.4);
 }
 
-/* ------------------ Location Management Card Styling --------------------------- */
+/* ------------------ Location Management Stling --------------------------- */
 
 .location-management-container {
     display: flex;
@@ -390,7 +355,7 @@ body {
     border-radius: 12px;
     box-shadow: var(--shadow-light);
     padding: 25px;
-    border-left: 6px solid var(--caretaker-primary); /* แถบสี Caretaker */
+    border-left: 6px solid var(--caretaker-primary);
     transition: box-shadow 0.3s, transform 0.3s;
 }
 
@@ -469,7 +434,7 @@ body {
     min-width: 150px;
 }
 
-/* ------------------ Action Button Base Style (Override Role CSS) --------------------------- */
+/* ------------------ Action Button--------------------------- */
 .action-btn {
     background-color: #f0f0f0;
     color: var(--text-color-light);
@@ -534,11 +499,11 @@ body {
 }
 
 .booking-card.confirmed-booking {
-    border-left: 5px solid #388e3c; /* Green for Confirmed */
+    border-left: 5px solid #388e3c;
 }
 
 .booking-card.pending-booking {
-    border-left: 5px solid var(--brand-color-primary); /* Coral for Pending */
+    border-left: 5px solid var(--brand-color-primary);
 }
 
 .booking-summary {
@@ -594,7 +559,7 @@ body {
     color: var(--brand-color-primary); 
 }
 
-.status-badge.draft { /* ใช้สำหรับ Location Card Draft */
+.status-badge.draft {
     background-color: #fbecec; 
     color: #d32f2f; 
 }
@@ -609,7 +574,7 @@ body {
     min-width: 140px;
 }
 
-/* Responsive adjustments */
+/* Responsive  */
 @media (max-width: 900px) {
     .location-card {
         flex-direction: column;
@@ -644,80 +609,72 @@ body {
     }
 }
 
-/* ------------------ Base & Utilities Adjustments --------------------------- */
-/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
+/* ------------------ Base  --------------------------- */
+
 .section-padding {
-    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+    padding: 60px 40px;
 }
 
-/* ------------------ Header Adjustments --------------------------- */
-/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
+/* ------------------ Header --------------------------- */
 @media (max-width: 992px) {
     .main-header {
         padding: 15px 30px;
     }
     .headSectorHolder {
-        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+        gap: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
     .main-header {
         padding: 10px 20px;
         flex-wrap: wrap; 
     }
 
-    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
     .logo-container { order: 1; }
     .profile-icon { order: 2; margin-left: auto; }
     .RoleHolder { 
         order: 3; 
-        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
         margin-right: 0;
         margin-top: 10px;
         justify-content: center;
         width: 100%;
     }
 
-    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
     .headSectorHolder { 
-        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
-        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
-        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
-        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
-        gap: 0; /* ลบช่องว่างแนวนอน */
-        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
-        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+        display: flex;
+        width: 100%;
+        order: 4;
+        flex-direction: column; 
+        gap: 0;
+        margin-top: 10px;
+        border-top: 1px solid var(--border-color);
     }
 
-    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
     .headSector {
         width: 100%;
         text-align: left;
         padding: 10px 0;
         border-bottom: 1px solid #f0f0f0;
     }
-    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
     .headSector.active::after {
         content: none; 
     }
 }
 
-/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
 @media (max-width: 400px) {
     .TAILSTRADE { 
-        font-size: 24px; /* ลดขนาดโลโก้ */
+        font-size: 24px;
     }
     .logo-container img {
-        height: 35px; /* ลดขนาดรูปโลโก้ */
+        height: 35px;
     }
     .profile-icon i { 
-        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+        font-size: 1.5em;
     }
 }
 
-/* ------------------ Footer Adjustments --------------------------- */
+/* ------------------ Footer --------------------------- */
 
 @media (max-width: 576px) {
     .footer {
@@ -731,12 +688,12 @@ body {
     }
 }
 
-/* ------------------ Modal Popup Adjustments --------------------------- */
-/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
+/* ------------------ Modal Popup --------------------------- */
+
 @media (max-width: 576px) {
     .modal-content { 
         max-width: 90%; 
-        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        width: 90%;
         margin: 20px; 
         padding: 20px; 
     }
@@ -754,23 +711,20 @@ body {
     }
 }
 
-/* ------------------ Role Selector (Top Center) Adjustments --------------------------- */
+/* ------------------ Role Selector --------------------------- */
 
-/* ปรับปรุง Layout สำหรับหน้าจอ Tablet (Medium devices, 992px max) */
 @media (max-width: 992px) {
-    /* ลดขนาด font และ padding ของปุ่ม Role Selector เพื่อประหยัดพื้นที่แนวนอน */
     .user-role-selector .Role {
         padding: 8px 18px; 
         font-size: 18px;
     }
 }
 
-/* ปรับปรุง Layout สำหรับโทรศัพท์มือถือ (Small devices, 768px max) */
 @media (max-width: 768px) {
     
-    /* 1. Body Page Padding */
+
     .bodyPage {
-        padding: 0 15px 40px 15px; /* ลด padding ด้านข้าง */
+        padding: 0 15px 40px 15px;
         margin-top: 10px;
     }
     
@@ -778,79 +732,67 @@ body {
         padding: 15px;
     }
     
-    /* 2. Role Selector Layout: เปลี่ยนเป็น Stack (ซ้อนทับ/พันบรรทัด) */
     .user-role-selector {
         width: 100%;
-        flex-wrap: wrap; /* อนุญาตให้ปุ่มพันบรรทัด */
-        border: none; /* ลบกรอบหลักออก */
-        box-shadow: none; /* ลบเงาหลักออก */
-        gap: 10px; /* เพิ่มช่องว่างระหว่างปุ่มที่พันบรรทัด */
+        flex-wrap: wrap; 
+        border: none;
+        box-shadow: none;
+        gap: 10px;
         margin: 20px auto 25px auto;
         
     }
 
-    /* 3. Role Button Styling */
     .user-role-selector .Role {
-        font-size: 15px; /* ลดขนาด font ให้เล็กลง */
+        font-size: 15px;
         padding: 10px 15px;
-        flex-grow: 1; /* ทำให้ปุ่มพยายามขยายเท่ากัน */
-        border-right: none; /* ลบเส้นแบ่งแนวตั้งออก */
-        border: 1px solid var(--border-color); /* เพิ่มกรอบให้แต่ละปุ่มแทน */
-        border-radius: 6px; /* ใส่ขอบมนให้แต่ละปุ่ม */
+        flex-grow: 1;
+        border-right: none;
+        border: 1px solid var(--border-color);
+        border-radius: 6px; 
     }
     
-    /* ลบสไตล์เดิมที่ควบคุมเส้นขวาของปุ่มสุดท้ายออก */
     .user-role-selector .Role:last-child {
         border-right: 1px solid var(--border-color);
     }
 
-    /* 4. Active Role Styling บนมือถือ */
     .user-role-selector .Role.active-role {
-        /* ใช้สีเดิม แต่เปลี่ยน border ให้ดูโดดเด่น */
         border-color: var(--brand-color-primary); 
     }
     
-    /* ลบเส้นซ้ายของ Active Role ที่ใช้สำหรับเวอร์ชัน Desktop ออก */
     .user-role-selector .Role.active-role + .Role {
-        border-left: 1px solid var(--border-color); /* คืนค่า border-left เป็นค่าปกติ */
+        border-left: 1px solid var(--border-color);
     }
 
-    /* 5. Sell List Title (h1) */
     .sellList h1 {
         font-size: 24px;
         padding-bottom: 8px;
         margin-bottom: 20px;
     }
     
-    /* 6. Back Button */
     .backToDashBoard {
         margin-top: 10px;
         margin-bottom: 20px;
     }
 
-    /* 7. New Sell Button */
     .newSellButton {
         padding: 10px 20px;
         font-size: 14px;
     }
 }
 
-/* ปรับปรุงสำหรับจอที่แคบที่สุด (Very Small devices, 400px max) */
 @media (max-width: 400px) {
-    /* 1. Role Selector: บังคับให้ปุ่มเรียงเป็นแถวเดียวเต็มความกว้าง */
     .user-role-selector {
-        flex-direction: column; /* เรียงปุ่มเป็นแนวตั้งทั้งหมด */
-        align-items: stretch; /* ขยายปุ่มให้เต็มความกว้าง */
+        flex-direction: column;
+        align-items: stretch;
     }
     
     .user-role-selector .Role {
         width: 100%;
-        box-sizing: border-box; /* สำคัญเพื่อให้ padding ไม่ดันกว้างเกินไป */
+        box-sizing: border-box;
     }
 
-    /* 2. Pet Card: ลดขนาดองค์ประกอบเล็กน้อย (ซ้ำกับ @800px แต่ช่วยย้ำ) */
     .pet-actions {
-        flex-wrap: wrap; /* ปุ่ม Action สามารถพันบรรทัดได้ ถ้าจอแคบมากๆ */
+        flex-wrap: wrap;
         gap: 8px;
     }
     .action-btn {

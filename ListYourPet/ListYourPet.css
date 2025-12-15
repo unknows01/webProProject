@@ -1,4 +1,3 @@
-/* --- Global Reset & Modern Font --- */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
@@ -7,16 +6,14 @@ body {
     color: #333;
 }
 
-/* --- Branding & Color Palette --- */
 :root {
-    --brand-color-primary: #ff7f50; /* Coral/Salmon */
-    --brand-color-secondary: #4a90e2; /* Blue */
+    --brand-color-primary: #ff7f50;
+    --brand-color-secondary: #4a90e2;
     --text-color-dark: #333;
     --text-color-light: #666;
     --border-color: #e0e0e0;
     --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
     --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
-    /* Tag Colors */
     --tag-dog-bg: #e0f2f1;
     --tag-dog-text: #004d40;
     --tag-cat-bg: #fffde7;
@@ -80,32 +77,28 @@ body {
     cursor: pointer; 
     transition: color 0.3s; 
 }
-.profile-icon i:hover, .profile-icon.active i { /* เพิ่ม .profile-icon.active i */
+.profile-icon i:hover, .profile-icon.active i {
     color: var(--brand-color-primary); 
 }
 
 /* ------------------ profile-icon (Dropdown) --------------------------- */
 
-/* ทำให้ dropdown-content อยู่ในตำแหน่งที่สัมพันธ์กับ profile-icon */
 .profile-icon {
-    position: relative; /* สำคัญ: เป็นตัวอ้างอิงสำหรับตำแหน่ง absolute ของ dropdown */
+    position: relative;
     display: inline-block;
 }
 
-/* ซ่อน Dropdown Menu ไว้ก่อน */
 .dropdown-content {
     display: none;
     position: absolute;
-    /* ตำแหน่งเมนู: เยื้องไปทางซ้ายมือเพื่อให้เมนูไปอยู่ใต้ไอคอน */
     right: 0; 
-    /* ให้เมนูอยู่ใต้ไอคอน */
     top: 100%; 
     background-color: white;
     min-width: 160px;
-    box-shadow: var(--shadow-light); /* ใช้ shadow ที่กำหนดไว้ */
-    z-index: 1001; /* ให้อยู่เหนือ Header */
+    box-shadow: var(--shadow-light);
+    z-index: 1001;
     border-radius: 5px;
-    margin-top: 10px; /* เว้นระยะห่างจากไอคอนเล็กน้อย */
+    margin-top: 10px;
     border: 1px solid var(--border-color);
 }
 
@@ -123,14 +116,13 @@ body {
     color: var(--brand-color-primary);
 }
 
-/* Class ที่ใช้ JavaScript ในการเปิด/ปิด Dropdown */
 .profile-icon:hover .dropdown-content,
 .profile-icon.active .dropdown-content {
     display: block;
 }
 
 
-/* ------------------ footer (Modern Style) --------------------------- */
+/* ------------------ footer --------------------------- */
 .footer {
     padding: 40px 20px;
     margin-top: 50px; 
@@ -183,23 +175,21 @@ body {
     margin-top: 15px;
 }
 
-/* ------------------ Role Holder (Hidden by Default) --------------------------- */
+/* ------------------ Role Holder --------------------------- */
 
 .RoleHolder {
-    /* ซ่อนโดยค่าเริ่มต้น - ต้องใช้ JavaScript เพื่อเพิ่มคลาส .show-roles เมื่อมี Role */
     display: none; 
     align-items: center;
     gap: 10px;
     margin-right: 20px;
 }
 
-/* คลาสที่จะเพิ่มด้วย JavaScript เพื่อแสดง RoleHolder */
 .RoleHolder.show-roles {
     display: flex;
 }
 
 .Role {
-    background-color: var(--brand-color-secondary); /* สีน้ำเงินสำหรับ Role */
+    background-color: var(--brand-color-secondary);
     color: white;
     border: none;
     padding: 8px 15px;
@@ -212,19 +202,18 @@ body {
 }
 
 .Role:hover {
-    background-color: #3b74c0; /* สีเข้มขึ้นเมื่อโฮเวอร์ */
+    background-color: #3b74c0;
     transform: translateY(-1px);
 }
 
-/* สไตล์สำหรับ Role เฉพาะเจาะจง (ถ้าต้องการให้แต่ละ Role มีสีต่างกัน) */
 .Role[Role="Seller"] {
-    background-color: #2ecc71; /* สีเขียว */
+    background-color: #2ecc71;
 }
 .Role[Role="Care Taker"] {
-    background-color: #f39c12; /* สีส้ม */
+    background-color: #f39c12;
 }
 .Role[Role="Admin"] {
-    background-color: #e74c3c; /* สีแดง */
+    background-color: #e74c3c;
 }
 
 .Role[Role="Seller"]:hover {
@@ -285,7 +274,6 @@ body {
     color: var(--brand-color-primary);
 }
 
-/* --- Common Form Grouping --- */
 .form-group {
     margin-bottom: 15px;
 }
@@ -333,7 +321,6 @@ body {
     box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.2);
 }
 
-/* --- Price Input Specific Style --- */
 .price-input-container {
     display: flex;
     align-items: center;
@@ -362,7 +349,6 @@ body {
 .price-input-container input[type="number"] {
     border: none;
     padding: 10px 12px;
-    /* Ensure no focus styles on the inner input as the container handles the visual focus */
     box-shadow: none; 
 }
 .price-input-container input[type="number"]:focus {
@@ -371,17 +357,14 @@ body {
 }
 
 
-/* ------------------ Photos & Videos Section (Dropzone) --------------------------- */
-/* .PhotosVideos { */
-    /* Uses .info-section styling */
-/* } */
+/* ------------------ PhotosVideos Section --------------------------- */
 
 .BoxInputPhotosVideos {
     border: 2px dashed var(--brand-color-primary); 
     border-radius: 10px;
     padding: 40px 20px;
     text-align: center;
-    background-color: #fff8f5; /* Very light salmon background */
+    background-color: #fff8f5;
     cursor: pointer;
     transition: border-color 0.3s, background-color 0.3s;
 }
@@ -422,7 +405,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    /* (Styling for uploaded file cards would go here) */
 }
 
 
@@ -470,7 +452,7 @@ body {
 }
 
 
-/* Media Query for Responsiveness */
+/* Responsive */
 @media (max-width: 768px) {
     .bodyPage {
         padding: 20px 0;
@@ -499,84 +481,71 @@ body {
     }
     
     .headSectorHolder {
-        display: none; /* Hide navigation on small screens */
+        display: none;
     }
 }
 
-/* ------------------ Base & Utilities Adjustments --------------------------- */
-/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
 .section-padding {
-    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+    padding: 60px 40px;
 }
 
-/* ------------------ Header Adjustments --------------------------- */
-/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
 @media (max-width: 992px) {
     .main-header {
         padding: 15px 30px;
     }
     .headSectorHolder {
-        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+        gap: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
     .main-header {
         padding: 10px 20px;
         flex-wrap: wrap; 
     }
 
-    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
     .logo-container { order: 1; }
     .profile-icon { order: 2; margin-left: auto; }
     .RoleHolder { 
         order: 3; 
-        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
         margin-right: 0;
         margin-top: 10px;
         justify-content: center;
         width: 100%;
     }
 
-    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
     .headSectorHolder { 
-        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
-        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
-        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
-        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
-        gap: 0; /* ลบช่องว่างแนวนอน */
-        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
-        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+        display: flex;
+        width: 100%;
+        order: 4;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 10px;
+        border-top: 1px solid var(--border-color);
     }
 
-    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
     .headSector {
         width: 100%;
         text-align: left;
         padding: 10px 0;
         border-bottom: 1px solid #f0f0f0;
     }
-    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
     .headSector.active::after {
         content: none; 
     }
 }
 
-/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
 @media (max-width: 400px) {
     .TAILSTRADE { 
-        font-size: 24px; /* ลดขนาดโลโก้ */
+        font-size: 24px;
     }
     .logo-container img {
-        height: 35px; /* ลดขนาดรูปโลโก้ */
+        height: 35px;
     }
     .profile-icon i { 
-        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+        font-size: 1.5em;
     }
 }
-
-/* ------------------ Footer Adjustments --------------------------- */
 
 @media (max-width: 576px) {
     .footer {
@@ -590,12 +559,10 @@ body {
     }
 }
 
-/* ------------------ Modal Popup Adjustments --------------------------- */
-/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
 @media (max-width: 576px) {
     .modal-content { 
         max-width: 90%; 
-        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        width: 90%;
         margin: 20px; 
         padding: 20px; 
     }

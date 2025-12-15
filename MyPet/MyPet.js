@@ -73,37 +73,26 @@ function displayUserRoles(userRoles) {
             
 // }
 
-// --- ฟังก์ชัน LogOut ---
+// ---  LogOut ---
 function LogOut() {
-    // 1. ล้างข้อมูลการเข้าสู่ระบบ (เช่น token, session storage, local storage)
-    console.log("User Logged Out"); // สำหรับการทดสอบ
+    console.log("User Logged Out");
     localStorage.removeItem('userToken'); 
-    // ตัวอย่างการลบข้อมูลผู้ใช้
-
-    // 2. ส่งผู้ใช้กลับไปยังหน้า Home
     document.location = '../home/home.html';
 }
 
-// --- ฟังก์ชันหลักสำหรับ Profile Icon ---
+// ---  Profile  ---
 function UserProfileHandler() {
     const profileIcon = document.getElementById("userProfile");
     const profileIconContainer = profileIcon.closest('.profile-icon');
     
-    // ตรวจสอบสถานะการเข้าสู่ระบบ
-    // (***คุณต้องกำหนดวิธีการตรวจสอบสถานะการเข้าสู่ระบบจริง ๆ ที่นี่***)
-    // สำหรับการสาธิตนี้ สมมติว่ามีตัวแปร isUserLoggedIn หรือตรวจสอบจาก local storage
-    const isUserLoggedIn = true; // สมมติว่าผู้ใช้เข้าสู่ระบบแล้ว
+    const isUserLoggedIn = true;
 
     if (isUserLoggedIn) {
-        // ถ้าเข้าสู่ระบบแล้ว: แสดง/ซ่อน Dropdown เมื่อคลิก
         profileIcon.addEventListener('click', function(event) {
-            // ป้องกันการปิดทันทีเมื่อคลิก
             event.stopPropagation(); 
-            // Toggle class 'active' เพื่อแสดง/ซ่อน Dropdown
             profileIconContainer.classList.toggle('active');
         });
         
-        // ปิด Dropdown เมื่อคลิกที่อื่นบนหน้าจอ
         window.addEventListener('click', function(event) {
             if (!profileIconContainer.contains(event.target)) {
                 profileIconContainer.classList.remove('active');
@@ -111,22 +100,15 @@ function UserProfileHandler() {
         });
         
     } else {
-        // ถ้ายังไม่ได้เข้าสู่ระบบ: เปิด Login Modal เมื่อคลิก
         profileIcon.addEventListener('click', function() {
             openLoginModal(); 
         });
     }
 }
 
-// --- เรียกใช้ฟังก์ชันเมื่อ DOM โหลดเสร็จ ---
 document.addEventListener('DOMContentLoaded', function() {
     UserProfileHandler();
-    // ถ้าคุณต้องการให้มีการตรวจสอบบทบาท (Role) เมื่อโหลดหน้า
-    // และแสดงเมนูบทบาท (RoleHolder) คุณสามารถเรียกใช้ฟังก์ชัน displayUserRoles(userRoles) ที่นี่
 });
-
-// ฟังก์ชัน openLoginModal, closeLoginModal, openSignupModal, closeSignupModal 
-// และ displayUserRoles ยังคงเหมือนเดิม
 
 function MyPetData(haveData){
   const emptyPet = document.getElementById("empty-state-section");

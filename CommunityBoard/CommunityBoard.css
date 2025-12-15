@@ -1,4 +1,4 @@
-/* --- Global Reset & Modern Font (จาก home.css) --- */
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
@@ -7,10 +7,9 @@ body {
     color: #333;
 }
 
-/* --- Branding & Color Palette (จาก home.css) --- */
 :root {
-    --brand-color-primary: #ff7f50; /* Coral/Salmon */
-    --brand-color-secondary: #4a90e2; /* Blue */
+    --brand-color-primary: #ff7f50;
+    --brand-color-secondary: #4a90e2;
     --text-color-dark: #333;
     --text-color-light: #666;
     --border-color: #e0e0e0;
@@ -81,32 +80,27 @@ body {
     cursor: pointer; 
     transition: color 0.3s; 
 }
-.profile-icon i:hover, .profile-icon.active i { /* เพิ่ม .profile-icon.active i */
+.profile-icon i:hover, .profile-icon.active i {
     color: var(--brand-color-primary); 
 }
 
-/* ------------------ profile-icon (Dropdown) --------------------------- */
+/* ------------------ profile --------------------------- */
 
-/* ทำให้ dropdown-content อยู่ในตำแหน่งที่สัมพันธ์กับ profile-icon */
 .profile-icon {
-    position: relative; /* สำคัญ: เป็นตัวอ้างอิงสำหรับตำแหน่ง absolute ของ dropdown */
+    position: relative;
     display: inline-block;
 }
-
-/* ซ่อน Dropdown Menu ไว้ก่อน */
 .dropdown-content {
     display: none;
     position: absolute;
-    /* ตำแหน่งเมนู: เยื้องไปทางซ้ายมือเพื่อให้เมนูไปอยู่ใต้ไอคอน */
     right: 0; 
-    /* ให้เมนูอยู่ใต้ไอคอน */
     top: 100%; 
     background-color: white;
     min-width: 160px;
-    box-shadow: var(--shadow-light); /* ใช้ shadow ที่กำหนดไว้ */
-    z-index: 1001; /* ให้อยู่เหนือ Header */
+    box-shadow: var(--shadow-light);
+    z-index: 1001;
     border-radius: 5px;
-    margin-top: 10px; /* เว้นระยะห่างจากไอคอนเล็กน้อย */
+    margin-top: 10px;
     border: 1px solid var(--border-color);
 }
 
@@ -124,12 +118,11 @@ body {
     color: var(--brand-color-primary);
 }
 
-/* Class ที่ใช้ JavaScript ในการเปิด/ปิด Dropdown */
 .profile-icon:hover .dropdown-content,
 .profile-icon.active .dropdown-content {
     display: block;
 }
-/* ------------------ footer (ใช้สไตล์ร่วมกับ home.css) --------------------------- */
+/* ------------------ footer--------------------------- */
 .footer {
     padding: 40px 20px;
     margin-top: 50px; 
@@ -180,23 +173,21 @@ body {
     margin-top: 15px;
 }
 
-/* ------------------ Role Holder (Hidden by Default) --------------------------- */
+/* ------------------ Role Holder --------------------------- */
 
 .RoleHolder {
-    /* ซ่อนโดยค่าเริ่มต้น - ต้องใช้ JavaScript เพื่อเพิ่มคลาส .show-roles เมื่อมี Role */
     display: none; 
     align-items: center;
     gap: 10px;
     margin-right: 20px;
 }
 
-/* คลาสที่จะเพิ่มด้วย JavaScript เพื่อแสดง RoleHolder */
 .RoleHolder.show-roles {
     display: flex;
 }
 
 .Role {
-    background-color: var(--brand-color-secondary); /* สีน้ำเงินสำหรับ Role */
+    background-color: var(--brand-color-secondary);
     color: white;
     border: none;
     padding: 8px 15px;
@@ -209,19 +200,18 @@ body {
 }
 
 .Role:hover {
-    background-color: #3b74c0; /* สีเข้มขึ้นเมื่อโฮเวอร์ */
+    background-color: #3b74c0;
     transform: translateY(-1px);
 }
 
-/* สไตล์สำหรับ Role เฉพาะเจาะจง (ถ้าต้องการให้แต่ละ Role มีสีต่างกัน) */
 .Role[Role="Seller"] {
-    background-color: #2ecc71; /* สีเขียว */
+    background-color: #2ecc71;
 }
 .Role[Role="Care Taker"] {
-    background-color: #f39c12; /* สีส้ม */
+    background-color: #f39c12; 
 }
 .Role[Role="Admin"] {
-    background-color: #e74c3c; /* สีแดง */
+    background-color: #e74c3c; 
 }
 
 .Role[Role="Seller"]:hover {
@@ -235,7 +225,7 @@ body {
 }
 
 
-/* ------------------ bodyPage content --------------------------- */
+/* ------------------ bodyPage --------------------------- */
 .bodyPage {
     padding: 40px 20px;
 }
@@ -285,10 +275,9 @@ body {
     margin-right: 8px;
 }
 
-/* Search/Filter Bar (Combined search, dropdowns, and filter button) */
 .SearchFilterBar {
     display: flex;
-    align-items: stretch; /* ทำให้ทุกองค์ประกอบมีความสูงเท่ากัน */
+    align-items: stretch;
     gap: 15px; 
     padding: 15px;
     background-color: #f7f9fc;
@@ -329,7 +318,7 @@ body {
     font-size: 15px;
     color: var(--text-color-light);
     font-weight: 500;
-    white-space: nowrap; /* ป้องกันข้อความไม่ให้ตกบรรทัด */
+    white-space: nowrap;
 }
 
 .SearchFilterBar select {
@@ -338,7 +327,7 @@ body {
     border-radius: 4px;
     font-size: 15px;
     min-width: 120px;
-    appearance: none; /* ลบสไตล์ default ของ dropdown */
+    appearance: none;
     background-color: white;
     background-image: url('data:image/svg+xml;utf8,<svg fill="%23666666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
     background-repeat: no-repeat;
@@ -383,13 +372,10 @@ body {
     cursor: pointer;
     
     display: grid;
-    /* 3 Rows: Header, Content, Footer */
-    /* 3 Columns: Profile (fixed width), Tag (flexible), Action Button (auto) */
     grid-template-areas: 
-        "profile tag tag" /* PROFILE, TAG, TAG (ให้ TAG ขยายไปทางขวา) */
+        "profile tag tag"
         "content content content" 
         "post-date reply-count view-reply";
-    /* แก้ไข: คอลัมน์แรก 120px, คอลัมน์กลางยืดหยุ่น, คอลัมน์สุดท้าย auto */
     grid-template-columns: 120px 1fr auto; 
     grid-template-rows: auto 1fr auto; 
     align-items: center; 
@@ -399,11 +385,10 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Profile & Tags (Top Row) */
 .Profile {
     grid-area: profile;
     display: flex;
-    flex-direction: column; /* เปลี่ยนเป็น column เพื่อให้รูปภาพและชื่ออยู่แนวตั้ง */
+    flex-direction: column;
     align-items: center;
     gap: 5px;
     padding-bottom: 10px;
@@ -411,14 +396,14 @@ body {
 
 .profile-img {
     border-radius: 50%;
-    width: 50px; /* เพิ่มขนาดรูปโปรไฟล์เล็กน้อย */
+    width: 50px;
     height: 50px;
     object-fit: cover;
     border: 2px solid var(--brand-color-primary);
 }
 
 .username {
-    font-size: 14px; /* ปรับขนาดชื่อให้เล็กลง */
+    font-size: 14px;
     color: var(--brand-color-secondary);
     font-weight: 600;
     margin: 0;
@@ -428,8 +413,8 @@ body {
 .Tag {
     grid-area: tag;
     display: flex;
-    justify-content: flex-start; /* ให้ Tags เริ่มต้นจากด้านซ้าย */
-    align-self: start; /* จัดให้อยู่ด้านบนของพื้นที่ Grid */
+    justify-content: flex-start;
+    align-self: start;
     padding-bottom: 10px;
 }
 
@@ -465,7 +450,6 @@ body {
     color: var(--tag-urgent-text);
 }
 
-/* Content Area (Middle Row, spans all columns) */
 .content {
     grid-area: content;
     padding: 10px 0;
@@ -488,14 +472,11 @@ body {
     color: var(--text-color-light);
     line-height: 1.6;
     margin-bottom: 0;
-    /* Truncate if too long */
     display: -webkit-box;
-    /* -webkit-line-clamp: 2; */
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
-/* Footer Items (Bottom Row) */
 .PostDate.footer-item {
     grid-area: post-date;
     display: flex;
@@ -521,7 +502,7 @@ body {
     gap: 5px;
     color: var(--brand-color-secondary);
     justify-self: start;
-    margin-left: 20px; /* Space from the date */
+    margin-left: 20px;
 }
 
 .reply-number {
@@ -537,7 +518,6 @@ body {
     color: var(--text-color-light);
 }
 
-/* View & Reply Button (Action) */
 .ViewReply.action-button {
     grid-area: view-reply;
     padding: 10px 20px;
@@ -560,80 +540,71 @@ body {
     margin-right: 5px;
 }
 
-/* ------------------ Base & Utilities Adjustments --------------------------- */
-/* ปรับ padding โดยรวมให้เหมาะสมกับหน้าจอขนาดเล็ก */
+/* ------------------ Base --------------------------- */
 .section-padding {
-    padding: 60px 40px; /* ลด padding ด้านข้างลงเล็กน้อย */
+    padding: 60px 40px;
 }
 
-/* ------------------ Header Adjustments --------------------------- */
-/* ปรับปรุงการแสดงผลใน Header ให้ยืดหยุ่นมากขึ้นเมื่อจอเล็ก */
+/* ------------------ Header --------------------------- */
 @media (max-width: 992px) {
     .main-header {
         padding: 15px 30px;
     }
     .headSectorHolder {
-        gap: 20px; /* ลดช่องว่างระหว่างเมนู */
+        gap: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    /* 1. อนุญาตให้ Header พันบรรทัด (อันนี้ทำไว้แล้ว) */
     .main-header {
         padding: 10px 20px;
         flex-wrap: wrap; 
     }
 
-    /* 2. จัดเรียงองค์ประกอบใน Header (อันนี้ทำไว้แล้ว) */
     .logo-container { order: 1; }
     .profile-icon { order: 2; margin-left: auto; }
     .RoleHolder { 
         order: 3; 
-        /* ปรับให้ RoleHolder จัดเรียงบนมือถือ */
         margin-right: 0;
         margin-top: 10px;
         justify-content: center;
         width: 100%;
     }
 
-    /* 3. ทำให้ Menu (headSectorHolder) แสดงผลเต็มความกว้างและจัดเรียงแนวตั้ง */
     .headSectorHolder { 
-        display: flex; /* เปลี่ยนจาก display: none; เป็น display: flex; */
-        width: 100%; /* ใช้พื้นที่เต็มความกว้าง */
-        order: 4; /* วางไว้ด้านล่างสุดขององค์ประกอบหลัก */
-        flex-direction: column; /* จัดเรียงเมนูเป็นแนวตั้ง */
-        gap: 0; /* ลบช่องว่างแนวนอน */
-        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
-        border-top: 1px solid var(--border-color); /* เพิ่มเส้นแบ่ง */
+        display: flex;
+        width: 100%;
+        order: 4;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 10px;
+        border-top: 1px solid var(--border-color);
     }
 
-    /* 4. จัดรูปแบบแต่ละรายการเมนูเมื่อเป็นแนวตั้ง */
     .headSector {
         width: 100%;
         text-align: left;
         padding: 10px 0;
         border-bottom: 1px solid #f0f0f0;
     }
-    /* ลบเส้นสีส้มที่อยู่ด้านล่างออก เพราะเราใช้ border-bottom ในแต่ละรายการแล้ว */
     .headSector.active::after {
         content: none; 
     }
 }
 
-/* เพิ่ม Media Query สำหรับจอเล็กกว่า 400px เพื่อให้โลโก้ไม่เบียด */
 @media (max-width: 400px) {
     .TAILSTRADE { 
-        font-size: 24px; /* ลดขนาดโลโก้ */
+        font-size: 24px;
     }
     .logo-container img {
-        height: 35px; /* ลดขนาดรูปโลโก้ */
+        height: 35px;
     }
     .profile-icon i { 
-        font-size: 1.5em; /* ลดขนาดไอคอนโปรไฟล์ */
+        font-size: 1.5em;
     }
 }
 
-/* ------------------ Footer Adjustments --------------------------- */
+/* ------------------ Footer --------------------------- */
 
 @media (max-width: 576px) {
     .footer {
@@ -647,12 +618,11 @@ body {
     }
 }
 
-/* ------------------ Modal Popup Adjustments --------------------------- */
-/* ทำให้ Modal มีขนาดเหมาะสมและมีขอบเขตการจัดวางที่ดีขึ้นบนมือถือ */
+/* ------------------ Modal Popup --------------------------- */
 @media (max-width: 576px) {
     .modal-content { 
         max-width: 90%; 
-        width: 90%; /* กำหนด width ให้ Modal สามารถย่อได้ */
+        width: 90%;
         margin: 20px; 
         padding: 20px; 
     }
@@ -670,17 +640,14 @@ body {
     }
 }
 
-/* ------------------ Community Board Content Responsiveness --------------------------- */
+/* ------------------ Community Board --------------------------- */
 
-/* ปรับปรุง Layout สำหรับหน้าจอ Tablet/Mobile (768px max) */
 @media (max-width: 768px) {
-    
-    /* 1. Body Page Padding & Container */
+
     .bodyPage {
-        padding: 15px 10px; /* ลด padding โดยรวม */
+        padding: 15px 10px;
     }
 
-    /* 2. Header and Search Area */
     .headPageAndSearch {
         padding: 20px;
         margin-bottom: 20px;
@@ -692,16 +659,14 @@ body {
         font-size: 15px;
     }
 
-    /* 3. Create Post Button */
     .CreatePost.primary-button {
-        width: 100%; /* ทำให้ปุ่มสร้างโพสต์เต็มความกว้าง */
+        width: 100%;
         text-align: center;
         margin-bottom: 20px;
     }
     
-    /* 4. Search/Filter Bar: เปลี่ยนเป็นคอลัมน์แนวตั้ง */
     .SearchFilterBar {
-        flex-direction: column; /* เรียงจากซ้ายไปขวาเป็น บนลงล่าง */
+        flex-direction: column;
         gap: 10px;
         padding: 15px 10px;
     }
@@ -709,7 +674,7 @@ body {
     .search-input-group {
         width: 100%;
         margin-bottom: 5px; 
-        box-sizing: border-box; /* **(เพิ่ม)** สำคัญ: ทำให้ padding/border ไม่ล้น */
+        box-sizing: border-box;
     }
     .search-input-group input[type="text"] {
         box-sizing: border-box;
@@ -721,7 +686,6 @@ body {
         box-sizing: border-box;
     }
     
-    /* จัดกลุ่ม Dropdown ให้เรียงเป็นคอลัมน์เดียว (ถ้ามีหลายตัว) */
     .dropdown-group {
         flex-direction: column; 
         align-items: flex-start;
@@ -737,23 +701,20 @@ body {
 }
 
 
-/* ------------------ Post Card (Grid to Stacked Layout) --------------------------- */
+/* ------------------ Post Card --------------------------- */
 
 @media (max-width: 600px) {
-    /* เปลี่ยน Post Card เป็น Grid/Flex ที่ง่ายขึ้นสำหรับมือถือ */
     .PostBox.post-card {
         padding: 15px;
-        /* เปลี่ยน Grid Layout เป็น 1 คอลัมน์ที่ Profile และ Tag อยู่แถวแรก, ที่เหลืออยู่ถัดไป */
-        display: flex; /* เปลี่ยนเป็น Flexbox เพื่อการจัดการบนมือถือที่ง่ายขึ้น */
+        display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
-        border-left-width: 4px; /* ลดขนาดแถบสี */
+        border-left-width: 4px;
     }
     
-    /* 1. Profile Area: จัดให้อยู่ด้านบนซ้าย */
     .Profile {
-        flex-direction: row; /* รูปและชื่ออยู่แนวนอน */
+        flex-direction: row;
         align-items: center;
         gap: 10px;
         width: 100%;
@@ -771,7 +732,6 @@ body {
         font-size: 15px;
     }
 
-    /* 2. Tag Area: จัด Tag ให้อยู่ใต้ Profile (ในส่วน Tag) */
     .Tag {
         width: 100%;
         justify-content: flex-start;
@@ -780,7 +740,7 @@ body {
     }
     
     .Tag ul {
-        flex-wrap: wrap; /* อนุญาตให้ Tags พันบรรทัดได้ */
+        flex-wrap: wrap;
         gap: 8px;
     }
     
@@ -789,12 +749,11 @@ body {
         padding: 3px 8px;
     }
 
-    /* 3. Content Area: เต็มความกว้าง */
     .content {
         width: 100%;
         margin: 10px 0;
         padding: 10px 0;
-        border: none; /* ลบเส้นประบน/ล่างออก */
+        border: none;
     }
     
     .post-title {
@@ -803,33 +762,30 @@ body {
     
     .post-text {
         font-size: 14px;
-        /* -webkit-line-clamp: 3; */ /* อาจเพิ่มจำนวนบรรทัดที่แสดง */
     }
 
-    /* 4. Footer Items: จัดเรียงเป็นแถวแนวนอน */
     .PostDate.footer-item, 
     .ReplyCount.footer-item {
         justify-self: start;
         align-self: flex-start;
-        margin: 5px 0 0 0; /* ลบ margin-left 20px ของ ReplyCount */
+        margin: 5px 0 0 0;
     }
     .PostDate.footer-item {
-        order: 1; /* Date อยู่ก่อน */
+        order: 1;
     }
     .ReplyCount.footer-item {
-        order: 2; /* Reply Count อยู่ถัดไป */
-        margin-left: 15px; /* เพิ่มช่องว่างระหว่าง Date และ Reply Count */
+        order: 2;
+        margin-left: 15px;
     }
     
     .footer-section {
-        display: flex; /* สร้าง wrapper ใหม่เพื่อควบคุม Date/ReplyCount/Button */
+        display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
         margin-top: 10px;
     }
     
-    /* 5. Action Button: จัดไปด้านขวาในแถวเดียวกับ Date/Reply Count */
     .ViewReply.action-button {
         order: 3;
         padding: 8px 15px;
@@ -838,32 +794,7 @@ body {
         margin-left: auto; /* ดันไปทางขวา */
     }
     
-    /* หากต้องใช้ Grid ต่อไป สามารถใช้ Grid Area ใหม่ได้ดังนี้: */
-    /*
     .PostBox.post-card {
-        grid-template-areas: 
-            "profile profile"
-            "tag tag"
-            "content content"
-            "footer footer";
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto 1fr auto;
-    }
-    .Profile { grid-area: profile; flex-direction: row; }
-    .Tag { grid-area: tag; }
-    .content { grid-area: content; }
-    .footer-items-wrapper { grid-area: footer; display: flex; justify-content: space-between; }
-    */
-    /* *********** แนะนำให้ใช้ Flexbox ที่กำหนดไว้ด้านบนง่ายกว่า *********** */
-    
-    /* ต้องปรับโครงสร้าง HTML เล็กน้อยเพื่อใช้ .footer-section หรือปรับ Grid ให้สอดคล้อง */
-    /* สมมติว่าใน HTML คุณสามารถ wrap PostDate, ReplyCount, ViewReply ด้วย div ที่ชื่อว่า .post-footer-row */
-    
-    /* หากไม่สามารถแก้ HTML ได้ (ต้องใช้ Flexbox บนมือถือ): */
-    /* ต้องยกเลิก Grid Area และใช้ Flexbox แทน */
-    
-    .PostBox.post-card {
-        /* ยกเลิก Grid เพื่อให้ Flexbox ที่กำหนดด้านบนทำงาน */
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -873,11 +804,7 @@ body {
         grid-template-rows: unset;
     }
     
-    /* สร้างแถว Footer ใหม่ (ต้องรวม Date, ReplyCount, ViewReply เข้าด้วยกันใน HTML) */
-    /* ถ้าไม่สามารถแก้ HTML ได้: ให้ใช้ Grid Layout เดิม แต่ปรับ Col/Area ใหม่ */
-    
     .PostBox.post-card {
-        /* ใช้ Grid Layout บนมือถือแทน Flexbox เพื่อไม่ให้ต้องแก้ HTML */
         display: grid;
         grid-template-areas: 
             "profile profile"
@@ -888,7 +815,7 @@ body {
         grid-template-columns: 1fr 1fr; 
         grid-template-rows: auto auto 1fr auto auto; 
         align-items: start;
-        gap: 0 10px; /* ลด gap ระหว่างแถวให้เหลือ 0 */
+        gap: 0 10px;
     }
     
     .Profile {
@@ -911,10 +838,9 @@ body {
         margin: 10px 0;
         padding: 10px 0;
         border-top: none;
-        border-bottom: 1px dashed var(--border-color); /* เพิ่มเส้นแบ่งด้านล่าง Content */
+        border-bottom: 1px dashed var(--border-color);
     }
     
-    /* จัดการ Footer Items (เปลี่ยนตำแหน่งใหม่) */
     .PostDate.footer-item {
         grid-area: post-date;
         justify-self: start;
@@ -925,14 +851,14 @@ body {
         grid-area: reply-count;
         justify-self: start;
         margin-top: 10px;
-        margin-left: 0; /* ลบ margin-left เดิม */
+        margin-left: 0;
     }
     .ViewReply.action-button {
         grid-area: view-reply;
         justify-self: stretch; 
-        width: 100%; /* **(เพิ่ม)** ยืนยันว่าใช้ 100% */
-        box-sizing: border-box; /* **(เพิ่ม)** สำคัญ: ทำให้ padding/border ไม่ล้น */
-        margin-top: 10px; /* เพิ่มระยะห่างด้านบน */
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 10px; 
         margin-bottom: 0;
     }
 }

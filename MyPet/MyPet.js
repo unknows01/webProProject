@@ -127,3 +127,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ฟังก์ชัน openLoginModal, closeLoginModal, openSignupModal, closeSignupModal 
 // และ displayUserRoles ยังคงเหมือนเดิม
+
+function MyPetData(haveData){
+  const emptyPet = document.getElementById("empty-state-section");
+  const havePet = document.getElementById("pet-list-section");
+
+  if(haveData){
+    havePet.classList.remove('is-hidden');
+    emptyPet.classList.add('is-hidden');
+  }
+}
+

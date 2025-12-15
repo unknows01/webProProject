@@ -10,7 +10,7 @@
 <body>
     <div class="main-header"> 
         <div class="logo-container"> 
-            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <img src="../home/img/tailAndtrade_img.png" height="45px" alt="TAILS & TRADE Logo">
             <span class="TAILSTRADE">TAILS & TRADE</span> 
         </div>
 
@@ -20,13 +20,30 @@
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller'])">DisplayRoleSeller</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Care Taker'])">DisplayRoleCareTaker</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Admin'])">DisplayRoleAdmin</li> -->
         </ul>
+
+        <!-- <div class="RoleHolder">
+            <div class="Role" Role="Seller">Seller</div>
+            <div class="Role" Role="Care Taker">Care Taker</div>
+            <div class="Role" Role="Admin">Admin</div>
+        </div> -->
         
         <div class="profile-icon">
-            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="openLoginModal()"></i>  -->
+
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i> -->
+            <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i>
+            <div class="dropdown-content">
+                <a href="../UserProfile/UserProfile.html">User Profile</a>
+                <a href="../DashBoard/DashBoard.html">Dashboard</a>
+                <a href="#" onclick="LogOut()">Log out</a>
+            </div>
         </div>
     </div>
-
     <div class="bodyPage">
         <div class="HeadContain">
             <h1>Find Your New Friend</h1>
@@ -35,7 +52,7 @@
 
         <div class="mid-page-layout">
             <div class="filter-box">
-                <h2>🐾 Filters</h2>
+                <h2>Filters</h2>
 
                 <div class="filter-group">
                     <h3>Pet Type</h3>
@@ -98,7 +115,7 @@
                             <div class="name">Playful Golden Retriever Puppies</div>
                             <div class="price-tag">$1200</div>
                             <div class="breed">Golden Retriever</div>
-                            <div class="locationInPetList"><i class="fas fa-map-marker-alt"></i> Bangkok, BKK</div>
+                            <div class="locationInPetList">Bangkok, BKK</div>
                         </div>
                     </div>
 
@@ -108,7 +125,7 @@
                             <div class="name">Adorable Siamese Kittens</div>
                             <div class="price-tag">$800</div>
                             <div class="breed">Siamese Cat</div>
-                            <div class="locationInPetList"><i class="fas fa-map-marker-alt"></i> Chiang Mai</div>
+                            <div class="locationInPetList">Chiang Mai</div>
                         </div>
                     </div>
 
@@ -118,7 +135,7 @@
                             <div class="name">Singing Cockatiel Bird</div>
                             <div class="price-tag">$250</div>
                             <div class="breed">Cockatiel</div>
-                            <div class="locationInPetList"><i class="fas fa-map-marker-alt"></i> Phuket</div>
+                            <div class="locationInPetList">Phuket</div>
                         </div>
                     </div>
 
@@ -128,7 +145,7 @@
                             <div class="name">Energetic Beagle Puppy</div>
                             <div class="price-tag">$950</div>
                             <div class="breed">Beagle</div>
-                            <div class="locationInPetList"><i class="fas fa-map-marker-alt"></i> Khon Kaen</div>
+                            <div class="locationInPetList">Khon Kaen</div>
                         </div>
                     </div>
                     
@@ -160,6 +177,8 @@
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
 
     </div>
+
+    <script src="FindAPet.js"></script>
     
 </body>
 </html>

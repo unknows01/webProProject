@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your New Friend - TAILS & TRADE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="DashBoardCareTaker.css">
+</head>
+<body>
+    <div class="main-header"> 
+        <div class="logo-container"> 
+            <img src="../home/img/tailAndtrade_img.png" height="45px" alt="TAILS & TRADE Logo">
+            <span class="TAILSTRADE">TAILS & TRADE</span> 
+        </div>
+
+        <ul class="headSectorHolder"> 
+            <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
+            <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
+            <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
+            <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
+            <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller'])">DisplayRoleSeller</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Care Taker'])">DisplayRoleCareTaker</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Admin'])">DisplayRoleAdmin</li> -->
+        </ul>
+
+        <!-- <div class="RoleHolder">
+            <div class="Role" Role="Seller">Seller</div>
+            <div class="Role" Role="Care Taker">Care Taker</div>
+            <div class="Role" Role="Admin">Admin</div>
+        </div> -->
+        
+        <div class="profile-icon">
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="openLoginModal()"></i>  -->
+
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i> -->
+            <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i>
+            <div class="dropdown-content">
+                <a href="../UserProfile/UserProfile.html">User Profile</a>
+                <a href="../DashBoard/DashBoard.html">Dashboard</a>
+                <a href="#" onclick="LogOut()">Log out</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="bodyPage">
+    <div class="backToDashBoard" onclick="document.location='../DashBoard/DashBoard.html'"> 
+        < Back to user dashboard
+    </div>
+
+    <ul class="RoleHolder user-role-selector"> </ul>
+
+    <div class="careLocationList">
+        
+        <div class="location-header-actions">
+            <h1>Your Care Locations & Services</h1>
+            <div class="add-location-button" onclick="document.location='../AddCareTakerPlace/AddCareTakerPlace.html'">
+                Add New Location
+            </div>
+        </div>
+
+        <div class="location-management-container">
+            
+            <div class="location-card" data-status="Active">
+                <div class="location-info">
+                    <h2 class="location-name"> Manee's Cozy Dog & Cat Stay</h2>
+                    <p class="location-address">123 Sukhumvit Rd, Bangkok, 10110</p>
+                    <div class="location-details">
+                        <span class="detail-item"> Accepted Pets: Dogs, Cats</span>
+                        <span class="detail-item"> Area: Asoke/Phrom Phong</span>
+                        <span class="detail-item"> Insurance: Yes</span>
+                        <span class="status-badge active"> Online</span>
+                    </div>
+                    <div class="location-price">
+                        <span class="price-value">$45</span>
+                        <span class="price-unit">/ night (Avg.)</span>
+                    </div>
+                </div>
+                <div class="location-actions">
+                    <button class="action-btn edit-btn"> Edit Details</button>
+                    <button class="action-btn view-btn"> View Stats</button>
+                    <button class="action-btn toggle-btn primary-action"> Take Offline</button>
+                </div>
+            </div>
+            
+            <!-- <div class="location-card disabled-card" data-status="Draft">
+                <div class="location-info">
+                    <h2 class="location-name"><i class="fas fa-cat"></i> Somsri's Cat Sitting Service</h2>
+                    <p class="location-address">On-Demand Visiting Service (Ratchada Area)</p>
+                    <div class="location-details">
+                        <span class="detail-item"><i class="fas fa-paw"></i> Accepted Pets: Cats, Small Rodents</span>
+                        <span class="detail-item"><i class="fas fa-map-marker-alt"></i> Area: Ratchada/Huai Khwang</span>
+                        <span class="detail-item"><i class="fas fa-shield-alt"></i> Insurance: No</span>
+                        <span class="status-badge draft"><i class="fas fa-ban"></i> Draft / Offline</span>
+                    </div>
+                    <div class="location-price">
+                        <span class="price-value">$20</span>
+                        <span class="price-unit">/ visit (Avg.)</span>
+                    </div>
+                </div>
+                <div class="location-actions">
+                    <button class="action-btn edit-btn primary-action"><i class="fas fa-edit"></i> Finish Setup</button>
+                    <button class="action-btn view-btn" disabled><i class="fas fa-chart-line"></i> View Stats</button>
+                    <button class="action-btn toggle-btn" disabled><i class="fas fa-toggle-off"></i> Go Online</button>
+                </div>
+            </div> -->
+            
+        </div>
+        
+        <h1 class="bookings-title">Upcoming Bookings</h1>
+        
+        <div class="booking-list-container">
+            
+            <div class="booking-card confirmed-booking">
+                <div class="booking-summary">
+                    <span class="pet-name"> Buddy, Dog(Golden Retriever)</span>
+                    <span class="booking-date">18 Dec - 25 Dec, 2025 (7 Nights)</span>
+                    <span class="booking-location">Manee's Cozy Dog & Cat Stay</span>
+                </div>
+                <div class="booking-details">
+                    <span class="detail-item client-name">Client: John D.</span>
+                    <span class="detail-item total-price">Total: $315</span>
+                    <span class="status-badge confirmed">Confirmed</span>
+                </div>
+                <div class="booking-actions">
+                    <button class="action-btn message-btn primary-action">Message Client</button>
+                    <button class="action-btn detail-btn">View Details</button>
+                </div>
+            </div>
+
+            <!-- <div class="booking-card pending-booking">
+                <div class="booking-summary">
+                    <span class="pet-name"><i class="fas fa-cat"></i> Luna (Siamese)</span>
+                    <span class="booking-date"><i class="fas fa-clock"></i> 05 Jan - 08 Jan, 2026 (3 Nights)</span>
+                    <span class="booking-location"><i class="fas fa-map-pin"></i> Somsri's Cat Sitting Service</span>
+                </div>
+                <div class="booking-details">
+                    <span class="detail-item client-name"><i class="fas fa-user"></i> Client: Alice M.</span>
+                    <span class="detail-item total-price"><i class="fas fa-money-bill-wave"></i> Total: $60</span>
+                    <span class="status-badge pending"><i class="fas fa-hourglass-half"></i> Pending Review</span>
+                </div>
+                <div class="booking-actions">
+                    <button class="action-btn accept-btn primary-action"><i class="fas fa-check"></i> Accept</button>
+                    <button class="action-btn reject-btn"><i class="fas fa-times"></i> Reject</button>
+                    <button class="action-btn detail-btn"><i class="fas fa-info-circle"></i> View Details</button>
+                </div>
+            </div> -->
+        </div>
+        
+    </div>
+    
+</div>
+    <div class="footer">
+        <div class="logo-container-footer"> 
+            <img src="../home/img/tailAndtrade_img.png" height="30px" alt="TAILS & TRADE Logo">
+            <span class="TAILSTRADE-footer">TAILS & TRADE</span> 
+        </div>
+        <div class="context">Connecting pets and people since 2025.</div>
+        <div class="social-icons">
+             <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+        <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
+
+    </div>
+
+    <script src="DashBoardCareTaker.js"></script>
+    
+</body>
+</html>

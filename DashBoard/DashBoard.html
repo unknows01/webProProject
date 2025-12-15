@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create New Post - TAILS & TRADE Community</title>
+    <title>Find Your New Friend - TAILS & TRADE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="CreateCommunityPost.css">
+    <link rel="stylesheet" href="DashBoard.css">
 </head>
 <body>
     <div class="main-header"> 
@@ -17,7 +17,7 @@
         <ul class="headSectorHolder"> 
             <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
             <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
-            <li class="headSector active" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
+            <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
             <!-- <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li> -->
@@ -45,56 +45,61 @@
         </div>
     </div>
 
-    <div class="bodyPage container">
-        <div class="backToCommunityBoard" onclick="document.location='../CommunityBoard/CommunityBoard.html'"> 
-            < Back to Community Board
-        </div>
-        
-        <h1 class="page-title">Create a New Community Post</h1>
-        <p class="page-description">Describe the companion you're looking for. The more details you provide, the better sellers can help you.</p>
+    <div class="bodyPage">
+        <ul class="RoleHolder user-role-selector"> </ul>
+    
+        <div class="dashboard-container">
+            <section class="welcome-banner">
+                <h2>welcome back, <span id="userNameDisplay">username</span>!</h2>
+                <p>Overview and shortcuts for your account.</p>
+            </section>
 
-        <form class="CreatePostBox"> 
-
-            <div class="form-group">
-                <label for="PostTitle">Post Title</label>
-                <input type="text" id="PostTitle" name="post_title" placeholder="e.g., Seeking a playful Labrador puppy" required>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group half-width">
-                    <label for="PetType">Pet Type</label>
-                    <select name="pet_type" id="PetType" required>
-                        <option value="">Select a type...</option>
-                        <option value="Dog">Dog</option>
-                        <option value="Cat">Cat</option>
-                        <option value="Bird">Bird</option>
-                        <option value="Other">Other</option>
-                    </select>
+            <div class="stat-cards-holder">
+                <div class="stat-card" id="petStat">
+                    <h3>Number of pets</h3>
+                    <p class="stat-number">4</p>
+                    <a href="../MyPet/MyPet.html">Manage pets</a>
                 </div>
-
-                <div class="form-group half-width">
-                    <label for="breed">Breed (if applicable)</label>
-                    <input type="text" id="breed" name="pet_breed" placeholder="e.g., Golden Retriever, Siamese">
+                <div class="stat-card" id="messagesStat">
+                    <h3>New message</h3>
+                    <p class="stat-number alert">2</p>
+                    <a href="#">View message</a>
                 </div>
+                <div class="stat-card stat-card-role hidden" id="listingStat"> 
+                    <h3>Items for sale</h3>
+                    <p class="stat-number">1</p>
+                    <a href="../ListYourPet/ListYourPet.html">Manage items</a>
             </div>
-
-            <!-- <div class="form-group">
-                <label for="YourLocation">Your Location</label>
-                <input type="text" id="YourLocation" name="user_location" placeholder="e.g., Bangkok, Thailand" required>
-            </div> -->
-
-            <div class="form-group">
-                <label for="DetailedDescription">Detailed Description</label>
-                <textarea id="DetailedDescription" name="detailed_description" rows="6" placeholder="Tell us more about what you're looking for. Describe your home environment, desired pet personality, age, budget, etc."></textarea>
+            <div class="stat-card stat-card-role hidden" id="careTakerStat">
+                <h3>Appointment</h3>
+                <p class="stat-number alert">3</p>
+                <a href="#">View appointment</a>
             </div>
-
-            <div class="action-buttons">
-                <button type="button" class="Cancel secondary-button" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Cancel</button>
-                <button type="submit" class="SubmitPost primary-button">Submit Post</button>
-            </div>
-            
-        </form>
         </div>
+
+        <section class="quick-actions">
+            <h3>Quick action</h3>
+            <div class="action-grid">
+                <a href="../FindAPet/FindAPet.html" class="action-item primary-action">
+                    <h4>Find new members</h4>
+                    <p>Find pets available for adoption.</p>
+                </a>
+                <a href="../FindCareTaker/FindCareTaker.html" class="action-item primary-action">
+                    <h4>Find a caretaker</h4>
+                    <p>Find a reliable caretaker near you.</p>
+                </a>
+                <a href="../CommunityBoard/CommunityBoard.html" class="action-item secondary-action">
+                    <h4>Community forum</h4>
+                    <p>Join the conversation</p>
+                </a>
+                <a href="../UserProfile/UserProfile.html" class="action-item secondary-action">
+                    <h4>Account settings</h4>
+                    <p>Edit personal information and settings</p>
+                </a>
+            </div>
+        </section>
+    </div> 
+</div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
@@ -103,14 +108,15 @@
         </div>
         <div class="context">Connecting pets and people since 2025.</div>
         <div class="social-icons">
-            <i class="fab fa-facebook-f"></i>
+             <i class="fab fa-facebook-f"></i>
             <i class="fab fa-twitter"></i>
             <i class="fab fa-instagram"></i>
         </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
-    </div>
-    
-    <script src="CreateCommunityPost.js"></script>
 
+    </div>
+
+    <script src="DashBoard.js"></script>
+    
 </body>
 </html>

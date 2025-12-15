@@ -20,16 +20,34 @@
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector active" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller'])">DisplayRoleSeller</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Care Taker'])">DisplayRoleCareTaker</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Admin'])">DisplayRoleAdmin</li> -->
         </ul>
+
+        <!-- <div class="RoleHolder">
+            <div class="Role" Role="Seller">Seller</div>
+            <div class="Role" Role="Care Taker">Care Taker</div>
+            <div class="Role" Role="Admin">Admin</div>
+        </div> -->
         
         <div class="profile-icon">
-            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="openLoginModal()"></i>  -->
+
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i> -->
+            <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i>
+            <div class="dropdown-content">
+                <a href="../UserProfile/UserProfile.html">User Profile</a>
+                <a href="../DashBoard/DashBoard.html">Dashboard</a>
+                <a href="#" onclick="LogOut()">Log out</a>
+            </div>
         </div>
     </div>
 
     <div class="bodyPage container">
         <div class="backToSelectPage" onclick="document.location='../MyPet/MyPet.html'"> 
-            <i class="fas fa-arrow-left"></i> Back to My Pet Dashboard
+            < Back to My Pet Dashboard
         </div>
         
         <h1 class="page-title">Add a Pet Profile</h1>
@@ -40,7 +58,7 @@
             <div class="info-section profile-section">
                 
                 <div class="BasicInformation">
-                    <h2 class="section-title"><i class="fas fa-id-card-alt"></i> Basic Information</h2>
+                    <h2 class="section-title">Basic Information</h2>
 
                     <div class="form-group">
                         <label for="PetName">Pet's Name</label>
@@ -82,18 +100,15 @@
 
                 <div class="ProfilePhoto">
                     <div class="photo-placeholder">
-                        <i class="fas fa-camera fa-2x"></i>
                         <img src="" alt="Pet Profile Photo" id="pet-photo-preview" class="pet-photo-preview">
                     </div>
                     <input type="file" id="PetPhotoFile" name="pet_photo" accept="image/*" style="display: none;">
-                    <label for="PetPhotoFile" class="ProfilePhotoText primary-text-link">
-                        <i class="fas fa-upload"></i> Upload Photo
-                    </label>
+                    <label for="PetPhotoFile" class="ProfilePhotoText primary-text-link">Upload Photo</label>
                 </div>
             </div>
 
             <div class="info-section care-section">
-                <h2 class="section-title"><i class="fas fa-dog"></i> Care & Behavior</h2>
+                <h2 class="section-title">Care & Behavior</h2>
 
                 <div class="form-group">
                     <label for="FeedingInstructions">Feeding Instructions</label>
@@ -107,7 +122,7 @@
             </div>
 
             <div class="info-section medical-section">
-                <h2 class="section-title"><i class="fas fa-notes-medical"></i> Medical Information</h2>
+                <h2 class="section-title">Medical Information</h2>
 
                 <div class="form-group">
                     <label for="AllergiesOrSpecialConditions">Allergies or Special Conditions</label>
@@ -121,12 +136,8 @@
             </div>
             
             <div class="action-buttons">
-                <button type="button" class="Cancel secondary-button" onclick="document.location='../MyPet/MyPet.html'">
-                    <i class="fas fa-times-circle"></i> Cancel
-                </button>
-                <button type="submit" class="SavePetProfile primary-button">
-                    <i class="fas fa-save"></i> Save Pet Profile
-                </button>
+                <button type="button" class="Cancel secondary-button" onclick="document.location='../MyPet/MyPet.html'">Cancel</button>
+                <button type="submit" class="SavePetProfile primary-button">Save Pet Profile</button>
             </div>
 
         </form>
@@ -146,20 +157,6 @@
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
     </div>
     
-    <script>
-        document.getElementById('PetPhotoFile').addEventListener('change', function(event) {
-            const [file] = event.target.files
-            if (file) {
-                const preview = document.getElementById('pet-photo-preview');
-                const placeholder = document.querySelector('.photo-placeholder .fa-camera');
-                
-                preview.src = URL.createObjectURL(file);
-                preview.style.display = 'block';
-                if (placeholder) {
-                    placeholder.style.display = 'none';
-                }
-            }
-        });
-    </script>
+    <script src="AddAPetProfile.js"></script>
 </body>
 </html>

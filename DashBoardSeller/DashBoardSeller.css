@@ -1,0 +1,592 @@
+/* --- Global Reset & Modern Font --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f9fc; 
+    color: #333;
+}
+
+/* --- Branding & Color Palette --- */
+:root {
+    --brand-color-primary: #ff7f50; /* Coral/Salmon */
+    --brand-color-secondary: #4a90e2; /* Blue */
+    --text-color-dark: #333;
+    --text-color-light: #666;
+    --border-color: #e0e0e0;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --highlight-color: #008080; /* Teal/DarkCyan for Caretaker Highlight */
+    --tag-bg: #e0f7fa;
+    --tag-text: #00796b;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ------------------ header --------------------------- */
+.main-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 40px; background-color: white; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky; 
+    top: 0; z-index: 1000;
+}
+.logo-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+.TAILSTRADE { 
+    font-size: 28px; 
+    font-weight: 700; 
+    color: var(--brand-color-primary); 
+}
+.headSectorHolder { 
+    list-style: none; 
+    display: flex; gap: 30px; 
+    padding: 0; margin: 0; 
+}
+.headSector { 
+    font-size: 16px; 
+    font-weight: 500; 
+    color: var(--text-color-light); 
+    cursor: pointer; padding: 5px 0; 
+    position: relative; 
+    transition: color 0.3s; 
+}
+.headSector:hover, .headSector.active { 
+    color: var(--brand-color-primary); 
+}
+.headSector.active::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: -5px; 
+    left: 0; 
+    width: 100%; 
+    height: 3px; 
+    background-color: var(--brand-color-primary); 
+    border-radius: 2px; 
+}
+.profile-icon i { 
+    color: var(--text-color-light);
+    cursor: pointer; 
+    transition: color 0.3s; 
+}
+.profile-icon i:hover, .profile-icon.active i { /* เพิ่ม .profile-icon.active i */
+    color: var(--brand-color-primary); 
+}
+
+/* ------------------ profile-icon (Dropdown) --------------------------- */
+
+/* ทำให้ dropdown-content อยู่ในตำแหน่งที่สัมพันธ์กับ profile-icon */
+.profile-icon {
+    position: relative; /* สำคัญ: เป็นตัวอ้างอิงสำหรับตำแหน่ง absolute ของ dropdown */
+    display: inline-block;
+}
+
+/* ซ่อน Dropdown Menu ไว้ก่อน */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /* ตำแหน่งเมนู: เยื้องไปทางซ้ายมือเพื่อให้เมนูไปอยู่ใต้ไอคอน */
+    right: 0; 
+    /* ให้เมนูอยู่ใต้ไอคอน */
+    top: 100%; 
+    background-color: white;
+    min-width: 160px;
+    box-shadow: var(--shadow-light); /* ใช้ shadow ที่กำหนดไว้ */
+    z-index: 1001; /* ให้อยู่เหนือ Header */
+    border-radius: 5px;
+    margin-top: 10px; /* เว้นระยะห่างจากไอคอนเล็กน้อย */
+    border: 1px solid var(--border-color);
+}
+
+.dropdown-content a {
+    color: var(--text-color-dark);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+    font-size: 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+    color: var(--brand-color-primary);
+}
+
+/* Class ที่ใช้ JavaScript ในการเปิด/ปิด Dropdown */
+.profile-icon:hover .dropdown-content,
+.profile-icon.active .dropdown-content {
+    display: block;
+}
+
+
+/* ------------------ footer (Modern Style) --------------------------- */
+.footer {
+    padding: 40px 20px;
+    margin-top: 50px; 
+    text-align: center;
+    background-color: #333; 
+    color: white;
+}
+
+.logo-container-footer {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 10px;
+    gap: 8px;
+}
+
+.TAILSTRADE-footer {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--brand-color-primary); 
+}
+
+.context {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons i {
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.social-icons i:hover {
+    color: var(--brand-color-primary);
+}
+
+.reg {
+    color: #999;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+/* ------------------ Role Holder (Hidden by Default) --------------------------- */
+
+.RoleHolder {
+    /* ซ่อนโดยค่าเริ่มต้น - ต้องใช้ JavaScript เพื่อเพิ่มคลาส .show-roles เมื่อมี Role */
+    display: none; 
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+/* คลาสที่จะเพิ่มด้วย JavaScript เพื่อแสดง RoleHolder */
+.RoleHolder.show-roles {
+    display: flex;
+}
+
+.Role {
+    background-color: var(--brand-color-secondary); /* สีน้ำเงินสำหรับ Role */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.Role:hover {
+    background-color: #3b74c0; /* สีเข้มขึ้นเมื่อโฮเวอร์ */
+    transform: translateY(-1px);
+}
+
+/* สไตล์สำหรับ Role เฉพาะเจาะจง (ถ้าต้องการให้แต่ละ Role มีสีต่างกัน) */
+.Role[Role="Seller"] {
+    background-color: #2ecc71; /* สีเขียว */
+}
+.Role[Role="Care Taker"] {
+    background-color: #f39c12; /* สีส้ม */
+}
+.Role[Role="Admin"] {
+    background-color: #e74c3c; /* สีแดง */
+}
+
+.Role[Role="Seller"]:hover {
+    background-color: #27ae60;
+}
+.Role[Role="Care Taker"]:hover {
+    background-color: #d8800a;
+}
+.Role[Role="Admin"]:hover {
+    background-color: #c0392b;
+}
+
+/* เพิ่ม/แก้ไขใน DashBoard.css */
+
+.bodyPage {
+    /* จัดการการเว้นระยะห่างด้านบนเพื่อไม่ให้ติดขอบ Header เกินไป */
+    padding-top: 30px; 
+    max-width: 1200px; /* จำกัดความกว้างเพื่อให้ดูดีขึ้น */
+    margin: 0 auto; /* จัดกึ่งกลางหน้า */
+    padding: 0 20px 50px 20px; /* เพิ่ม padding ด้านล่าง */
+}
+
+/* ปรับปรุงการจัดวาง RoleHolder ให้อยู่ตรงกลางใน Body */
+.RoleHolder {
+    list-style: none;
+    display: none; /* ยังคงซ่อนไว้ตามค่าเริ่มต้น */
+    padding: 0;
+    margin: 0 auto 30px auto; /* จัดให้อยู่ตรงกลางและเพิ่มระยะห่างด้านล่าง */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center;
+    gap: 15px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+    /* ลบ margin-right: 20px; ออกถ้ามีอยู่เดิมใน CSS */
+}
+
+.RoleHolder.show-roles {
+    display: flex;
+}
+
+/* จัดรูปแบบปุ่ม Role ให้ดูดีขึ้น */
+.Role {
+    /* ... สไตล์เดิม ... */
+    padding: 10px 20px; /* เพิ่มขนาดปุ่มเล็กน้อย */
+    font-size: 15px;
+    white-space: nowrap; /* ป้องกันข้อความหด */
+}
+
+/* อาจจะเพิ่มสไตล์สำหรับพื้นที่รอบๆ เพื่อให้เห็นชัดเจน */
+.dashboard-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+/* --- bodyPage Layout and Modern Styling --- */
+
+.bodyPage {
+    max-width: 1200px;
+    margin: 20px auto 50px; /* เพิ่ม margin บนและล่าง */
+    padding: 0 20px;
+}
+
+/* ------------------ Role Holder (Selector) Styling --------------------------- */
+.user-role-selector {
+    list-style: none;
+    padding: 0;
+    /* จัดให้อยู่ตรงกลาง */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0 40px 0; /* เว้นระยะห่างจากด้านบนและส่วน Dashboard */
+}
+
+/* สไตล์พื้นฐานของ Role Button (เดิม) - เพิ่ม transform/shadow */
+.Role {
+    background-color: var(--brand-color-secondary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px; /* ทำให้ปุ่มโค้งมนมากขึ้น */
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Role:hover {
+    background-color: #3b74c0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.backToDashBoard {
+    /* margin: 20px auto 30px; */
+    cursor: pointer;
+    color: var(--brand-color-secondary); /* ใช้สีรอง */
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s;
+    display: block; /* Ensure it takes up its own line */
+    width: fit-content;
+}
+
+.backToDashBoard:hover {
+    color: #3b74c0;
+    text-decoration: underline;
+}
+
+
+
+/* ------------------ Utility Classes --------------------------- */
+.hidden {
+    display: none !important;
+}
+
+/* ปรับให้ RoleHolder ที่ใช้ JS แสดงผลอย่างถูกต้อง */
+.RoleHolder.show-roles {
+    display: flex;
+}
+
+/* ------------------ New Sell Button Styling --------------------------- */
+.newSellButton-container {
+    display: flex;
+    justify-content: flex-end; /* จัดปุ่มไปทางขวา */
+    margin: 20px 0; /* เว้นระยะห่าง */
+}
+
+.newSellButton {
+    background-color: var(--brand-color-primary); 
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px; 
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3); /* Shadow สีเดียวกับปุ่ม */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.newSellButton:hover {
+    background-color: #e56b40; /* Darker Coral */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(255, 127, 80, 0.4);
+}
+
+/* ------------------ Sell List & Pet Card Styling --------------------------- */
+
+.sellList h1 {
+    font-size: 28px;
+    color: var(--text-color-dark);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.pet-listing-container {
+    display: flex;
+    flex-direction: column; /* จัดเรียงเป็นแนวตั้ง */
+    gap: 25px; /* ระยะห่างระหว่างการ์ด */
+}
+
+.pet-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+    padding: 20px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border-left: 5px solid var(--brand-color-primary); /* แถบสีด้านข้างแสดง Active */
+}
+
+.pet-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+.pet-card.sold-card {
+    opacity: 0.7;
+    border-left: 5px solid #999; /* สีเทาสำหรับ Sold */
+}
+
+.pet-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+    flex-shrink: 0; /* ป้องกันรูปภาพหด */
+    border: 3px solid var(--border-color);
+}
+
+.pet-info {
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.pet-info h2 {
+    font-size: 20px;
+    color: var(--brand-color-secondary);
+    margin: 0 0 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.pet-tag {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--tag-text);
+    background-color: var(--tag-bg);
+    padding: 3px 8px;
+    border-radius: 15px;
+    margin-left: 10px;
+}
+
+.pet-description {
+    font-size: 14px;
+    color: var(--text-color-light);
+    margin: 0 0 15px 0;
+    line-height: 1.5;
+}
+
+.pet-details {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+    color: var(--text-color-light);
+}
+
+.pet-details span i {
+    margin-right: 5px;
+    color: var(--brand-color-primary);
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.status-badge.active {
+    background-color: #e8f5e9; /* Light Green */
+    color: #388e3c; /* Darker Green */
+}
+
+.status-badge.pending {
+    background-color: #fff3e0; /* Light Orange */
+    color: #f57f17; /* Darker Orange */
+}
+
+.status-badge.sold {
+    background-color: #ffebee; /* Light Red */
+    color: #d32f2f; /* Darker Red */
+}
+
+/* Action Buttons */
+.pet-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.action-btn {
+    background-color: #f0f0f0;
+    color: var(--text-color-light);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    min-width: 120px;
+}
+
+.action-btn:hover {
+    background-color: #e0e0e0;
+    color: var(--text-color-dark);
+}
+
+.action-btn.edit-btn:hover {
+    color: var(--brand-color-secondary);
+}
+
+.action-btn.delete-btn:hover {
+    color: #e74c3c; /* Red for delete */
+}
+
+.action-btn.primary-action {
+    background-color: var(--brand-color-secondary);
+    color: white;
+    border-color: var(--brand-color-secondary);
+}
+
+.action-btn.primary-action:hover {
+    background-color: #3b74c0;
+    color: white;
+}
+
+.action-btn:disabled {
+    background-color: #f7f9fc;
+    color: #ccc;
+    cursor: not-allowed;
+    border-color: #f0f0f0;
+}
+
+/* --- Responsive adjustments for smaller screens (optional but recommended) --- */
+@media (max-width: 800px) {
+    .pet-card {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .pet-image {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%; /* ทำให้รูปภาพเต็มความกว้าง */
+        height: 150px;
+    }
+
+    .pet-info {
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    
+    .pet-info h2 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .pet-actions {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .action-btn {
+        flex-grow: 1;
+        min-width: unset;
+    }
+    
+    .pet-details {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .newSellButton-container {
+        justify-content: center;
+    }
+}

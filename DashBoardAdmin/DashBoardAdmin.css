@@ -1,4 +1,4 @@
-/* --- Global Reset & Modern Font (จาก home.css) --- */
+/* --- Global Reset & Modern Font --- */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
@@ -7,7 +7,7 @@ body {
     color: #333;
 }
 
-/* --- Branding & Color Palette (จาก home.css) --- */
+/* --- Branding & Color Palette --- */
 :root {
     --brand-color-primary: #ff7f50; /* Coral/Salmon */
     --brand-color-secondary: #4a90e2; /* Blue */
@@ -16,6 +16,9 @@ body {
     --border-color: #e0e0e0;
     --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
     --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+    --highlight-color: #008080; /* Teal/DarkCyan for Caretaker Highlight */
+    --tag-bg: #e0f7fa;
+    --tag-text: #00796b;
 }
 
 .container {
@@ -125,11 +128,10 @@ body {
 }
 
 
-/* ------------------ footer (ใช้สไตล์ร่วมกับ home.css) --------------------------- */
-
+/* ------------------ footer (Modern Style) --------------------------- */
 .footer {
     padding: 40px 20px;
-    margin-top: 50px; /* เพิ่ม margin ด้านบนให้ดูแยกจากเนื้อหา */
+    margin-top: 50px; 
     text-align: center;
     background-color: #333; 
     color: white;
@@ -157,11 +159,13 @@ body {
 
 .social-icons {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .social-icons i {
     font-size: 20px;
-    margin: 0 10px;
     color: #ccc;
     cursor: pointer;
     transition: color 0.3s;
@@ -231,11 +235,88 @@ body {
     background-color: #c0392b;
 }
 
+/* เพิ่ม/แก้ไขใน DashBoard.css */
 
-/* ------------------ Page Specific Styles --------------------------- */
+.bodyPage {
+    /* จัดการการเว้นระยะห่างด้านบนเพื่อไม่ให้ติดขอบ Header เกินไป */
+    padding-top: 30px; 
+    max-width: 1200px; /* จำกัดความกว้างเพื่อให้ดูดีขึ้น */
+    margin: 0 auto; /* จัดกึ่งกลางหน้า */
+    padding: 0 20px 50px 20px; /* เพิ่ม padding ด้านล่าง */
+}
 
-.backToSelectPage {
-    margin: 20px auto 30px;
+/* ปรับปรุงการจัดวาง RoleHolder ให้อยู่ตรงกลางใน Body */
+.RoleHolder {
+    list-style: none;
+    display: none; /* ยังคงซ่อนไว้ตามค่าเริ่มต้น */
+    padding: 0;
+    margin: 0 auto 30px auto; /* จัดให้อยู่ตรงกลางและเพิ่มระยะห่างด้านล่าง */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center;
+    gap: 15px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+    /* ลบ margin-right: 20px; ออกถ้ามีอยู่เดิมใน CSS */
+}
+
+.RoleHolder.show-roles {
+    display: flex;
+}
+
+/* จัดรูปแบบปุ่ม Role ให้ดูดีขึ้น */
+.Role {
+    /* ... สไตล์เดิม ... */
+    padding: 10px 20px; /* เพิ่มขนาดปุ่มเล็กน้อย */
+    font-size: 15px;
+    white-space: nowrap; /* ป้องกันข้อความหด */
+}
+
+/* อาจจะเพิ่มสไตล์สำหรับพื้นที่รอบๆ เพื่อให้เห็นชัดเจน */
+.dashboard-container {
+    padding: 20px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-light);
+}
+
+/* --- bodyPage Layout and Modern Styling --- */
+
+.bodyPage {
+    max-width: 1200px;
+    margin: 20px auto 50px; /* เพิ่ม margin บนและล่าง */
+    padding: 0 20px;
+}
+
+/* ------------------ Role Holder (Selector) Styling --------------------------- */
+.user-role-selector {
+    list-style: none;
+    padding: 0;
+    /* จัดให้อยู่ตรงกลาง */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0 40px 0; /* เว้นระยะห่างจากด้านบนและส่วน Dashboard */
+}
+
+/* สไตล์พื้นฐานของ Role Button (เดิม) - เพิ่ม transform/shadow */
+.Role {
+    background-color: var(--brand-color-secondary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px; /* ทำให้ปุ่มโค้งมนมากขึ้น */
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.Role:hover {
+    background-color: #3b74c0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.backToDashBoard {
+    /* margin: 20px auto 30px; */
     cursor: pointer;
     color: var(--brand-color-secondary); /* ใช้สีรอง */
     font-weight: 600;
@@ -245,225 +326,18 @@ body {
     width: fit-content;
 }
 
-.backToSelectPage:hover {
+.backToDashBoard:hover {
     color: #3b74c0;
     text-decoration: underline;
 }
 
-/* --- Main Detail Card --- */
-.pictureAndMessage {
+
+/* ------------------ Utility Classes --------------------------- */
+.hidden {
+    display: none !important;
+}
+
+/* ปรับให้ RoleHolder ที่ใช้ JS แสดงผลอย่างถูกต้อง */
+.RoleHolder.show-roles {
     display: flex;
-    gap: 40px; 
-    align-items: flex-start; 
-    padding: 30px; 
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: var(--shadow-light); /* ใช้เงาแบบนุ่มนวล */
-}
-
-/* Image Column */
-.pictureAndSelectPic {
-    flex-basis: 50%; /* ให้ภาพกินพื้นที่ 50% */
-    max-width: 550px; 
-    flex-shrink: 0;
-}
-
-.main-pet-img {
-    width: 100%; 
-    height: 400px; /* กำหนดความสูงเพื่อให้ภาพดูดีขึ้น */
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-/* Sub Images */
-.Subimg {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    padding-bottom: 5px;
-}
-
-.Subimg img {
-    width: 80px; 
-    height: 80px;
-    object-fit: cover;
-    border: 2px solid var(--border-color);
-    border-radius: 6px;
-    cursor: pointer;
-    transition: border-color 0.3s;
-}
-
-.Subimg img:hover {
-    border-color: var(--brand-color-primary);
-}
-
-/* Info Column */
-.nameAndBasicInfo {
-    flex-grow: 1; 
-    padding: 10px 0;
-}
-
-.name {
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--text-color-dark);
-    line-height: 1.2;
-    margin-bottom: 10px;
-}
-
-.price {
-    font-size: 32px;
-    color: var(--brand-color-primary); 
-    font-weight: 900;
-    margin-top: 10px;
-    margin-bottom: 25px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 15px;
-}
-
-/* Basic Info Group */
-.info-group {
-    margin-bottom: 30px;
-}
-
-.info-item {
-    font-size: 18px;
-    line-height: 2.2;
-    color: var(--text-color-dark);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.info-item .label {
-    font-weight: 600;
-    color: var(--text-color-light);
-    width: 80px; /* จัด alignment ให้ดีขึ้น */
-}
-
-.icon-primary {
-    color: var(--brand-color-secondary);
-    font-size: 16px;
-}
-
-/* Sold By */
-.soldBy {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px;
-    background-color: #f7f9fc;
-    border-radius: 8px;
-    margin-bottom: 30px;
-}
-
-.seller-label {
-    font-weight: 500;
-    color: var(--text-color-light);
-}
-
-.sellerName {
-    font-weight: 700;
-    color: var(--brand-color-secondary);
-    cursor: pointer;
-}
-
-.sellerName:hover {
-    text-decoration: underline;
-}
-
-/* Action Buttons */
-.action-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.MessageToSeller, .AddToFavorites {
-    padding: 12px 25px;
-    border-radius: 50px; /* ทำให้ปุ่มโค้งมน */
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.2s;
-    flex-grow: 1;
-    border: none;
-    font-size: 16px;
-}
-
-.MessageToSeller.primary-button {
-    background-color: var(--brand-color-primary);
-    color: white;
-}
-
-.MessageToSeller.primary-button:hover {
-    background-color: #d85c30;
-    transform: translateY(-1px);
-}
-
-.AddToFavorites.secondary-button {
-    background-color: #f0f0f0;
-    color: var(--text-color-dark);
-    border: 1px solid var(--border-color);
-}
-
-.AddToFavorites.secondary-button:hover {
-    background-color: #e8e8e8;
-    transform: translateY(-1px);
-}
-.AddToFavorites.secondary-button i {
-    color: #ff4d4d; /* สีหัวใจ */
-    margin-right: 5px;
-}
-
-
-/* --- About & Health Sections --- */
-.About-MoreInfo {
-    display: flex;
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.info-box {
-    flex: 1;
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.section-header {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--text-color-dark);
-    border-bottom: 3px solid var(--brand-color-primary);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
-.About p {
-    line-height: 1.7;
-    color: var(--text-color-light);
-    font-size: 16px;
-}
-
-.HealthAndInfo ul {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-}
-
-.HealthAndInfo li {
-    line-height: 2;
-    color: var(--text-color-dark);
-    font-size: 16px;
-    border-bottom: 1px dashed #eee;
-    padding: 5px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.icon-list {
-    color: var(--brand-color-primary);
-    font-size: 16px;
 }

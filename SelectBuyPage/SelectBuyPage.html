@@ -20,16 +20,34 @@
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller'])">DisplayRoleSeller</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Care Taker'])">DisplayRoleCareTaker</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Admin'])">DisplayRoleAdmin</li> -->
         </ul>
+
+        <!-- <div class="RoleHolder">
+            <div class="Role" Role="Seller">Seller</div>
+            <div class="Role" Role="Care Taker">Care Taker</div>
+            <div class="Role" Role="Admin">Admin</div>
+        </div> -->
         
         <div class="profile-icon">
-            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="openLoginModal()"></i>  -->
+
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i> -->
+            <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i>
+            <div class="dropdown-content">
+                <a href="../UserProfile/UserProfile.html">User Profile</a>
+                <a href="../DashBoard/DashBoard.html">Dashboard</a>
+                <a href="#" onclick="LogOut()">Log out</a>
+            </div>
         </div>
     </div>
 
     <div class="bodyPage container">
         <div class="backToSelectPage" onclick="document.location='../FindAPet/FindAPet.html'"> 
-            <i class="fas fa-arrow-left"></i> Back to Search Results
+            < Back to Search Results
         </div>
 
         <div class="pictureAndMessage detail-card">
@@ -47,27 +65,27 @@
                 <div class="price">$1,200</div>
                 
                 <div class="info-group">
-                    <div class="info-item"><i class="fas fa-tags icon-primary"></i> <span class="label">Breed:</span> **Golden Retriever**</div>
-                    <div class="info-item"><i class="fas fa-venus-mars icon-primary"></i> <span class="label">Gender:</span> **Male**</div>
-                    <div class="info-item"><i class="fas fa-birthday-cake icon-primary"></i> <span class="label">Age:</span> **8 weeks**</div>
-                    <div class="info-item"><i class="fas fa-map-marker-alt icon-primary"></i> <span class="label">Location:</span> **Bangkok, BKK**</div>
+                    <div class="info-item"> <span class="label">Breed:</span> Golden Retriever</div>
+                    <div class="info-item"> <span class="label">Gender:</span> Male</div>
+                    <div class="info-item"> <span class="label">Age:</span> 8 weeks</div>
+                    <div class="info-item"> <span class="label">Location:</span> Bangkok, BKK</div>
                 </div>
 
                 <div class="soldBy">
                     <div class="seller-label">Sold By:</div>
-                    <div class="sellerName">**Hello** (View Profile <i class="fas fa-external-link-alt fa-xs"></i>)</div>
+                    <div class="sellerName">Hello</div>
                 </div>
 
                 <div class="action-buttons">
-                    <button class="MessageToSeller primary-button"><i class="fas fa-comment"></i> Message Seller</button>
-                    <button class="AddToFavorites secondary-button"><i class="fas fa-heart"></i> Add to Favorites</button>
+                    <button class="MessageToSeller primary-button"> Message Seller</button>
+                    <button class="AddToFavorites secondary-button"> Add to Favorites</button>
                 </div>
             </div>
         </div>
 
         <div class="About-MoreInfo detail-section">
             <div class="About info-box">
-                <h2 class="section-header">🐾 About this Litter</h2>
+                <h2 class="section-header">About this Litter</h2>
                 <p>We have a beautiful litter of 5 male and 3 female purebred Golden Retriever puppies 
                     ready for their forever homes! They have been raised in a loving family environment 
                     with children and other pets. All puppies have been dewormed, have their first round 
@@ -77,11 +95,11 @@
             </div>
 
             <div class="HealthAndInfo info-box">
-                <h2 class="section-header">⚕️ Health & Information</h2>
+                <h2 class="section-header">Health & Information</h2>
                 <ul>
-                    <li><i class="fas fa-syringe icon-list"></i> Vaccinations: First round completed.</li>
-                    <li><i class="fas fa-stethoscope icon-list"></i> Health Check: Vet-checked and cleared.</li>
-                    <li><i class="fas fa-box-open icon-list"></i> Includes: Starter pack of food, favorite toy, and health records.</li>
+                    <li> Vaccinations: First round completed.</li>
+                    <li> Health Check: Vet-checked and cleared.</li>
+                    <li> Includes: Starter pack of food, favorite toy, and health records.</li>
                 </ul> 
             </div>
         </div>
@@ -100,6 +118,8 @@
         </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
     </div>
+
+    <script src="SelectBuyPage.js"></script>
     
 </body>
 </html>

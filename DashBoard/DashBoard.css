@@ -16,11 +16,9 @@ body {
     --border-color: #e0e0e0;
     --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); 
     --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
-    /* Tag Colors */
-    --tag-dog-bg: #e0f2f1;
-    --tag-dog-text: #004d40;
-    --tag-cat-bg: #fffde7;
-    --tag-cat-text: #f57f17;
+    --highlight-color: #008080; /* Teal/DarkCyan for Caretaker Highlight */
+    --tag-bg: #e0f7fa;
+    --tag-text: #00796b;
 }
 
 .container {
@@ -237,204 +235,259 @@ body {
     background-color: #c0392b;
 }
 
+/* เพิ่ม/แก้ไขใน DashBoard.css */
 
-/* ------------------ bodyPage Layout Controls --------------------------- */
 .bodyPage {
-    padding: 40px 0;
-    text-align: left;
+    /* จัดการการเว้นระยะห่างด้านบนเพื่อไม่ให้ติดขอบ Header เกินไป */
+    padding-top: 30px; 
+    max-width: 1200px; /* จำกัดความกว้างเพื่อให้ดูดีขึ้น */
+    margin: 0 auto; /* จัดกึ่งกลางหน้า */
+    padding: 0 20px 50px 20px; /* เพิ่ม padding ด้านล่าง */
 }
 
-.header-controls {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    margin-bottom: 40px; 
+/* ปรับปรุงการจัดวาง RoleHolder ให้อยู่ตรงกลางใน Body */
+.RoleHolder {
+    list-style: none;
+    display: none; /* ยังคงซ่อนไว้ตามค่าเริ่มต้น */
+    padding: 0;
+    margin: 0 auto 30px auto; /* จัดให้อยู่ตรงกลางและเพิ่มระยะห่างด้านล่าง */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center;
+    gap: 15px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+    /* ลบ margin-right: 20px; ออกถ้ามีอยู่เดิมใน CSS */
 }
 
-.page-title {
-    font-size: 32px;
-    color: var(--text-color-dark);
-    margin: 0 0 5px 0;
-    font-weight: 800;
+.RoleHolder.show-roles {
+    display: flex;
 }
 
-.page-description {
-    font-size: 16px;
-    color: var(--text-color-light);
-    margin: 0;
+/* จัดรูปแบบปุ่ม Role ให้ดูดีขึ้น */
+.Role {
+    /* ... สไตล์เดิม ... */
+    padding: 10px 20px; /* เพิ่มขนาดปุ่มเล็กน้อย */
+    font-size: 15px;
+    white-space: nowrap; /* ป้องกันข้อความหด */
 }
 
-/* Primary Button Styling */
-.primary-button {
-    padding: 12px 25px;
-    background-color: var(--brand-color-primary);
-    color: white;
-    border: none;
-    border-radius: 50px; 
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.2s;
-    white-space: nowrap; /* Prevent button text wrapping */
-}
-
-.primary-button:hover {
-    background-color: #d85c30;
-    transform: translateY(-1px);
-}
-.primary-button i {
-    margin-right: 8px;
-}
-
-
-/* ------------------ Case 1: NO PETS (Empty State) --------------------------- */
-.MyPetListBox.empty-state {
-    border: 2px dashed var(--border-color); 
-    border-radius: 12px;
-    padding: 60px 20px;
+/* อาจจะเพิ่มสไตล์สำหรับพื้นที่รอบๆ เพื่อให้เห็นชัดเจน */
+.dashboard-container {
+    padding: 20px;
     background-color: white;
-    text-align: center;
-    max-width: 600px; 
-    margin: 60px auto; 
+    border-radius: 12px;
     box-shadow: var(--shadow-light);
 }
 
-.empty-state .icon-placeholder {
-    color: var(--border-color); 
-    margin-bottom: 20px;
+/* --- bodyPage Layout and Modern Styling --- */
+
+.bodyPage {
+    max-width: 1200px;
+    margin: 20px auto 50px; /* เพิ่ม margin บนและล่าง */
+    padding: 0 20px;
 }
 
-.empty-title {
-    font-size: 24px;
-    color: var(--text-color-dark);
-    margin-bottom: 10px;
+/* ------------------ Role Holder (Selector) Styling --------------------------- */
+.user-role-selector {
+    list-style: none;
+    padding: 0;
+    /* จัดให้อยู่ตรงกลาง */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0 40px 0; /* เว้นระยะห่างจากด้านบนและส่วน Dashboard */
 }
 
-.empty-description {
-    font-size: 16px;
-    color: var(--text-color-light);
-    margin-bottom: 0;
+/* สไตล์พื้นฐานของ Role Button (เดิม) - เพิ่ม transform/shadow */
+.Role {
+    background-color: var(--brand-color-secondary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px; /* ทำให้ปุ่มโค้งมนมากขึ้น */
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* ------------------ Case 2: PETS EXIST (Pet List) --------------------------- */
-
-.MyPetListContainer {
-    /* ใช้ Grid เพื่อแสดง Pet Card แบบตาราง */
-    display: grid;
-    /* Responsive Grid: 2-3 columns depending on screen size */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-    gap: 30px; 
-    margin-top: 20px;
+.Role:hover {
+    background-color: #3b74c0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.PetCard {
+/* ------------------ Dashboard Container & Welcome Banner --------------------------- */
+
+.dashboard-container {
+    padding: 30px;
     background-color: white;
-    border: 1px solid var(--border-color);
     border-radius: 12px;
-    overflow: hidden; /* Ensures image corners are rounded */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--shadow-light);
 }
 
-.PetCard:hover {
+.welcome-banner {
+    background: linear-gradient(135deg, var(--brand-color-primary) 0%, #ffc048 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.welcome-banner h2 {
+    margin: 0 0 5px 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.welcome-banner p {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* ------------------ Stat Cards --------------------------- */
+.stat-cards-holder {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background-color: #ffffff;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.stat-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.pet-photo {
-    width: 100%; 
-    height: 220px; /* Consistent height for images */
-    object-fit: cover; 
-}
-
-.pet-info {
-    padding: 20px;
-}
-
-.pet-name-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    border-bottom: 1px dashed var(--border-color);
-    padding-bottom: 10px;
-}
-
-.pet-info h2 {
-    font-size: 24px;
+.stat-card i {
+    font-size: 36px;
     color: var(--brand-color-secondary);
-    margin: 0;
-    font-weight: 700;
+    margin-bottom: 10px;
 }
 
-.pet-tag {
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: 600;
-}
+#petStat i { color: #008080; } /* Teal */
+#messagesStat i { color: #f39c12; } /* Orange */
+#listingStat i { color: #2ecc71; } /* Green */
+#careTakerStat i { color: #9b59b6; } /* Purple */
 
-.dog-tag {
-    background-color: var(--tag-dog-bg);
-    color: var(--tag-dog-text);
-}
-.cat-tag {
-    background-color: var(--tag-cat-bg);
-    color: var(--tag-cat-text);
-}
 
-.pet-details p {
-    font-size: 15px;
+.stat-card h3 {
+    font-size: 16px;
     color: var(--text-color-light);
-    margin-bottom: 8px;
+    margin: 0 0 5px 0;
+    font-weight: 500;
 }
 
-.pet-details strong {
+.stat-number {
+    font-size: 32px;
+    font-weight: 700;
     color: var(--text-color-dark);
-    font-weight: 600;
-    margin-right: 5px;
+    margin: 5px 0 15px 0;
 }
 
-.pet-details i {
+.stat-number.alert {
+    color: #e74c3c; /* Red alert color */
+}
+
+.stat-card a {
+    display: block;
+    font-size: 14px;
     color: var(--brand-color-primary);
-    margin-right: 5px;
-}
-
-
-.card-actions {
-    padding: 10px 20px 20px 20px;
-    display: flex;
-    justify-content: space-between; 
-    gap: 10px;
-}
-
-/* Secondary Button Styling (for Edit) */
-.secondary-button {
-    padding: 10px 15px;
-    background-color: #e0e0e0;
-    color: var(--text-color-dark);
-    border: none;
-    border-radius: 50px; 
-    cursor: pointer;
-    font-size: 15px;
+    text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s, transform 0.2s;
-    flex-grow: 1;
+    transition: color 0.3s;
 }
 
-.secondary-button:hover {
-    background-color: #ccc;
-    transform: translateY(-1px);
+.stat-card a:hover {
+    color: #cc6633;
+    text-decoration: underline;
 }
 
-.secondary-button i {
-    margin-right: 5px;
+/* ------------------ Quick Actions --------------------------- */
+
+.quick-actions h3 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: var(--text-color-dark);
 }
 
-.book-btn {
-    flex-grow: 1; 
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.is-hidden {
+.action-item {
+    display: block;
+    text-align: center;
+    padding: 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 120px; /* กำหนดความสูงขั้นต่ำ */
+}
+
+.action-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+.action-item i {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.action-item h4 {
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.action-item p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.primary-action {
+    background-color: var(--brand-color-primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 127, 80, 0.3);
+}
+
+.primary-action i {
+    color: white;
+}
+
+.secondary-action {
+    background-color: #ecf0f1; /* Light grey */
+    color: var(--text-color-dark);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-action i {
+    color: var(--brand-color-secondary);
+}
+.secondary-action:hover {
+    background-color: #dce0e1;
+}
+
+/* ------------------ Utility Classes --------------------------- */
+.hidden {
     display: none !important;
+}
+
+/* ปรับให้ RoleHolder ที่ใช้ JS แสดงผลอย่างถูกต้อง */
+.RoleHolder.show-roles {
+    display: flex;
 }

@@ -17,36 +17,54 @@
         <ul class="headSectorHolder"> 
             <li class="headSector active" onclick="document.location='../home/home.html'">Our Services</li>
             <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
-            <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
+            <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
+            <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li>
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller'])">DisplayRoleSeller</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Care Taker'])">DisplayRoleCareTaker</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Admin'])">DisplayRoleAdmin</li> -->
         </ul>
+
+        <!-- <div class="RoleHolder">
+            <div class="Role" Role="Seller">Seller</div>
+            <div class="Role" Role="Care Taker">Care Taker</div>
+            <div class="Role" Role="Admin">Admin</div>
+        </div> -->
         
         <div class="profile-icon">
-             <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="openLoginModal()"></i>  -->
+
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i> -->
+            <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i>
+            <div class="dropdown-content">
+                <a href="../UserProfile/UserProfile.html">User Profile</a>
+                <a href="../DashBoard/DashBoard.html">Dashboard</a>
+                <a href="#" onclick="LogOut()">Log out</a>
+            </div>
         </div>
     </div>
 
     <div class="bodyPage">
         <div class="hero">
             <div class="hero-image-container">
-                 <img src="../home/img/HeroImg.webp" alt="Pets in a happy home">
+                <img src="../home/img/HeroImg.webp" alt="Pets in a happy home">
                 <div class="hero-overlay"></div>
             </div>
             
             <div class="Herotext">
                 <h1>Find Your Perfect Companion</h1>
                 <p>The ultimate platform connecting loving homes with adorable pets. Buy, sell, and find trusted care, all in one happy place.</p>
-                <a href="../FindAPet/FindAPet.html" class="BoxExploreService">Explore Pets Now <i class="fas fa-paw"></i></a>
+                <a href="../FindAPet/FindAPet.html" class="BoxExploreService">Explore Pets Now </a>
             </div>
             <div class="herobehideText-hero">TAILS & TRADES</div>
         </div>
 
         <div class="FeaturedPet section-padding">
-            <h2>🐶 Featured Pets</h2>
+            <h2>Featured Pets</h2>
             <p class="section-subtitle">Meet some of our adorable friends waiting for new homes.</p>
             <div class="containCard">
-                 <div class="card card-item" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
+                <div class="card card-item" onclick="document.location='../SelectBuyPage/SelectBuyPage.html'">
                     <img src="../home/img/card1.jpg" alt="Buddy the Golden Retriever">
                     <div class="card-details">
                         <div class="name">Buddy</div>
@@ -86,11 +104,11 @@
         </div>
 
         <div class="Offer section-padding background-light">
-            <h2>💡 What We Offer</h2>
+            <h2>What We Offer</h2>
             <p class="section-subtitle">Everything you need for your pet journey.</p>
             <div class="containBox">
                 <div class="box offer-box">
-                     <img src="../home/img/offer1.webp" height="80px" alt="Selling Platform Icon">
+                    <img src="../home/img/offer1.webp" height="80px" alt="Selling Platform Icon">
                     <div class="headWord">Selling Platform</div>
                     <div class="info">Register with us to find loving homes for your pets. Our platform connects you with responsible buyers in a safe and supportive environment.</div>
                 </div>
@@ -108,7 +126,7 @@
         </div>
 
         <div class="HowItWork section-padding">
-            <h2>🚀 How It Works</h2>
+            <h2>How It Works</h2>
             <p class="section-subtitle">Getting started is as easy as 1-2-3.</p>
             <div class="containBoxHTW">
                 <div class="boxHTW step-box">
@@ -130,11 +148,10 @@
         </div>
 
         <div class="JoinOurCommunity section-padding call-to-action">
-            <h2>🤝 Join Our Community Today</h2>
+            <h2>Join Our Community Today</h2>
             <p class="section-subtitle">Connect with thousands of pet lovers and find your perfect match.</p>
-             <a href="../CommunityBoard/CommunityBoard.html" class="primary-button-lg">Join Now <i class="fas fa-users"></i></a>
+            <a href="../CommunityBoard/CommunityBoard.html" class="primary-button-lg">Join Now</a>
         </div>
-
     </div>
 
     <div class="footer">
@@ -144,47 +161,70 @@
         </div>
         <div class="context">Connecting pets and people since 2025.</div>
         <div class="social-icons">
-             <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-facebook-f"></i>
             <i class="fab fa-twitter"></i>
             <i class="fab fa-instagram"></i>
         </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
-
     </div>
 
-
-     <div class="form-popup" id="myForm">
-        <form action="/action_page.php" class="form-container">
+    <div class="modal-backdrop" id="loginModal">
+        <form class="modal-content form-container" action="/login_action.php" method="POST">
             <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
             <h1 class="login-header">Login</h1>
 
-            <label for="email"><b>Email :</b></label>
-            <input type="text" placeholder="Enter your email" name="email" required>
+            <label for="login_email"><b>Email:</b></label>
+            <input type="email" placeholder="Enter your email" name="login_email" id="login_email" required>
 
-            <label for="psw"><b>Password :</b></label>
-            <input type="password" placeholder="Enter your password" name="psw" required>
+            <label for="login_psw"><b>Password:</b></label>
+            <input type="password" placeholder="Enter your password" name="login_psw" id="login_psw" required>
 
             <div class="Remember-Forget">
                 <div class="remember-me">
-                    <input type="checkbox" id="checkboxRememberMe">
+                    <input type="checkbox" id="checkboxRememberMe" name="remember_me">
                     <label for="checkboxRememberMe">Remember me</label>
                 </div>
                 
-                <a href="#" class="forgetPass">Forget password?</a>
+                <a onclick="document.location='../forgetPass/forgetPass.html'" class="forgetPass">Forget password?</a>
             </div>
             
             <button type="submit" class="btn primary-button">Login</button>
-            <button type="button" class="btn secondary-button cancel" onclick="closeForm()">Close</button>
+            
+            <div class="signup-link-container">
+                <a class="signup-link" onclick="closeLoginModal(); openSignupModal();">Don't have an account? Sign up</a>
+            </div>
+
+            <!-- <button type="button" class="btn secondary-button cancel" onclick="closeLoginModal()">Close</button> -->
         </form>
     </div>
-    <script>
-        // Dummy functions for demonstration (you need to implement these in home.js)
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-        }
-        function closeForm() {
-            document.getElementById("myForm").style.display = "none";
-        }
-    </script>
+
+    <div class="modal-backdrop" id="signupModal">
+        <form class="modal-content form-container" action="/signup_action.php" method="POST">
+            <img src="../home/img/tailAndtrade_img.png" height="50px" alt="TAILS & TRADE Logo">
+            <h1 class="login-header">Sign Up</h1>
+
+            <label for="signup_name"><b>Name:</b></label>
+            <input type="text" placeholder="Enter your name" name="signup_name" id="signup_name" required>
+
+            <label for="signup_email"><b>Email:</b></label>
+            <input type="email" placeholder="Enter your email" name="signup_email" id="signup_email" required>
+
+            <label for="signup_psw"><b>Password:</b></label>
+            <input type="password" placeholder="Enter your password" name="signup_psw" id="signup_psw" required>
+            
+            <button type="submit" class="btn primary-button">Sign up</button>
+            <!-- <button type="button" class="btn secondary-button cancel" onclick="closeSignupModal()">Close</button> -->
+
+            <h2 class="social-divider">--- OR Continue with ---</h2>
+
+            <div class="social-login-icons">
+                <button type="button" class="social-icon google"><i class="fab fa-google fa-2x"></i></button>
+                <button type="button" class="social-icon facebook"><i class="fab fa-facebook-f fa-2x"></i></button>
+                <button type="button" class="social-icon apple"><i class="fab fa-apple fa-2x"></i></button>
+            </div>
+        </form>
+    </div>
+
+    <script src="home.js"></script>
 </body>
 </html>

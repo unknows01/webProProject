@@ -1,28 +1,26 @@
-/* กำหนดค่าเริ่มต้นและใช้ Font ที่ดู Modern */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f9fc; /* สีพื้นหลังที่ดูสะอาดตา */
+    background-color: #f7f9fc;
     color: #333;
 }
 
-/* --- Branding & Color Palette --- */
 :root {
-    --brand-color-primary: #ff7f50; /* Coral/Salmon - สีหลักที่อบอุ่นและโดดเด่น */
-    --brand-color-secondary: #4a90e2; /* Blue - ใช้ตัดกับสีหลัก */
+    --brand-color-primary: #ff7f50;
+    --brand-color-secondary: #4a90e2;
     --text-color-dark: #333;
     --text-color-light: #666;
     --border-color: #e0e0e0;
-    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08); /* เงาแบบนุ่มนวล */
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .section-padding {
-    padding: 60px 80px; /* เพิ่ม padding ทั่วไปให้ section */
+    padding: 60px 80px;
 }
 .background-light {
-    background-color: #e8f0f8; /* พื้นหลังสีอ่อน */
+    background-color: #e8f0f8;
 }
 .section-subtitle {
     font-size: 18px;
@@ -30,471 +28,450 @@ body {
     margin-bottom: 40px;
 }
 
-/* ------------------ header (ใช้สไตล์เดิมที่ปรับปรุงแล้ว) --------------------------- */
+/* ------------------ header --------------------------- */
 .main-header {
     display: flex; 
     justify-content: space-between; 
     align-items: center;
-    padding: 15px 40px; 
-    background-color: white; 
+    padding: 15px 40px; background-color: white; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    position: sticky; 
+    top: 0; z-index: 1000;
 }
-
-.logo-container {
-    display: flex;
+.logo-container { 
+    display: flex; 
     align-items: center; 
-    gap: 10px;
+    gap: 10px; 
 }
-
-.logo-container img {
-    height: 45px;
+.TAILSTRADE { 
+    font-size: 28px; 
+    font-weight: 700; 
+    color: var(--brand-color-primary); 
 }
-
-.TAILSTRADE {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--brand-color-primary);
+.headSectorHolder { 
+    list-style: none; 
+    display: flex; gap: 30px; 
+    padding: 0; margin: 0; 
 }
-
-.headSectorHolder {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    padding: 0;
-    margin: 0;
+.headSector { 
+    font-size: 16px; 
+    font-weight: 500; 
+    color: var(--text-color-light); 
+    cursor: pointer; padding: 5px 0; 
+    position: relative; 
+    transition: color 0.3s; 
 }
-
-.headSector {
-    font-size: 16px;
-    font-weight: 500;
+.headSector:hover, .headSector.active { 
+    color: var(--brand-color-primary); 
+}
+.headSector.active::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: -5px; 
+    left: 0; 
+    width: 100%; 
+    height: 3px; 
+    background-color: var(--brand-color-primary); 
+    border-radius: 2px; 
+}
+.profile-icon i { 
     color: var(--text-color-light);
-    cursor: pointer;
-    padding: 5px 0;
-    position: relative;
-    transition: color 0.3s;
+    cursor: pointer; 
+    transition: color 0.3s; 
+}
+.profile-icon i:hover, .profile-icon.active i { /* เพิ่ม .profile-icon.active i */
+    color: var(--brand-color-primary); 
 }
 
-.headSector:hover, .headSector.active {
-    color: var(--brand-color-primary);
+/* ------------------ profile-icon (Dropdown) --------------------------- */
+
+/* ทำให้ dropdown-content อยู่ในตำแหน่งที่สัมพันธ์กับ profile-icon */
+.profile-icon {
+    position: relative; /* สำคัญ: เป็นตัวอ้างอิงสำหรับตำแหน่ง absolute ของ dropdown */
+    display: inline-block;
 }
 
-.headSector.active::after {
-    content: '';
+/* ซ่อน Dropdown Menu ไว้ก่อน */
+.dropdown-content {
+    display: none;
     position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--brand-color-primary);
-    border-radius: 2px;
-}
-
-.profile-icon i {
-    color: var(--text-color-light);
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.profile-icon i:hover {
-    color: var(--brand-color-primary);
-}
-
-
-/* ------------------ Hero (ปรับปรุงใหม่) --------------------------- */
-
-.hero {
-    position: relative;
-    overflow: hidden;
-    height: 600px; /* กำหนดความสูงคงที่ */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Overlay สีดำใส */
-}
-
-.Herotext {
-    position: relative;
-    z-index: 10;
-    text-align: center;
-    color: white;
-    max-width: 800px;
-    padding: 0 20px;
-}
-
-.Herotext h1 {
-    font-size: 64px;
-    font-weight: 900;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
-
-.Herotext p {
-    font-size: 22px;
-    font-weight: 300;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-.herobehideText-hero {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 100px; /* ขยายให้ใหญ่ขึ้น */
-    font-weight: 900;
-    opacity: 0.05; /* ลดความทึบลงอีก */
-    color: white;
-    text-shadow: none; /* ลบ text-shadow ที่ไม่จำเป็นออก */
-    z-index: 5;
-    pointer-events: none; /* ป้องกันการคลิกบัง */
-}
-
-.BoxExploreService {
-    /* ใช้เป็น Anchor tag แทน Div */
-    display: inline-block; 
-    padding: 15px 35px;
-    background-color: var(--brand-color-primary);
-    border-radius: 50px; /* โค้งมนมากขึ้น */
-    color: white; 
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    text-decoration: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.BoxExploreService:hover {
-    background-color: #d85c30; 
-    transform: translateY(-2px);
-}
-.BoxExploreService i {
-    margin-left: 10px;
-}
-
-/* ------------------ Content Section Styling (ใหม่) --------------------------- */
-.FeaturedPet, .Offer, .HowItWork, .JoinOurCommunity {
-    text-align: center;
-}
-
-.FeaturedPet h2, .Offer h2, .HowItWork h2, .JoinOurCommunity h2 {
-    font-size: 40px;
-    font-weight: 800;
-    color: var(--text-color-dark);
-    margin-bottom: 10px;
-}
-
-/* ------------------ Featured Pet --------------------------- */
-
-.containCard {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap; /* ให้ wrap ในกรณีหน้าจอเล็ก */
-}
-
-.card {
-    /* ใช้สไตล์ card ที่อัพเดทแล้วจาก FindAPet */
-    width: 280px; /* ปรับขนาดการ์ดให้พอดี */
+    /* ตำแหน่งเมนู: เยื้องไปทางซ้ายมือเพื่อให้เมนูไปอยู่ใต้ไอคอน */
+    right: 0; 
+    /* ให้เมนูอยู่ใต้ไอคอน */
+    top: 100%; 
     background-color: white;
-    border: 1px solid #eee;
-    padding: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow-light); 
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
+    min-width: 160px;
+    box-shadow: var(--shadow-light); /* ใช้ shadow ที่กำหนดไว้ */
+    z-index: 1001; /* ให้อยู่เหนือ Header */
+    border-radius: 5px;
+    margin-top: 10px; /* เว้นระยะห่างจากไอคอนเล็กน้อย */
+    border: 1px solid var(--border-color);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.card-details {
-    padding: 15px;
-}
-
-.card .name {
-    font-size: 24px;
-    font-weight: 700;
+.dropdown-content a {
     color: var(--text-color-dark);
-    margin-top: 0;
-}
-.card .breed {
-    font-size: 16px;
-    color: var(--brand-color-primary);
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-.card .info {
-    font-size: 14px;
-    color: var(--text-color-light);
-    margin-top: 5px;
-    margin-bottom: 20px;
-    height: 40px; /* กำหนดความสูงเพื่อไม่ให้ layout ขยับ */
-}
-
-/* เปลี่ยนชื่อ class เป็น .primary-button เพื่อสอดคล้องกับ FindAPet */
-.BoxVeiwDetail.primary-button {
-    display: block; 
-    width: calc(100% - 30px); /* ให้ปุ่มเต็มความกว้าง */
-    padding: 10px 0;
-    background-color: var(--brand-color-secondary); /* ใช้สีรอง */
-    border-radius: 8px;
-    color: white; 
-    font-size: 16px;
-    font-weight: 600;
+    padding: 12px 16px;
     text-decoration: none;
-    margin-top: 15px;
+    display: block;
     transition: background-color 0.3s;
-}
-.BoxVeiwDetail.primary-button:hover {
-    background-color: #3b74c0;
+    font-size: 15px;
 }
 
-/* ------------------ offer --------------------------- */
-
-.containBox {
-    display: flex;
-    justify-content: center;
-    gap: 30px; 
-    flex-wrap: wrap;
-}
-
-.box.offer-box {
-    width: 350px;
-    background-color: white;
-    border: none; 
-    padding: 30px 20px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: var(--shadow-light);
-    transition: transform 0.3s;
-}
-
-.box.offer-box:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-.box img {
-    width: 80px; /* ปรับขนาดไอคอน/รูปภาพ */
-    height: 80px;
-    margin-bottom: 15px;
-}
-
-.box .headWord {
-    font-size: 24px;
-    font-weight: 700;
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
     color: var(--brand-color-primary);
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
-.box .info {
-    font-size: 16px;
-    color: var(--text-color-light);
-    line-height: 1.6;
+/* Class ที่ใช้ JavaScript ในการเปิด/ปิด Dropdown */
+.profile-icon:hover .dropdown-content,
+.profile-icon.active .dropdown-content {
+    display: block;
 }
 
-
-/* ------------------ How It Work --------------------------- */
-
-.HowItWork {
-    /* ลบ background-color: rgb(248, 255, 246) ออกเพื่อให้ใช้ background-light ได้ หรือกำหนดสีใหม่ */
-    background-color: #f0f4f8; /* สีพื้นหลังที่ดูเป็นมิตร */
+/* ------------------ Hero  --------------------------- */
+.hero { 
+    position: relative; 
+    overflow: hidden; 
+    height: 600px; display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+.hero-image-container { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+}
+.hero img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+.hero-overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.5); 
+}
+.Herotext {
+    position: relative; 
+    z-index: 10; 
+    text-align: center; 
+    color: white; 
+    max-width: 800px; 
+    padding: 0 20px; 
+}
+.Herotext h1 { 
+    font-size: 64px; 
+    font-weight: 900; 
+    margin-bottom: 20px; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+}
+.Herotext p { 
+    font-size: 22px; 
+    font-weight: 300; 
+    margin-bottom: 30px; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+}
+.herobehideText-hero { 
+    position: absolute; 
+    top: 50%; left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 100px; font-weight: 900; 
+    opacity: 0.05; 
+    color: white; z-index: 5; 
+    pointer-events: none; 
+}
+.BoxExploreService { 
+    display: inline-block; 
+    padding: 15px 35px; 
+    background-color: var(--brand-color-primary); 
+    border-radius: 50px; 
+    color: white; 
+    font-size: 20px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+    text-decoration: none; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+}
+.BoxExploreService:hover { 
+    background-color: #d85c30; 
+    transform: translateY(-2px); 
+}
+.BoxExploreService i { 
+    margin-left: 10px; 
 }
 
+/* ------------------ Content Section Styling --------------------------- */
 
-.containBoxHTW {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 40px;
+.FeaturedPet, .Offer, .HowItWork, .JoinOurCommunity { 
+    text-align: center; 
 }
-
-.boxHTW.step-box {
-    width: 300px;
-    border: none;
-    background-color: transparent;
-    padding: 20px;
-    margin: 0;
-    box-shadow: none;
+.FeaturedPet h2, .Offer h2, .HowItWork h2, .JoinOurCommunity h2 { 
+    font-size: 40px; 
+    font-weight: 800; 
+    color: var(--text-color-dark); 
+    margin-bottom: 10px; 
 }
-
-.boxHTW .number {
-    font-size: 40px;
-    font-weight: 900;
-    color: white;
-    margin: 0 auto 20px;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%; /* ทำให้เป็นวงกลม */
-    background-color: var(--brand-color-secondary); /* ใช้สีรอง */
+.containCard { 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+    flex-wrap: wrap; 
+}
+.card { 
+    width: 280px; 
+    background-color: white; 
+    border: 1px solid #eee; 
+    padding: 0; border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: var(--shadow-light); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    cursor: pointer; 
+}
+.card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: var(--shadow-hover); 
+}
+.card img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+.card-details { 
+    padding: 15px; 
+}
+.card .name { 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: var(--text-color-dark); 
+    margin-top: 0; 
+}
+.card .breed { 
+    font-size: 16px; 
+    color: var(--brand-color-primary); 
+    margin-bottom: 10px; 
+    font-weight: 600; 
+}
+.card .info { 
+    font-size: 14px; 
+    color: var(--text-color-light); 
+    margin-top: 5px; 
+    margin-bottom: 20px; 
+    height: 40px; 
+}
+.BoxVeiwDetail.primary-button { 
+    display: block; 
+    width: calc(100% - 30px); 
+    padding: 10px 0; 
+    background-color: var(--brand-color-secondary);
+    border-radius: 8px; 
+    color: white; 
+    font-size: 16px; 
+    font-weight: 600; 
+    text-decoration: none; 
+    margin-top: 15px; 
+    transition: background-color 0.3s; 
+}
+.BoxVeiwDetail.primary-button:hover { 
+    background-color: #3b74c0; 
+}
+.containBox { 
+    display: flex; 
+    justify-content: center; 
+    gap: 30px; 
+    flex-wrap: wrap; 
+}
+.box.offer-box { 
+    width: 350px; 
+    background-color: white; 
+    border: none; 
+    padding: 30px 20px; 
+    text-align: center; 
+    border-radius: 12px; 
+    box-shadow: var(--shadow-light); 
+    transition: transform 0.3s; 
+}
+.box.offer-box:hover { 
+    transform: translateY(-5px); 
+    box-shadow: var(--shadow-hover); 
+}
+.box img { 
+    width: 80px; 
+    height: 80px; 
+    margin-bottom: 15px; 
+}
+.box .headWord { 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: var(--brand-color-primary);
+    margin-top: 10px; 
+    margin-bottom: 10px; 
+}
+.box .info { 
+    font-size: 16px; 
+    color: var(--text-color-light); 
+    line-height: 1.6; 
+}
+.HowItWork { 
+    background-color: #f0f4f8; 
+}
+.containBoxHTW { 
+    display: flex; 
+    justify-content: center; 
+    gap: 40px; 
+    flex-wrap: wrap; 
+    margin-top: 40px; 
+}
+.boxHTW.step-box { 
+    width: 300px; 
+    border: none; 
+    background-color: transparent; 
+    padding: 20px; 
+    margin: 0; 
+    box-shadow: none; 
+}
+.boxHTW .number { 
+    font-size: 40px; 
+    font-weight: 900; 
+    color: white; 
+    margin: 0 auto 20px; 
+    width: 60px; 
+    height: 60px; 
+    line-height: 60px; 
+    border-radius: 50%; 
+    background-color: var(--brand-color-secondary); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
-
-.boxHTW .headWord {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--text-color-dark);
-    margin-top: 15px;
-    margin-bottom: 10px;
+.boxHTW .headWord { 
+    font-size: 22px; 
+    font-weight: 700; 
+    color: var(--text-color-dark); 
+    margin-top: 15px; 
+    margin-bottom: 10px; 
+}
+.boxHTW .info { 
+    font-size: 15px; 
+    color: var(--text-color-light); 
+}
+.JoinOurCommunity { 
+    padding: 80px 40px; 
+    background-color: var(--brand-color-primary); 
+    color: white; text-align: center; 
+}
+.JoinOurCommunity h2 { 
+    color: white; 
+    font-size: 48px; 
+}
+.JoinOurCommunity .section-subtitle { 
+    color: white; 
+    opacity: 0.9; 
+    font-size: 20px; 
+}
+.primary-button-lg { 
+    display: inline-block; 
+    padding: 15px 40px; 
+    background-color: white; 
+    color: var(--brand-color-primary); 
+    border: none; 
+    border-radius: 50px; 
+    font-size: 22px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s; 
+    text-decoration: none; 
+    margin-top: 20px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+}
+.primary-button-lg:hover { 
+    background-color: #f0f0f0; 
+    transform: translateY(-2px); 
+}
+.primary-button-lg i { 
+    margin-left: 10px; 
 }
 
-.boxHTW .info {
-    font-size: 15px;
-    color: var(--text-color-light);
+/* ------------------ footer --------------------------- */
+
+.footer { padding: 40px 20px; 
+    margin: 0; text-align: center; 
+    background-color: #333; 
+    color: white; 
 }
-
-/* ------------------ join (Call to Action) --------------------------- */
-
-.JoinOurCommunity {
-    padding: 80px 40px;
-    background-color: var(--brand-color-primary); /* ใช้สีหลักดึงดูดความสนใจ */
-    color: white;
-    text-align: center;
-}
-
-.JoinOurCommunity h2 {
-    color: white;
-    font-size: 48px;
-}
-
-.JoinOurCommunity .section-subtitle {
-    color: white;
-    opacity: 0.9;
-    font-size: 20px;
-}
-
-.primary-button-lg {
-    display: inline-block;
-    padding: 15px 40px;
-    background-color: white;
-    color: var(--brand-color-primary);
-    border: none;
-    border-radius: 50px;
-    font-size: 22px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    text-decoration: none;
-    margin-top: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.primary-button-lg:hover {
-    background-color: #f0f0f0;
-    transform: translateY(-2px);
-}
-.primary-button-lg i {
-    margin-left: 10px;
-}
-
-/* ------------------ footer (ใช้สไตล์เดิมที่ปรับปรุงแล้ว) --------------------------- */
-
-.footer {
-    padding: 40px 20px;
-    margin: 0;
-    text-align: center;
-    background-color: #333;
-    color: white;
-}
-
-.logo-container-footer {
-    display: flex;
+.logo-container-footer { 
+    display: flex; 
     align-items: center; 
-    justify-content: center;
-    margin-bottom: 10px;
-    gap: 8px;
+    justify-content: center; 
+    margin-bottom: 10px; 
+    gap: 8px; 
 }
-
-.TAILSTRADE-footer {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--brand-color-primary);
+.TAILSTRADE-footer { 
+    font-size: 22px; 
+    font-weight: 700; 
+    color: var(--brand-color-primary); 
 }
-
-.context {
-    color: #ccc;
-    font-size: 16px;
-    margin-bottom: 15px;
+.context { 
+    color: #ccc; 
+    font-size: 16px; 
+    margin-bottom: 15px; 
 }
-
-.social-icons {
-    margin-bottom: 20px;
+.social-icons { 
+    margin-bottom: 20px; 
 }
-
-.social-icons i {
-    font-size: 20px;
-    margin: 0 10px;
-    color: #ccc;
-    cursor: pointer;
-    transition: color 0.3s;
+.social-icons i { 
+    font-size: 20px; 
+    margin: 0 10px; 
+    color: #ccc; 
+    cursor: pointer; 
+    transition: color 0.3s; 
 }
-
-.social-icons i:hover {
-    color: var(--brand-color-primary);
+.social-icons i:hover { 
+    color: var(--brand-color-primary); 
 }
-
-.reg {
-    color: #999;
-    font-size: 12px;
+.reg { 
+    color: #999; 
+    font-size: 12px; 
     margin-top: 15px;
 }
 
-/* ------------------ login (Popup) --------------------------- */
-.form-popup {
-    display: none;
+/* ------------------ Modal Popup --------------------------- */
+
+.modal-backdrop {
     position: fixed;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%); /* จัดให้อยู่ตรงกลางจอ */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
     z-index: 10000;
-    border: none;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.form-container {
-    max-width: 350px;
-    padding: 25px;
+.modal-backdrop.show-modal {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    max-width: 380px;
     background-color: white;
+    padding: 30px;
     border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease-in-out;
+}
+
+.show-modal .modal-content {
+    transform: scale(1);
 }
 
 .login-header {
@@ -502,6 +479,7 @@ body {
     color: var(--text-color-dark);
     margin-top: 10px;
     margin-bottom: 25px;
+    text-align: center;
 }
 
 .form-container label {
@@ -509,26 +487,21 @@ body {
     text-align: left;
     margin-top: 10px;
     font-weight: 600;
-    color: var(--text-color-light);
+    color: var(--text-color-dark);
 }
 
-.form-container input[type=text], .form-container input[type=password] {
-    width: 90%;
+.form-container input[type=email], 
+.form-container input[type=password],
+.form-container input[type=text] {
+    width: 100%;
     padding: 12px;
     margin: 8px 0 15px 0;
     border: 1px solid var(--border-color);
     background: #fcfcfc;
     border-radius: 8px;
-    transition: border-color 0.3s;
+    box-sizing: border-box;
 }
 
-.form-container input[type=text]:focus, .form-container input[type=password]:focus {
-    background-color: white;
-    border-color: var(--brand-color-primary);
-    outline: none;
-}
-
-/* Remember/Forget Section */
 .Remember-Forget {
     display: flex;
     justify-content: space-between;
@@ -536,30 +509,23 @@ body {
     margin-bottom: 20px;
     font-size: 14px;
 }
-
-.Remember-Forget label {
-    display: inline;
-    font-weight: 400;
-    color: var(--text-color-light);
-    cursor: pointer;
+.Remember-Forget label { 
+    display: inline; 
+    font-weight: 400; 
+    color: var(--text-color-light); 
+    cursor: pointer; 
 }
-.Remember-Forget input[type="checkbox"] {
-    accent-color: var(--brand-color-primary);
-    margin-right: 5px;
+.forgetPass { 
+    color: var(--brand-color-secondary); 
+    text-decoration: none; 
+    cursor: pointer; 
+    transition: color 0.3s; 
 }
-
-.forgetPass {
-    color: var(--brand-color-secondary);
-    text-decoration: none;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-.forgetPass:hover {
-    color: #3b74c0;
-    text-decoration: underline;
+.forgetPass:hover { 
+    color: #3b74c0; 
+    text-decoration: underline; 
 }
 
-/* Login Buttons */
 .form-container .btn {
     padding: 12px 20px;
     border: none;
@@ -568,21 +534,171 @@ body {
     margin-bottom: 10px;
     font-weight: 600;
     border-radius: 8px;
-    transition: opacity 0.3s;
+    transition: background-color 0.3s;
 }
 
-.form-container .primary-button {
-    background-color: var(--brand-color-primary);
-    color: white;
+.form-container .primary-button { 
+    background-color: var(--brand-color-primary); 
+    color: white; 
 }
-.form-container .primary-button:hover {
-    background-color: #d85c30;
+.form-container .primary-button:hover { 
+    background-color: #d85c30; 
 }
 
-.form-container .secondary-button.cancel {
+.form-container .secondary-button.cancel { 
     background-color: #e0e0e0;
+    color: var(--text-color-dark); 
+}
+.form-container .secondary-button.cancel:hover { 
+    background-color: #ccc; 
+}
+
+.signup-link-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.signup-link {
+    color: var(--brand-color-secondary);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-decoration 0.3s;
+}
+.signup-link:hover {
+    text-decoration: underline;
+}
+
+.social-divider {
+    font-size: 14px;
+    font-weight: normal;
+    color: #999;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.social-login-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.social-icon {
+    flex-grow: 1;
+    height: 50px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-icon:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon i {
     color: var(--text-color-dark);
 }
-.form-container .secondary-button.cancel:hover {
-    background-color: #ccc;
+
+.social-icon.google i { 
+    color: #db4437; 
 }
+.social-icon.facebook i { 
+    color: #4267B2; 
+}
+.social-icon.apple i { 
+    color: #000000; 
+}
+
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .section-padding { padding: 40px 20px; }
+    .main-header { padding: 10px 20px; }
+    .headSectorHolder { display: none; }
+    .hero { height: 450px; }
+    .Herotext h1 { font-size: 40px; }
+    .Herotext p { font-size: 18px; }
+    .herobehideText-hero { font-size: 70px; }
+    .containCard, .containBox, .containBoxHTW { gap: 20px; }
+    .card, .box.offer-box, .boxHTW.step-box { width: 100%; max-width: 350px; }
+    .modal-content { width: 90%; margin: 20px; padding: 20px; }
+}
+
+/* ------------------ Role Holder (Hidden by Default) --------------------------- */
+
+.RoleHolder {
+    /* ซ่อนโดยค่าเริ่มต้น - ต้องใช้ JavaScript เพื่อเพิ่มคลาส .show-roles เมื่อมี Role */
+    display: none; 
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
+}
+
+/* คลาสที่จะเพิ่มด้วย JavaScript เพื่อแสดง RoleHolder */
+.RoleHolder.show-roles {
+    display: flex;
+}
+
+.Role {
+    background-color: var(--brand-color-secondary); /* สีน้ำเงินสำหรับ Role */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.Role:hover {
+    background-color: #3b74c0; /* สีเข้มขึ้นเมื่อโฮเวอร์ */
+    transform: translateY(-1px);
+}
+
+/* สไตล์สำหรับ Role เฉพาะเจาะจง (ถ้าต้องการให้แต่ละ Role มีสีต่างกัน) */
+.Role[Role="Seller"] {
+    background-color: #2ecc71; /* สีเขียว */
+}
+.Role[Role="Care Taker"] {
+    background-color: #f39c12; /* สีส้ม */
+}
+.Role[Role="Admin"] {
+    background-color: #e74c3c; /* สีแดง */
+}
+
+.Role[Role="Seller"]:hover {
+    background-color: #27ae60;
+}
+.Role[Role="Care Taker"]:hover {
+    background-color: #d8800a;
+}
+.Role[Role="Admin"]:hover {
+    background-color: #c0392b;
+}
+
+/* เพิ่ม Media Query สำหรับ RoleHolder ในโหมด Responsive (ถ้าจำเป็น) */
+@media (max-width: 768px) {
+    .RoleHolder {
+        /* อาจจะต้องจัดรูปแบบใหม่ใน Mobile view */
+        margin-right: 0;
+        margin-top: 10px;
+        justify-content: center;
+        width: 100%;
+        order: 3; /* ให้ RoleHolder ไปอยู่ด้านล่างใน Header สำหรับมือถือ */
+    }
+    .main-header {
+        flex-wrap: wrap; /* อนุญาตให้องค์ประกอบพันบรรทัดเมื่อจอเล็ก */
+        padding: 15px 20px;
+    }
+}
+
+
+
+

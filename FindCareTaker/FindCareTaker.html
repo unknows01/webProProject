@@ -20,10 +20,28 @@
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector active" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller'])">DisplayRoleSeller</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Care Taker'])">DisplayRoleCareTaker</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Admin'])">DisplayRoleAdmin</li> -->
         </ul>
+
+        <!-- <div class="RoleHolder">
+            <div class="Role" Role="Seller">Seller</div>
+            <div class="Role" Role="Care Taker">Care Taker</div>
+            <div class="Role" Role="Admin">Admin</div>
+        </div> -->
         
         <div class="profile-icon">
-            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="openLoginModal()"></i>  -->
+
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i> -->
+            <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i>
+            <div class="dropdown-content">
+                <a href="../UserProfile/UserProfile.html">User Profile</a>
+                <a href="../DashBoard/DashBoard.html">Dashboard</a>
+                <a href="#" onclick="LogOut()">Log out</a>
+            </div>
         </div>
     </div>
 
@@ -34,22 +52,22 @@
             
             <form class="SearchForm">
                 <div class="input-group">
-                    <label for="location"><i class="fas fa-map-marker-alt"></i> Location</label>
+                    <label for="location">Location</label>
                     <input type="text" id="location" name="location" placeholder="e.g., Bangkok, Thailand" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="DropOff"><i class="fas fa-calendar-alt"></i> Drop-off</label>
+                    <label for="DropOff">Drop-off</label>
                     <input type="date" id="DropOff" name="drop_off_date" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="PickUp"><i class="fas fa-calendar-alt"></i> Pick-up</label>
+                    <label for="PickUp">Pick-up</label>
                     <input type="date" id="PickUp" name="pick_up_date" required>
                 </div>
 
                 <div class="input-group">
-                    <label for="ForWhichPet"><i class="fas fa-paw"></i> For which Pet?</label>
+                    <label for="ForWhichPet">For which Pet?</label>
                     <select id="ForWhichPet" name="pet_profile_id" required>
                         <option value="">Select your Pet...</option>
                         <option value="1">Buddy (Dog)</option>
@@ -57,9 +75,7 @@
                     </select>
                 </div>
 
-                <button type="submit" class="SearchButton primary-button">
-                    <i class="fas fa-search"></i> Search
-                </button>
+                <button type="submit" class="SearchButton primary-button">Search</button>
             </form>
             
         </div>
@@ -75,15 +91,15 @@
                     
                     <div class="rating-and-tags">
                         <div class="StarAndRating">
-                            <i class="fas fa-star rating-star"></i>
+                            <span class="rating-score">Rating</span>
                             <span class="rating-score">4.9</span>
                             <span class="review-count">(69 reviews)</span>
                         </div>
                         <div class="Tag">
                             <ul class="tag-list">
-                                <li class="tag-item"><i class="fas fa-home"></i> Fenced Yard</li>
-                                <li class="tag-item"><i class="fas fa-medkit"></i> First Aid Certified</li>
-                                <li class="tag-item"><i class="fas fa-dog"></i> Large Dog Friendly</li>
+                                <li class="tag-item">Fenced Yard</li>
+                                <li class="tag-item">First Aid Certified</li>
+                                <li class="tag-item">Large Dog Friendly</li>
                             </ul>
                         </div>
                     </div>
@@ -106,15 +122,15 @@
                     
                     <div class="rating-and-tags">
                         <div class="StarAndRating">
-                            <i class="fas fa-star rating-star"></i>
+                            <span class="rating-score">Rating</span>
                             <span class="rating-score">5.0</span>
                             <span class="review-count">(32 reviews)</span>
                         </div>
                         <div class="Tag">
                             <ul class="tag-list">
-                                <li class="tag-item cat-tag"><i class="fas fa-cat"></i> Cat Specialist</li>
-                                <li class="tag-item"><i class="fas fa-syringe"></i> Medication Admin</li>
-                                <li class="tag-item"><i class="fas fa-car"></i> Pet Taxi Available</li>
+                                <li class="tag-item cat-tag">Cat Specialist</li>
+                                <li class="tag-item">Medication Admin</li>
+                                <li class="tag-item">Pet Taxi Available</li>
                             </ul>
                         </div>
                     </div>
@@ -145,6 +161,8 @@
         </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
     </div>
+
+    <script src="FindCareTaker.js"></script>
     
 </body>
 </html>

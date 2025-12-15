@@ -16,14 +16,32 @@
 
         <ul class="headSectorHolder"> 
             <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
-            <li class="headSector active" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
+            <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller'])">DisplayRoleSeller</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Care Taker'])">DisplayRoleCareTaker</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Admin'])">DisplayRoleAdmin</li> -->
         </ul>
+
+        <!-- <div class="RoleHolder">
+            <div class="Role" Role="Seller">Seller</div>
+            <div class="Role" Role="Care Taker">Care Taker</div>
+            <div class="Role" Role="Admin">Admin</div>
+        </div> -->
         
         <div class="profile-icon">
-            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="openLoginModal()"></i>  -->
+
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i> -->
+            <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i>
+            <div class="dropdown-content">
+                <a href="../UserProfile/UserProfile.html">User Profile</a>
+                <a href="../DashBoard/DashBoard.html">Dashboard</a>
+                <a href="#" onclick="LogOut()">Log out</a>
+            </div>
         </div>
     </div>
 
@@ -34,7 +52,7 @@
         <form class="listing-form">
             
             <div class="info-section ContainPetDetail">
-                <h2 class="section-title"><i class="fas fa-list-alt"></i> Pet Details</h2>
+                <h2 class="section-title">Pet Details</h2>
                 
                 <div class="form-group full-width">
                     <label for="ListingTitle">Listing Title</label>
@@ -86,10 +104,9 @@
             </div>
 
             <div class="info-section PhotosVideos">
-                <h2 class="section-title"><i class="fas fa-camera"></i> Photos & Videos</h2>
+                <h2 class="section-title">Photos & Videos</h2>
                 
                 <div class="BoxInputPhotosVideos dropzone" id="photo-dropzone">
-                    <i class="fas fa-cloud-upload-alt fa-3x upload-icon"></i>
                     <p>Drag and drop your files here, or <span class="primary-text-link">browse</span></p>
                     <p class="file-info">PNG, JPG, GIF up to 10MB. First image is the cover.</p>
                     <input type="file" id="media-upload" name="media_files[]" accept="image/*,video/*" multiple style="display: none;">
@@ -100,23 +117,19 @@
             </div>
 
             <div class="info-section Description-Section">
-                <h2 class="section-title"><i class="fas fa-file-alt"></i> Description</h2>
+                <h2 class="section-title">Description</h2>
                 
                 <textarea id="PetDescription" name="pet_description" class="BoxInputDescription" rows="8" 
                 placeholder="Share details about your pet's personality, health, and any included items (toys, food, etc.)..."></textarea>
             </div>
 
             <div class="action-buttons">
-                <button type="submit" class="PublishListing primary-button">
-                    <i class="fas fa-bullhorn"></i> Publish Listing
-                </button>
-                <button type="button" class="SaveDraft secondary-button">
-                    <i class="fas fa-save"></i> Save Draft
-                </button>
+                <button type="submit" class="PublishListing primary-button">Publish Listing</button>
+                <button type="button" class="SaveDraft secondary-button" onclick="document.location='../DashBoardSeller/DashBoardSeller.html'">Cancel</button>
             </div>
 
         </form>
-        </div>
+    </div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
@@ -131,6 +144,8 @@
         </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
     </div>
+
+    <script src="ListYourPet.js"></script>
     
 </body>
 </html>

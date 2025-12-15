@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Dashboard - TAILS & TRADE</title>
+    <title>Find Your New Friend - TAILS & TRADE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="MyPet.css">
+    <link rel="stylesheet" href="DashBoardSeller.css">
 </head>
 <body>
     <div class="main-header"> 
@@ -18,7 +18,7 @@
             <li class="headSector" onclick="document.location='../home/home.html'">Our Services</li>
             <li class="headSector" onclick="document.location='../FindAPet/FindAPet.html'">Find a Pet</li>
             <li class="headSector" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
-            <li class="headSector active" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
+            <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
             <!-- <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li> -->
             <!-- <li class="headSector" onclick="displayUserRoles(['Seller'])">DisplayRoleSeller</li> -->
@@ -45,63 +45,67 @@
         </div>
     </div>
 
-    <div class="bodyPage container">
-        <div class="header-controls"> 
-            <div>
-                <h1 class="page-title">My Pets</h1>
-                <p class="page-description">Manage your pet profiles here. Keep them up-to-date for a seamless caretaker booking experience.</p>
-            </div>
-            <button class="AddNewPetButton primary-button" onclick="document.location='../AddAPetProfile/AddAPetProfile.html'">Add New Pet</button>
+    <div class="bodyPage">
+        <ul class="RoleHolder user-role-selector"> </ul>
+        <div class="backToDashBoard" onclick="document.location='../DashBoard/DashBoard.html'"> 
+            < Back to user dashboard
         </div>
+        <div class="newSellButton-container">
+            <div class="newSellButton" onclick="document.location='../ListYourPet/ListYourPet.html'">
+                + Sell Pet
+            </div>
+        </div>
+    
+
+    <div class="sellList">
+        <h1>Sell List</h1>
         
-        <div class="MyPetListBox empty-state" id="empty-state-section"> 
-            <h2 class="empty-title">No pets have been added yet</h2>
-            <p class="empty-description">Add a profile for your pet to make booking a trusted caretaker quick and easy.</p>
-        </div>
-
-        <div class="MyPetListContainer is-hidden" id="pet-list-section">
+        <div class="pet-listing-container">
             
-            <div class="PetCard">
-                <img src="path/to/golden_retriever.jpg" alt="Pet's Photo - Max" class="pet-photo">
+            <div class="pet-card" data-listing-status="Active">
+                <img src="https://via.placeholder.com/150/ff7f50/ffffff?text=Buddy" alt="Golden Retriever named Buddy" class="pet-image">
                 <div class="pet-info">
-                    <div class="pet-name-section">
-                        <h2>Max the Golden</h2>
-                        <span class="pet-tag dog-tag"><i class="fas fa-dog"></i> Dog</span>
-                    </div>
+                    <h2>Buddy <span class="pet-tag">Dog - Golden Retriever</span></h2>
+                    <p class="pet-description">Friendly Golden Retriever, fully vaccinated, ready for a new home.</p>
+                    <p class="pet-description age">Age: 2 years old</p>
+                    <p class="pet-description gender">gender: Male</p>
                     <div class="pet-details">
-                        <p><strong><i class="fas fa-venus-mars"></i> Gender:</strong> Male</p>
-                        <p><strong><i class="fas fa-birthday-cake"></i> Age:</strong> 2 years</p>
-                        <p><strong><i class="fas fa-paw"></i> Breed:</strong> Golden Retriever</p>
+                        <span>Sell Date: 2025-12-11</span>
+                        <span>Price: $800</span>
+                        <span class="status-badge active">Active</span>
                     </div>
                 </div>
-                <div class="card-actions">
-                    <button class="edit-btn secondary-button"><i class="fas fa-edit"></i> Edit Profile</button>
-                    <button class="book-btn primary-button"><i class="fas fa-calendar-check"></i> Book Caretaker</button>
-                </div>
-            </div>
-
-            <div class="PetCard">
-                <img src="path/to/siamese_cat.jpg" alt="Pet's Photo - Luna" class="pet-photo">
-                <div class="pet-info">
-                    <div class="pet-name-section">
-                        <h2>Luna the Siamese</h2>
-                        <span class="pet-tag cat-tag"><i class="fas fa-cat"></i> Cat</span>
-                    </div>
-                    <div class="pet-details">
-                        <p><strong><i class="fas fa-venus-mars"></i> Gender:</strong> Female</p>
-                        <p><strong><i class="fas fa-birthday-cake"></i> Age:</strong> 1 year</p>
-                        <p><strong><i class="fas fa-paw"></i> Breed:</strong> Siamese</p>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <button class="edit-btn secondary-button"><i class="fas fa-edit"></i> Edit Profile</button>
-                    <button class="book-btn primary-button"><i class="fas fa-calendar-check"></i> Book Caretaker</button>
+                <div class="pet-actions">
+                    <button class="action-btn view-btn">View</button>
+                    <button class="action-btn edit-btn">Edit</button>
+                    <button class="action-btn delete-btn">Delete</button>
                 </div>
             </div>
             
+            <div class="pet-card sold-card" data-listing-status="Sold">
+                <img src="https://via.placeholder.com/150/008080/ffffff?text=Captain" alt="Parrot named Captain" class="pet-image">
+                <div class="pet-info">
+                    <h2>Captain <span class="pet-tag">Bird - African Grey</span></h2>
+                    <p class="pet-description">Talkative African Grey</p>
+                    <p class="pet-description age">Age: 2 years old</p>
+                    <p class="pet-description gender">gender: Female</p>
+                    <div class="pet-details">
+                        <span>Sold Date: 2025-12-10</span>
+                        <span> Final Price: $1200</span>
+                        <span class="status-badge sold"> Sold</span>
+                    </div>
+                </div>
+                <div class="pet-actions">
+                    <button class="action-btn view-btn">View</button>
+                    <button class="action-btn edit-btn" disabled>Edit</button>
+                </div>
+            </div>
+            
         </div>
-        
     </div>
+    
+    
+</div>
 
     <div class="footer">
         <div class="logo-container-footer"> 
@@ -110,14 +114,15 @@
         </div>
         <div class="context">Connecting pets and people since 2025.</div>
         <div class="social-icons">
-            <i class="fab fa-facebook-f"></i>
+             <i class="fab fa-facebook-f"></i>
             <i class="fab fa-twitter"></i>
             <i class="fab fa-instagram"></i>
         </div>
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
-    </div>
-    
-    <script src="MyPet.js"></script>
 
+    </div>
+
+    <script src="DashBoardSeller.js"></script>
+    
 </body>
 </html>

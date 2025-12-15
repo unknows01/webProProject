@@ -1,4 +1,5 @@
-ทำให้เชื่อม server (engine x เปิดผ่าน docker)
-ทำให้ไปหน้าอื่นได้
-ทำให้ดู morden
-ทำให้สามารถเชื่อม backend ได้ง่าย
+หน้า sign in ให้กลับหน้า login ได้
+เพิ่มหน้า care taker , seller , atmin
+เพิ่มหน้าที่ควรจะมี commu ไว้ท้าย
+ลบที่ไม่ควรมี อย่างรูปใน code
+หน้า userprofile

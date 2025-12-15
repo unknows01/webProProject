@@ -20,10 +20,28 @@
             <li class="headSector active" onclick="document.location='../CommunityBoard/CommunityBoard.html'">Community</li>
             <li class="headSector" onclick="document.location='../MyPet/MyPet.html'">Pet Dashboard</li>
             <li class="headSector" onclick="document.location='../FindCareTaker/FindCareTaker.html'">Care Taker</li>
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller', 'Care Taker' , 'Admin'])">DisplayRole</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Seller'])">DisplayRoleSeller</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Care Taker'])">DisplayRoleCareTaker</li> -->
+            <!-- <li class="headSector" onclick="displayUserRoles(['Admin'])">DisplayRoleAdmin</li> -->
         </ul>
+
+        <!-- <div class="RoleHolder">
+            <div class="Role" Role="Seller">Seller</div>
+            <div class="Role" Role="Care Taker">Care Taker</div>
+            <div class="Role" Role="Admin">Admin</div>
+        </div> -->
         
         <div class="profile-icon">
-            <i class="fas fa-user-circle fa-2x" onclick="openForm()"></i>
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="openLoginModal()"></i>  -->
+
+            <!-- <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i> -->
+            <i class="fas fa-user-circle fa-2x" id="userProfile" onclick="UserProfile(false)"></i>
+            <div class="dropdown-content">
+                <a href="../UserProfile/UserProfile.html">User Profile</a>
+                <a href="../DashBoard/DashBoard.html">Dashboard</a>
+                <a href="#" onclick="LogOut()">Log out</a>
+            </div>
         </div>
     </div>
 
@@ -32,14 +50,11 @@
             <h1 class="page-title">Community Board</h1>
             <p class="page-description">Can't find your perfect companion? Post a request and let our trusted sellers find a match for you.</p>
             
-            <button class="CreatePost primary-button" onclick="document.location='../CreateCommunityPost/CreateCommunityPost.html'">
-                <i class="fas fa-plus-circle"></i> Create New Post
-            </button>
+            <button class="CreatePost primary-button" onclick="document.location='../CreateCommunityPost/CreateCommunityPost.html'"> Create New Post</button>
             
             <div class="SearchFilterBar">
                 
                 <div class="search-input-group">
-                    <i class="fas fa-search search-icon"></i>
                     <input type="text" id="TextSearch" placeholder="Search by breed, location, or keyword...">
                 </div>
 
@@ -61,7 +76,7 @@
                     </select>
                 </div>
 
-                <button class="SearchFilterButton secondary-button"><i class="fas fa-filter"></i> Filter</button>
+                <button class="SearchFilterButton secondary-button"> Filter</button>
             </div>
         </div>
 
@@ -74,7 +89,8 @@
                 </div>
                 <div class="Tag">
                     <ul>
-                        <li class="tag-item dog-tag"><i class="fas fa-dog"></i> Dog</li>
+                        <li class="tag-item dog-tag"> Dog</li>
+                        <li class="tag-item dog-tag"> Golden Retriever</li>
                     </ul>
                 </div>
                 
@@ -86,19 +102,15 @@
                 </div>
 
                 <div class="PostDate footer-item">
-                    <i class="far fa-clock icon-small"></i>
                     <p class="date-text">Posted <span>2 hours ago</span></p>
                 </div>
 
                 <div class="ReplyCount footer-item">
-                    <i class="fas fa-reply icon-small"></i>
                     <h3 class="reply-number">3</h3>
                     <p class="reply-label">Replies</p>
                 </div>
 
-                <div class="ViewReply action-button">
-                    <i class="fas fa-comment-dots"></i> View & Reply
-                </div>
+                <div class="ViewReply action-button">View & Reply</div>
             </div>
 
             <div class="PostBox post-card">
@@ -108,8 +120,7 @@
                 </div>
                 <div class="Tag">
                     <ul>
-                        <li class="tag-item cat-tag"><i class="fas fa-cat"></i> Cat</li>
-                        <li class="tag-item urgent-tag">URGENT</li>
+                        <li class="tag-item cat-tag"> Cat</li>
                     </ul>
                 </div>
                 
@@ -119,19 +130,15 @@
                 </div>
 
                 <div class="PostDate footer-item">
-                    <i class="far fa-clock icon-small"></i>
                     <p class="date-text">Posted <span>1 day ago</span></p>
                 </div>
 
                 <div class="ReplyCount footer-item">
-                    <i class="fas fa-reply icon-small"></i>
                     <h3 class="reply-number">7</h3>
                     <p class="reply-label">Replies</p>
                 </div>
 
-                <div class="ViewReply action-button">
-                    <i class="fas fa-comment-dots"></i> View & Reply
-                </div>
+                <div class="ViewReply action-button">View & Reply</div>
             </div>
 
         </div>
@@ -151,5 +158,7 @@
         <div class="reg">© 2025 Tails and Trades. All Rights Reserved.</div>
     </div>
     
+    <script src="CommunityBoard.js"></script>
+
 </body>
 </html>

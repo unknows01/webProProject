@@ -127,3 +127,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ฟังก์ชัน openLoginModal, closeLoginModal, openSignupModal, closeSignupModal 
 // และ displayUserRoles ยังคงเหมือนเดิม
+
+// --------------- UploadFile ---------------
+document.getElementById('PetPhotoFile').addEventListener('change', function(event) {
+const [file] = event.target.files
+            if (file) {
+                const preview = document.getElementById('pet-photo-preview');
+                const placeholder = document.querySelector('.photo-placeholder .fa-camera');
+                
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = 'block';
+                if (placeholder) {
+                    placeholder.style.display = 'none';
+                }
+            }
+        });
+
+
+function CreatePet(){
+  
+}
